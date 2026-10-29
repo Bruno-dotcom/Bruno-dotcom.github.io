@@ -52,10 +52,86 @@ UI.pt = {
 };
 const PORTUGUESE_SECTIONS = {
   about: {
-    name: "Sobre",
-    body: "Sol · O centro do meu universo",
-    html: '<p class="lead">Investigo ameaças, conecto evidências e exploro como os sistemas podem ser comprometidos — e mais bem protegidos.</p><p>Sou profissional de cibersegurança em São Paulo, Brasil, com experiência em operações de segurança, resposta a incidentes, threat hunting, AppSec e testes de intrusão. Meus interesses de pesquisa abrangem segurança ofensiva e segurança de sistemas de IA.</p><dl class="facts"><div><dt>Cargo atual</dt><dd>Analista de Segurança da Informação · V.tal</dd></div><div><dt>Foco</dt><dd>Operações de Segurança · Segurança Ofensiva · Segurança de IA</dd></div><div><dt>Idiomas</dt><dd>Português · Inglês · Espanhol</dd></div><div><dt>Abordagem</dt><dd>Observar. Entender. Testar. Documentar.</dd></div></dl>',
-  },
+  name: "Sobre",
+  body: "Sol · O centro do meu universo",
+  html: `
+    <p class="lead">
+      Cibersegurança, segurança ofensiva e inteligência artificial convergem em uma trajetória construída entre investigação, análise e exploração técnica.
+    </p>
+
+    <p>
+      Profissional de cibersegurança com experiência em Operações de Segurança, resposta a incidentes, threat hunting, AppSec e testes de intrusão, com interesse crescente em Segurança Ofensiva e Segurança de IA.
+    </p>
+
+    <dl class="facts">
+      <div>
+        <dt>Cargo atual</dt>
+        <dd>Analista de Segurança da Informação · V.tal</dd>
+      </div>
+      <div>
+        <dt>Foco</dt>
+        <dd>Operações de Segurança · Segurança Ofensiva · Segurança de IA</dd>
+      </div>
+      <div>
+        <dt>Idiomas</dt>
+        <dd>Português · Inglês · Espanhol</dd>
+      </div>
+      <div>
+        <dt>Abordagem</dt>
+        <dd>Observar. Entender. Testar. Documentar.</dd>
+      </div>
+    </dl>
+  `,
+},
+
+experience: {
+  name: "Experiência",
+  body: "Mercúrio · Experiência na prática",
+  html: `
+    <article class="entry">
+      <span class="eyebrow">JUL 2026 — ATUAL</span>
+      <h3>V.tal · Analista de Segurança da Informação</h3>
+      <p>
+        Atuação como analista pleno em Operações de Segurança. Investigação de eventos
+        e incidentes, análise de IoCs, threat hunting e melhoria de detecções em
+        ambientes corporativos. Experiência complementar em AppSec, testes de segurança
+        de APIs, análise de riscos e coordenação de testes de intrusão externos.
+      </p>
+    </article>
+
+    <article class="entry">
+      <span class="eyebrow">NOV 2025 — JUN 2026</span>
+      <h3>V.tal · Analista de Segurança da Informação Júnior</h3>
+      <p>
+        Triagem de alertas SIEM e EDR, análise de logs, coleta de evidências e
+        escalonamento de incidentes. Revisão de políticas de firewall e DLP;
+        monitoramento em Microsoft 365, Entra ID, Google Workspace, Datadog,
+        Grafana e Zabbix.
+      </p>
+    </article>
+
+    <article class="entry">
+      <span class="eyebrow">NOV 2023 — OUT 2024</span>
+      <h3>Bayer Brasil / Suhai · Analista SOC Júnior</h3>
+      <p>
+        Investigação de alertas SIEM, EDR e de segurança de perímetro.
+        Documentação de incidentes e relatórios técnicos para apoiar auditorias
+        e melhorias de segurança.
+      </p>
+    </article>
+
+    <article class="entry">
+      <span class="eyebrow">EXPERIÊNCIAS ANTERIORES</span>
+      <h3>Risco, inteligência e comunicação</h3>
+
+      <p class="career-list">
+        <span>Meta / Haganá · Agente de Risco e Inteligência (2021–2023).</span>
+        <span>Itaú Unibanco / Belfort · Operador de Monitoramento de Segurança Bilíngue (2016–2021).</span>
+        <span>Wizard by Pearson · Professor de Inglês (2012–2016).</span>
+      </p>
+    </article>
+  `,
+},
   experience: {
     name: "Experiência",
     body: "Mercúrio · Experiência na prática",
