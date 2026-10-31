@@ -1871,9 +1871,11 @@ a.link:hover,
 /* Posicionamento vertical do bloco principal */
 @media (min-width: 861px) {
     body:not(.focused):not(.probe-view) .intro {
-        top: 55px !important;
+        top: 75px !important;
+        left: 100px !important;
         transform: none !important;
     }
+}
 
     .intro h1 {
         margin-top: 0;
@@ -1935,3 +1937,22 @@ a.link:hover,
 .career-list span {
     display: block;
 }
+
+body:not(.focused):not(.probe-view) .intro {
+    left: 200px !important;
+    top: 150px !important;
+}
+
+@media (min-width: 861px) {
+    #tagline-detail {
+        text-align: left;
+        margin-left: 38px;
+    }
+
+    #tagline-detail > span {
+        display: block;
+        white-space: nowrap;
+    }
+}
+
+

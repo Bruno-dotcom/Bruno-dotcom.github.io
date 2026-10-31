@@ -24,12 +24,16 @@ function setLanguage(next) {
     const t = UI[lang];
     document.documentElement.lang = lang === 'pt' ? 'pt-BR' : 'en';
 
-    document.querySelectorAll('[data-ui]').forEach(el => { el.textContent = t[el.dataset.ui]; });
+    document.querySelectorAll('[data-ui]').forEach(el => {
+        el.textContent = t[el.dataset.ui];
+    });
+
     const tagline = document.querySelector('#tagline-detail');
 
-tagline.innerHTML = lang === 'pt'
-    ? 'Operações de Segurança <span class="tagline-group">· Segurança Ofensiva</span> · Segurança de IA'
-    : 'Security Operations <span class="tagline-group">· Offensive Security</span> · AI Security';
+  tagline.innerHTML = lang === 'pt'
+    ? '<span>· PROFISSIONAL DE CIBERSEGURANÇA · OPERAÇÕES DE SEGURANÇA</span><span>· SEGURANÇA OFENSIVA · SEGURANÇA DE IA</span>'
+    : '<span>· CYBERSECURITY PROFESSIONAL · SECURITY OPERATIONS</span><span>· OFFENSIVE SECURITY · AI SECURITY</span>';
+
     $('#cv').href = t.cvFile;
     $('#stats').innerHTML = t.stats().map(([v, k]) => `<div><dt>${v}</dt><dd>${k}</dd></div>`).join('');
     dock.querySelectorAll('button').forEach((b, i) => { b.querySelector('span').textContent = SECTIONS[i].name[lang]; });
