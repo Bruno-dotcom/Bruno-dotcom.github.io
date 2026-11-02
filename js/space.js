@@ -6,10 +6,11 @@
 (function () {
   const Space = (window.Space = {
     onSelect: () => {},
+    onMoonSelect: () => {},
     focus: () => {},
     setLabels: () => {},
     ready: false,
-  });
+});
 
   // same breakpoint as the CSS: the panel becomes a bottom sheet
   const SHEET = matchMedia(
@@ -180,6 +181,474 @@
     tex.anisotropy = anisotropy; // sharper surfaces at grazing angles
     return tex;
   }
+
+    function moonTexture(m, seed) {
+    if (!["io", "europa", "ganymede", "callisto"].includes(m.kind)) {
+        return null;
+    }
+
+    const [c, g] = makeCanvas(512, 256);
+    const r = rng(seed);
+
+    /* =========================================================
+       IO
+       Sulfur-rich, volcanic, golden surface
+       ========================================================= */
+
+    if (m.kind === "io") {
+        g.fillStyle = "#d9b84f";
+        g.fillRect(0, 0, 512, 256);
+
+        const terrain = [
+            "#f0d66b",
+            "#c99d38",
+            "#eadb91",
+            "#b9822e",
+            "#f3e3a1",
+        ];
+
+        for (let i = 0; i < 700; i++) {
+            g.globalAlpha = 0.04 + r() * 0.12;
+            g.fillStyle =
+                terrain[Math.floor(r() * terrain.length)];
+
+            g.beginPath();
+            g.arc(
+                r() * 512,
+                r() * 256,
+                2 + r() * 18,
+                0,
+                Math.PI * 2
+            );
+            g.fill();
+        }
+
+        const volcanic = [
+            "#8f4b20",
+            "#a85d25",
+            "#6f3b24",
+            "#d1782e",
+        ];
+
+        for (let i = 0; i < 28; i++) {
+            const x = r() * 512;
+            const y = 18 + r() * 220;
+            const radius = 4 + r() * 13;
+
+            g.globalAlpha = 0.35 + r() * 0.35;
+            g.fillStyle =
+                volcanic[Math.floor(r() * volcanic.length)];
+
+            g.beginPath();
+            g.ellipse(
+                x,
+                y,
+                radius * (1 + r()),
+                radius,
+                r() * Math.PI,
+                0,
+                Math.PI * 2
+            );
+            g.fill();
+        }
+
+        // Dark volcanic centers
+        for (let i = 0; i < 16; i++) {
+            const x = r() * 512;
+            const y = 25 + r() * 205;
+
+            g.globalAlpha = 0.5 + r() * 0.3;
+            g.fillStyle = "#39251b";
+
+            g.beginPath();
+            g.arc(
+                x,
+                y,
+                1.5 + r() * 4,
+                0,
+                Math.PI * 2
+            );
+            g.fill();
+        }
+    }
+
+
+    /* =========================================================
+       EUROPA
+       Pale icy surface with reddish-brown fractures
+       ========================================================= */
+
+    if (m.kind === "europa") {
+        g.globalAlpha = 1;
+        g.fillStyle = "#d9cfb5";
+        g.fillRect(0, 0, 512, 256);
+
+        const ice = [
+            "#eee5ce",
+            "#c9b994",
+            "#f2ead8",
+            "#bca77f",
+        ];
+
+        for (let i = 0; i < 650; i++) {
+            g.globalAlpha = 0.025 + r() * 0.08;
+            g.fillStyle =
+                ice[Math.floor(r() * ice.length)];
+
+            g.beginPath();
+            g.arc(
+                r() * 512,
+                r() * 256,
+                3 + r() * 20,
+                0,
+                Math.PI * 2
+            );
+            g.fill();
+        }
+
+        const fractures = [
+            "#8b604d",
+            "#9e725c",
+            "#714c42",
+            "#b18468",
+        ];
+
+        for (let i = 0; i < 38; i++) {
+            let x = -30 + r() * 540;
+            let y = 10 + r() * 236;
+
+            g.beginPath();
+            g.moveTo(x, y);
+
+            const segments =
+                3 + Math.floor(r() * 5);
+
+            for (let j = 0; j < segments; j++) {
+                x += 15 + r() * 45;
+                y += (r() - 0.5) * 25;
+
+                g.lineTo(x, y);
+            }
+
+            g.globalAlpha = 0.25 + r() * 0.35;
+            g.strokeStyle =
+                fractures[Math.floor(r() * fractures.length)];
+
+            g.lineWidth = 0.7 + r() * 2.2;
+            g.stroke();
+        }
+
+        // Broader disrupted regions
+        for (let i = 0; i < 18; i++) {
+            g.globalAlpha = 0.08 + r() * 0.12;
+            g.fillStyle = "#9d765d";
+
+            g.beginPath();
+            g.ellipse(
+                r() * 512,
+                r() * 256,
+                5 + r() * 18,
+                2 + r() * 7,
+                r() * Math.PI,
+                0,
+                Math.PI * 2
+            );
+            g.fill();
+        }
+    }
+
+
+    /* =========================================================
+       GANYMEDE
+       Brown-gray terrain, grooves and ancient regions
+       ========================================================= */
+
+    if (m.kind === "ganymede") {
+        g.globalAlpha = 1;
+        g.fillStyle = "#756b61";
+        g.fillRect(0, 0, 512, 256);
+
+        const terrain = [
+            "#928679",
+            "#665d56",
+            "#a89b89",
+            "#554e49",
+            "#81766b",
+        ];
+
+        for (let i = 0; i < 800; i++) {
+            g.globalAlpha = 0.025 + r() * 0.10;
+            g.fillStyle =
+                terrain[Math.floor(r() * terrain.length)];
+
+            g.beginPath();
+            g.arc(
+                r() * 512,
+                r() * 256,
+                2 + r() * 20,
+                0,
+                Math.PI * 2
+            );
+            g.fill();
+        }
+
+        // Large darker ancient regions
+        for (let i = 0; i < 35; i++) {
+            g.globalAlpha = 0.10 + r() * 0.20;
+
+            g.fillStyle =
+                r() > 0.5
+                    ? "#494541"
+                    : "#5b524b";
+
+            g.beginPath();
+            g.ellipse(
+                r() * 512,
+                r() * 256,
+                8 + r() * 30,
+                4 + r() * 16,
+                r() * Math.PI,
+                0,
+                Math.PI * 2
+            );
+            g.fill();
+        }
+
+        // Bright grooved terrain
+        for (let i = 0; i < 55; i++) {
+            const x = r() * 512;
+            const y = r() * 256;
+
+            const length = 20 + r() * 65;
+            const angle = r() * Math.PI * 2;
+
+            g.beginPath();
+            g.moveTo(x, y);
+
+            g.lineTo(
+                x + Math.cos(angle) * length,
+                y + Math.sin(angle) * length
+            );
+
+            g.globalAlpha = 0.10 + r() * 0.20;
+
+            g.strokeStyle =
+                r() > 0.5
+                    ? "#c1b5a1"
+                    : "#9e9588";
+
+            g.lineWidth = 0.6 + r() * 1.5;
+            g.stroke();
+        }
+
+        // Impact craters
+        for (let i = 0; i < 55; i++) {
+            const x = r() * 512;
+            const y = r() * 256;
+            const radius = 1.5 + r() * 7;
+
+            g.globalAlpha = 0.18 + r() * 0.25;
+            g.strokeStyle = "#3e3a37";
+            g.lineWidth = 0.8 + r();
+
+            g.beginPath();
+            g.arc(
+                x,
+                y,
+                radius,
+                0,
+                Math.PI * 2
+            );
+            g.stroke();
+
+            g.globalAlpha = 0.08 + r() * 0.12;
+            g.fillStyle = "#c4b8a3";
+
+            g.beginPath();
+            g.arc(
+                x - radius * 0.25,
+                y - radius * 0.25,
+                radius * 0.65,
+                0,
+                Math.PI * 2
+            );
+            g.fill();
+        }
+    }
+
+
+    /* =========================================================
+       CALLISTO
+       Very dark and densely cratered surface
+       ========================================================= */
+
+    if (m.kind === "callisto") {
+        g.globalAlpha = 1;
+        g.fillStyle = "#292725";
+        g.fillRect(0, 0, 512, 256);
+
+        const terrain = [
+            "#332f2b",
+            "#3d3731",
+            "#242321",
+            "#494139",
+            "#302c29",
+        ];
+
+        for (let i = 0; i < 750; i++) {
+            g.globalAlpha = 0.025 + r() * 0.07;
+
+            g.fillStyle =
+                terrain[Math.floor(r() * terrain.length)];
+
+            g.beginPath();
+            g.arc(
+                r() * 512,
+                r() * 256,
+                2 + r() * 14,
+                0,
+                Math.PI * 2
+            );
+            g.fill();
+        }
+
+        // Dense field of small bright impact scars
+        for (let i = 0; i < 260; i++) {
+            const x = r() * 512;
+            const y = r() * 256;
+            const radius = 0.7 + r() * 3.5;
+
+            g.globalAlpha = 0.30 + r() * 0.40;
+
+            g.fillStyle =
+                r() > 0.65
+                    ? "#d2c8b5"
+                    : "#938a7d";
+
+            g.beginPath();
+            g.arc(
+                x,
+                y,
+                radius,
+                0,
+                Math.PI * 2
+            );
+            g.fill();
+
+            if (radius > 1.8) {
+                g.globalAlpha = 0.45;
+                g.fillStyle = "#181716";
+
+                g.beginPath();
+                g.arc(
+                    x,
+                    y,
+                    radius * 0.48,
+                    0,
+                    Math.PI * 2
+                );
+                g.fill();
+            }
+        }
+
+        // Medium and large impact craters
+        for (let i = 0; i < 38; i++) {
+            const x = r() * 512;
+            const y = 10 + r() * 236;
+            const radius = 3 + r() * 8;
+
+            g.globalAlpha = 0.30 + r() * 0.25;
+            g.strokeStyle = "#b9af9d";
+            g.lineWidth = 1 + r() * 1.5;
+
+            g.beginPath();
+            g.arc(
+                x,
+                y,
+                radius,
+                0,
+                Math.PI * 2
+            );
+            g.stroke();
+
+            g.globalAlpha = 0.45 + r() * 0.20;
+            g.fillStyle = "#171615";
+
+            g.beginPath();
+            g.arc(
+                x,
+                y,
+                radius * 0.72,
+                0,
+                Math.PI * 2
+            );
+            g.fill();
+        }
+
+        // Valhalla-inspired multi-ring basin
+        const basinX = 350;
+        const basinY = 130;
+
+        g.globalAlpha = 0.32;
+        g.fillStyle = "#1b1a19";
+
+        g.beginPath();
+        g.arc(
+            basinX,
+            basinY,
+            42,
+            0,
+            Math.PI * 2
+        );
+        g.fill();
+
+        const rings = [10, 17, 25, 34, 43];
+
+        rings.forEach((radius, index) => {
+            g.globalAlpha =
+                0.48 - index * 0.055;
+
+            g.strokeStyle = "#c9beaa";
+            g.lineWidth =
+                index < 2 ? 2 : 1.2;
+
+            g.beginPath();
+            g.arc(
+                basinX,
+                basinY,
+                radius,
+                0,
+                Math.PI * 2
+            );
+            g.stroke();
+        });
+
+        // Bright center of the Valhalla-inspired basin
+        g.globalAlpha = 0.7;
+        g.fillStyle = "#ddd2bd";
+
+        g.beginPath();
+        g.arc(
+            basinX,
+            basinY,
+            4.5,
+            0,
+            Math.PI * 2
+        );
+        g.fill();
+    }
+
+
+    /* ---------- Create texture ---------- */
+
+    g.globalAlpha = 1;
+
+    const tex = new THREE.CanvasTexture(c);
+    tex.encoding = THREE.sRGBEncoding;
+    tex.anisotropy = anisotropy;
+
+    return tex;
+}
 
   function glowTexture(inner, outer) {
     const [c, g] = makeCanvas(256, 256);
@@ -407,25 +876,52 @@
     };
 
     (v.moons || []).forEach((m, k) => {
-      const moon = new THREE.Mesh(
-        new THREE.SphereGeometry(m.size, 20, 20),
-        new THREE.MeshStandardMaterial({
-          color: m.color,
-          roughness: 0.85,
-          emissive: m.color,
-          emissiveIntensity: m.glow || 0.02,
-        }),
-      );
-      moon.userData.index = index;
-      scene.add(moon);
-      body.moons.push({
+    const moonMap = moonTexture(
+    m,
+    1000 + index * 100 + k
+);
+
+const moon = new THREE.Mesh(
+    new THREE.SphereGeometry(m.size, 32, 32),
+    new THREE.MeshStandardMaterial({
+        color: moonMap ? 0xffffff : m.color,
+        map: moonMap,
+        roughness: 0.9,
+        metalness: 0,
+        emissive: m.color,
+        emissiveIntensity: m.glow || 0.02,
+    }),
+);
+
+    const moonId = m.id || null;
+
+    moon.userData = moonId
+        ? {
+              type: "moon",
+              id: moonId,
+              name: m.name || moonId,
+              group: m.group || null,
+              parentIndex: index,
+          }
+        : {
+              type: "planet-moon",
+              parentIndex: index,
+          };
+
+    scene.add(moon);
+
+    body.moons.push({
         mesh: moon,
+        id: moonId,
+        name: m.name || null,
+        group: m.group || null,
+        parentIndex: index,
         dist: v.size * 1.8 + k * (v.size * 0.45 + 0.4),
         speed: 1.3 - k * 0.2,
         phase: k * 1.9,
         tilt: 0.25 - k * 0.14,
-      });
     });
+});
 
     bodies.push(body);
   });
@@ -434,8 +930,8 @@
 
   /* ---------- asteroid belt (between Mars and Jupiter) ---------- */
 
-  const marsOrbit = SECTIONS.find((s) => s.id === "research").visual.orbit;
-  const jupiterOrbit = SECTIONS.find((s) => s.id === "skills").visual.orbit;
+  const marsOrbit = SECTIONS.find((s) => s.id === "skills").visual.orbit;
+  const jupiterOrbit = SECTIONS.find((s) => s.id === "research").visual.orbit;
   const beltIn = marsOrbit + (jupiterOrbit - marsOrbit) * 0.35;
   const beltOut = marsOrbit + (jupiterOrbit - marsOrbit) * 0.62;
   const beltCount = 800;
@@ -618,6 +1114,47 @@
     b.label = el;
   });
 
+  // Navigable moons of Jupiter / Research Atlas
+const moonLabels = [];
+
+bodies.forEach((b) => {
+    b.moons.forEach((m) => {
+        if (!m.id) return;
+
+        const el = document.createElement("button");
+
+        el.className = "label moon-label";
+        el.innerHTML = "<i></i><span></span>";
+
+        el.querySelector("span").textContent =
+            (m.name || m.id).toUpperCase();
+
+        el.setAttribute(
+            "aria-label",
+            m.name || m.id
+        );
+
+        el.addEventListener("click", (e) => {
+            e.stopPropagation();
+
+            Space.onMoonSelect({
+                type: "moon",
+                id: m.id,
+                name: m.name,
+                group: m.group,
+                parentIndex: m.parentIndex,
+                object: m.mesh,
+            });
+        });
+
+        labelLayer.appendChild(el);
+
+        m.label = el;
+
+        moonLabels.push(m);
+    });
+});
+
   Space.setLabels = (lang) => {
     bodies.forEach((b) => {
       b.label.querySelector("span").textContent = SECTIONS[b.index].name[lang];
@@ -699,11 +1236,14 @@
     offY: 0,
   };
   let focused = null;
+  let focusedMoon = null;
   let timeScale = 1;
   let userZoom = 1;
 
   Space.onProbe = () => {};
   Space.focus = (index) => {
+    focusedMoon = null;
+
     focused =
       index === null ? null : index === "probe" ? probeBody : bodies[index];
     userZoom = 1;
@@ -724,15 +1264,62 @@
     bodies.forEach((b) => b.label.classList.toggle("active", focused === b));
   };
 
+  Space.focusMoon = (target) => {
+    if (!target?.id) return;
+
+    const parent = bodies[target.parentIndex];
+
+    if (!parent) return;
+
+    const moon = parent.moons.find(
+        m => m.id === target.id
+    );
+
+    if (!moon) return;
+
+    focused = parent;
+    focusedMoon = moon;
+
+    userZoom = 1;
+
+    relayout();
+
+    rig.want.phi = 1.25;
+
+    bodies.forEach((b) =>
+        b.label.classList.toggle("active", b === parent)
+    );
+};
+
   function wantedDist(rect) {
+    // When a Jupiter moon is selected, frame the moon itself.
+    if (focusedMoon) {
+        const radius =
+            focusedMoon.mesh.geometry.parameters.radius ||
+            focusedMoon.mesh.geometry.boundingSphere?.radius ||
+            0.4;
+
+        const d = fitDist(radius * 2.4, rect, 1);
+
+        return Math.max(d, radius * 6);
+    }
+
+    // Original planet / Solar System framing.
     if (!focused) return fitDist(outerOrbit + 3, rect, 0.5);
+
     const extent = focused.moons.length
-      ? Math.max(...focused.moons.map((m) => m.dist)) + 0.6
-      : focused.radius *
-        (focused.pivot && focused.pivot.children.length > 1 ? 2.5 : 1.3);
-    const d = fitDist(Math.max(extent, focused.radius * 1.4), rect, 1);
+        ? Math.max(...focused.moons.map((m) => m.dist)) + 0.6
+        : focused.radius *
+          (focused.pivot && focused.pivot.children.length > 1 ? 2.5 : 1.3);
+
+    const d = fitDist(
+        Math.max(extent, focused.radius * 1.4),
+        rect,
+        1
+    );
+
     return Math.max(d, focused.radius * 3 + 2);
-  }
+}
 
   /* ---------- input ---------- */
 
@@ -747,10 +1334,23 @@
   let hoverAt = null; // hover picking runs once per frame, not on every (up to 1000Hz) mouse event
   let hovered = null;
 
-  function select(i) {
-    if (i === "probe") Space.onProbe();
-    else if (i !== null) Space.onSelect(i);
-  }
+  function select(target) {
+    if (!target) return;
+
+    if (target.type === "probe") {
+        Space.onProbe?.();
+        return;
+    }
+
+    if (target.type === "moon") {
+        Space.onMoonSelect?.(target);
+        return;
+    }
+
+    if (target.type === "planet") {
+        Space.onSelect(target.index);
+    }
+}
 
   // zooming out is capped a little past the planets, except in the overview,
   // where it goes all the way out to the deep-space probe
@@ -760,11 +1360,54 @@
   const clampZoom = (z) => Math.min(maxZoom(), Math.max(minZoom, z));
 
   function pick(x, y) {
-    ndc.set((x / innerWidth) * 2 - 1, -(y / innerHeight) * 2 + 1);
+    ndc.x = (x / innerWidth) * 2 - 1;
+    ndc.y = -(y / innerHeight) * 2 + 1;
+
     raycaster.setFromCamera(ndc, camera);
+
     const hit = raycaster.intersectObjects(pickables, false)[0];
-    return hit ? hit.object.userData.index : null;
-  }
+
+    if (!hit) return null;
+
+    const data = hit.object.userData;
+
+    // One of Jupiter's navigable moons.
+    if (data.type === "moon" && data.id) {
+        return {
+            type: "moon",
+            id: data.id,
+            name: data.name,
+            group: data.group,
+            parentIndex: data.parentIndex,
+            object: hit.object,
+        };
+    }
+
+    // Ordinary moon: behave exactly like its parent planet.
+    if (data.type === "planet-moon") {
+        return {
+            type: "planet",
+            index: data.parentIndex,
+        };
+    }
+
+    // Planet / Sun.
+    if (typeof data.index === "number") {
+        return {
+            type: "planet",
+            index: data.index,
+        };
+    }
+
+    // Deep-space probe.
+    if (data.index === "probe") {
+        return {
+            type: "probe",
+        };
+    }
+
+    return null;
+}
 
   canvas.addEventListener("pointerdown", (e) => {
     pointers.set(e.pointerId, { x: e.clientX, y: e.clientY });
@@ -881,18 +1524,30 @@
       );
       b.mesh.rotation.y += t * 0.35;
       b.moons.forEach((m) => {
-        const a = m.phase + time * m.speed;
-        m.mesh.position.set(
-          b.pivot.position.x + Math.cos(a) * m.dist,
-          Math.sin(a) * m.dist * m.tilt,
-          b.pivot.position.z + Math.sin(a) * m.dist,
-        );
-      });
+    const a = m.phase + time * m.speed;
+
+    m.mesh.position.set(
+        b.pivot.position.x + Math.cos(a) * m.dist,
+        Math.sin(a) * m.dist * m.tilt,
+        b.pivot.position.z + Math.sin(a) * m.dist,
+    );
+
+    // During a moon close-up, show only the selected moon.
+    if (focusedMoon && focused === b) {
+        m.mesh.visible = m === focusedMoon;
+    } else {
+        m.mesh.visible = true;
+    }
+});
       b.orbitLine.material.opacity +=
         ((focused === b ? 0.55 : focused ? 0.08 : 0.16) -
           b.orbitLine.material.opacity) *
         ease(0.08);
     });
+
+    // Hide the asteroid belt during Jupiter moon close-ups.
+    belt.visible = !focusedMoon;
+    
     belt.rotation.y += t * 0.01;
     stars.rotation.y += Space.paused || reduceMotion ? 0 : dt * 0.004;
 
@@ -917,10 +1572,20 @@
       first = false;
     }
 
+    if (focusedMoon) {
+    tmp.copy(focusedMoon.mesh.position);
+} else {
     tmp.copy(
-      focused ? (focused.pivot ? focused.pivot.position : origin) : origin,
+        focused
+            ? (focused.pivot ? focused.pivot.position : origin)
+            : origin
     );
-    rig.target.lerp(tmp, ease(focused ? 0.1 : 0.05));
+}
+
+rig.target.lerp(
+    tmp,
+    ease(focusedMoon ? 0.14 : focused ? 0.1 : 0.05)
+);
     rig.theta += (rig.want.theta - rig.theta) * ease(0.08);
     rig.phi += (rig.want.phi - rig.phi) * ease(0.08);
     rig.dist += (rig.want.dist - rig.dist) * ease(0.05);
@@ -958,14 +1623,47 @@
     );
 
     if (hoverAt && !drag) {
-      const i = pick(hoverAt.x, hoverAt.y);
-      hoverAt = null;
-      if (i !== hovered) {
-        hovered = i;
-        canvas.style.cursor = i === null ? "grab" : "pointer";
-        bodies.forEach((b) => b.label.classList.toggle("hover", b.index === i));
-      }
+    const target = pick(hoverAt.x, hoverAt.y);
+    hoverAt = null;
+
+    const hoverKey =
+        target?.type === "planet"
+            ? `planet-${target.index}`
+            : target?.type === "moon"
+              ? `moon-${target.id}`
+              : target?.type === "probe"
+                ? "probe"
+                : null;
+
+    if (hoverKey !== hovered) {
+        hovered = hoverKey;
+
+        canvas.style.cursor =
+            target === null ? "grab" : "pointer";
+
+        bodies.forEach((b) => {
+            const isPlanet =
+                target?.type === "planet" &&
+                b.index === target.index;
+
+            b.label.classList.toggle("hover", isPlanet);
+        });
+
+        bodies.forEach((b) => {
+            b.moons.forEach((m) => {
+                const isMoon =
+                    target?.type === "moon" &&
+                    m.id === target.id &&
+                    m.parentIndex === target.parentIndex;
+
+                if (m.mesh.material) {
+                    m.mesh.material.emissiveIntensity =
+                        isMoon ? 0.65 : (m.mesh.userData.id ? 0.25 : 0.02);
+                }
+            });
+        });
     }
+}
 
     renderer.render(scene, camera);
 
@@ -1021,6 +1719,48 @@
       }
       p.visible = p.visible && p.y > rect.top + 8;
       setLabel(p);
+    });
+
+    // Jupiter moon labels
+moonLabels.forEach((m) => {
+    const el = m.label;
+
+    if (!el) return;
+
+    // Only show moon labels while Jupiter / Research Atlas is focused.
+    const parent = bodies[m.parentIndex];
+    const show = focused === parent;
+
+    if (!show) {
+        el.style.display = "none";
+        return;
+    }
+
+    tmp.copy(m.mesh.position);
+
+    // Place the label slightly above the moon.
+    tmp.y += m.mesh.geometry.parameters.radius * 1.8;
+
+    tmp.project(camera);
+
+    const x = (tmp.x * 0.5 + 0.5) * w;
+    const y = (-tmp.y * 0.5 + 0.5) * h;
+
+    const visible =
+        tmp.z < 1 &&
+        Math.abs(tmp.x) < 1.1 &&
+        Math.abs(tmp.y) < 1.1 &&
+        y > rect.top + 8 &&
+        y < rect.bottom - 8;
+
+    if (!visible) {
+        el.style.display = "none";
+        return;
+    }
+
+    el.style.display = "";
+      el.style.transform =
+        `translate(${Math.round(x)}px, ${Math.round(y)}px) translate(-50%, -100%)`;
     });
   }
 

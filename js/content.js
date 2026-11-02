@@ -33,16 +33,12 @@ const SECTIONS = [
 
     html: `
       <p class="lead">
-        Cybersecurity professional focused on understanding threats, attack paths,
-        and the security controls required to strengthen complex environments.
-      </p>
+    Cybersecurity, offensive security, and artificial intelligence converge in a career shaped by investigation, analysis, and technical exploration.
+</p>
 
-      <p>
-        Based in São Paulo, Brazil, with experience across Security Operations,
-        Incident Response, Threat Hunting, Security Architecture, AppSec,
-        and Penetration Testing. Current interests include Offensive Security,
-        AI Security, and hands-on technical research.
-      </p>
+<p>
+    Cybersecurity professional with experience in Security Operations, incident response, threat hunting, AppSec, and penetration testing, with a growing focus on Offensive Security and AI Security.
+</p>
 
       <dl class="facts">
         <div>
@@ -138,51 +134,272 @@ const SECTIONS = [
   {
     id: "projects",
     name: { en: "Projects" },
-    body: { en: "Earth \u00b7 A growing body of work" },
+    body: { en: "Earth · Built in the real world" },
+
     visual: {
-      kind: "earth",
-      size: 1.45,
-      orbit: 20.5,
-      moons: [{ color: 10328724, size: 0.38 }],
+        kind: "earth",
+        size: 1.45,
+        orbit: 20.5,
+        moons: [{ color: 10328724, size: 0.38 }],
     },
-    html: '<p class="lead">A space for experiments, technical write-ups, and reproducible research.</p><p>Project case studies will be added as their documentation and evidence are prepared.</p><article class="entry"><span class="eyebrow">PLANNED</span><h3>Cybersecurity Research Series</h3><p>A collection of laboratory projects organized around the fourteen domains in the Research Atlas. Each case study will document its question, environment, method, findings, and lessons learned.</p></article><button class="btn" data-go="4">Explore the Research Atlas \u2192</button>',
-  },
-  {
-    id: "research",
-    name: { en: "Research Atlas" },
-    body: { en: "Mars \u00b7 Fourteen research frontiers" },
-    visual: {
-      kind: "rocky",
-      size: 1.05,
-      orbit: 25,
-      colors: ["#b8431c", "#e0703a", "#6e2410", "#f3e6dc"],
-      polar: true,
-      moons: [
-        { color: 10129286, size: 0.2 },
-        { color: 9076857, size: 0.16 },
-      ],
-    },
-    html: '<p class="lead">Fourteen domains. One universe of exploration.</p><p>This atlas maps the areas I intend to explore through practical projects. All research tracks below are planned; published case studies will be linked as they become available.</p><div class="atlas-filters" role="group" aria-label="Filter research domains"><button class="filter selected" data-domain-filter="all">All 14</button><button class="filter " data-domain-filter="applications">Applications</button><button class="filter " data-domain-filter="infrastructure">Infrastructure</button><button class="filter " data-domain-filter="systems">Systems</button><button class="filter " data-domain-filter="intelligence">Intelligence</button></div><article class="domain-entry" data-category="systems"><span class="domain-number">01</span><div><h3>Wireless & RF</h3><p>Wi-Fi, Bluetooth, NFC, and software-defined radio.</p><span class="planned">Planned</span></div></article><article class="domain-entry" data-category="systems"><span class="domain-number">02</span><div><h3>Hardware & Firmware</h3><p>Debug interfaces, embedded devices, and firmware analysis.</p><span class="planned">Planned</span></div></article><article class="domain-entry" data-category="applications"><span class="domain-number">03</span><div><h3>Mobile Security</h3><p>Android and iOS applications, runtime behavior, and mobile APIs.</p><span class="planned">Planned</span></div></article><article class="domain-entry" data-category="systems"><span class="domain-number">04</span><div><h3>Reverse Engineering</h3><p>Static and dynamic analysis, binary formats, and program behavior.</p><span class="planned">Planned</span></div></article><article class="domain-entry" data-category="systems"><span class="domain-number">05</span><div><h3>Malware & Forensics</h3><p>Malware analysis, memory evidence, and disk forensics.</p><span class="planned">Planned</span></div></article><article class="domain-entry" data-category="infrastructure"><span class="domain-number">06</span><div><h3>Cloud & Containers</h3><p>Cloud identity, workloads, container security, and configuration.</p><span class="planned">Planned</span></div></article><article class="domain-entry" data-category="applications"><span class="domain-number">07</span><div><h3>AI Security</h3><p>LLM applications, models and data, agents, and AI red teaming.</p><span class="planned">Planned</span></div></article><article class="domain-entry" data-category="systems"><span class="domain-number">08</span><div><h3>Exploit Development</h3><p>Memory safety, mitigations, fuzzing, and proof-of-concept research.</p><span class="planned">Planned</span></div></article><article class="domain-entry" data-category="infrastructure"><span class="domain-number">09</span><div><h3>Network & Infrastructure</h3><p>Service discovery, protocols, infrastructure, and pivoting.</p><span class="planned">Planned</span></div></article><article class="domain-entry" data-category="applications"><span class="domain-number">10</span><div><h3>Web Apps & APIs</h3><p>Web vulnerabilities, session security, authentication, and APIs.</p><span class="planned">Planned</span></div></article><article class="domain-entry" data-category="infrastructure"><span class="domain-number">11</span><div><h3>Active Directory & Identity</h3><p>Directory services, Kerberos, NTLM, trust, and privilege paths.</p><span class="planned">Planned</span></div></article><article class="domain-entry" data-category="intelligence"><span class="domain-number">12</span><div><h3>OSINT & Social Engineering</h3><p>Public sources, intelligence analysis, and human factors.</p><span class="planned">Planned</span></div></article><article class="domain-entry" data-category="infrastructure"><span class="domain-number">13</span><div><h3>ICS / OT & Specialized</h3><p>Industrial systems, protocols, and specialized devices.</p><span class="planned">Planned</span></div></article><article class="domain-entry" data-category="systems"><span class="domain-number">14</span><div><h3>Cryptography & Cryptanalysis</h3><p>Cryptographic protocols, key management, PKI, and implementation analysis.</p><span class="planned">Planned</span></div></article>',
-  },
+
+    html: `
+        <p class="lead">Personal projects where cybersecurity, infrastructure, hardware and artificial intelligence meet hands-on experimentation.</p>
+
+        <div class="project-grid">
+
+            <article class="project-card">
+                <div class="project-image">
+                   <img src="files/home-server-cq40.png" alt="HP Compaq Presario CQ40 Home Server">
+                </div>
+
+                <div class="project-card-content">
+                    <span class="eyebrow">HOME LAB · INFRASTRUCTURE</span>
+                    <h3>Home Server</h3>
+                    <p class="project-device">HP Compaq Presario CQ40</p>
+                    <p>Repurposed legacy hardware running Debian Server as the core of my home cybersecurity laboratory and network infrastructure.</p>
+                </div>
+            </article>
+
+            <article class="project-card">
+                <div class="project-image project-image-cardputer">
+                    <img src="files/cardputer.png" alt="M5Stack Cardputer ADV">
+                </div>
+
+                <div class="project-card-content">
+                    <span class="eyebrow">HARDWARE · WIRELESS</span>
+                    <h3>Cardputer ADV</h3>
+                    <p class="project-device">M5Stack · ESP32-S3</p>
+                    <p>A portable embedded platform used for hardware, wireless and security experimentation.</p>
+                </div>
+            </article>
+
+            <article class="project-card project-card-mavie">
+                <div class="project-image project-image-placeholder">
+                    <span>MARIE</span>
+                </div>
+
+                <div class="project-card-content">
+                    <span class="eyebrow">ARTIFICIAL INTELLIGENCE</span>
+                    <h3>Marie</h3>
+                    <p class="project-device">Local AI Project</p>
+                    <p>An experimental local AI system exploring persistent memory, autonomous reflection and private on-device intelligence.</p>
+                </div>
+            </article>
+
+        </div>
+    `,
+},
   {
     id: "skills",
     name: { en: "Skills" },
-    body: { en: "Jupiter \u00b7 Tools, systems & methods" },
+    body: { en: "Mars · Tools, systems & methods" },
     visual: {
-      kind: "gas",
-      size: 3.2,
-      orbit: 37,
-      colors: ["#d9a066", "#a3542a", "#f3dcb5", "#b5452a"],
-      spot: true,
-      moons: [
-        { color: 16751467, size: 0.34, glow: 0.25 },
-        { color: 8378623, size: 0.38, glow: 0.25 },
-        { color: 12189562, size: 0.42, glow: 0.25 },
-        { color: 15186175, size: 0.46, glow: 0.25 },
-      ],
+        kind: "rocky",
+        size: 1.05,
+        orbit: 25,
+        colors: ["#b8431c", "#e0703a", "#6e2410", "#f3e6dc"],
+        polar: true,
+        moons: [
+            { color: 10129286, size: 0.2 },
+            { color: 9076857, size: 0.16 },
+        ],
     },
-    html: '<p class="lead">From the signal in a log to the behavior of a system.</p><article class="entry"><span class="eyebrow">SECURITY OPERATIONS</span><h3>Detection & Response</h3><p>SIEM \u00b7 EDR/XDR \u00b7 Incident Response \u00b7 Threat Hunting \u00b7 Log Analysis \u00b7 Detection Engineering</p></article><article class="entry"><span class="eyebrow">OFFENSIVE SECURITY</span><h3>Assessment & Application Security</h3><p>Nmap \u00b7 Burp Suite \u00b7 Metasploit \u00b7 Kali Linux \u00b7 Nessus \u00b7 API Security Testing \u00b7 Vulnerability Management</p></article><article class="entry"><span class="eyebrow">ENTERPRISE SECURITY</span><h3>Architecture & Controls</h3><p>Security by Design \u00b7 Firewalls \u00b7 Anti-DDoS \u00b7 DLP \u00b7 Microsoft 365 \u00b7 Entra ID \u00b7 Cloud Security</p></article><article class="entry"><span class="eyebrow">FOUNDATIONS</span><h3>Operating Systems & Networks</h3><p>Windows \u00b7 Linux \u00b7 TCP/IP \u00b7 Security Architecture</p></article>',
-  },
+    html: '<p class="lead">From the signal in a log to the behavior of a system.</p><article class="entry"><span class="eyebrow">SECURITY OPERATIONS</span><h3>Detection & Response</h3><p>SIEM · EDR/XDR · Incident Response · Threat Hunting · Log Analysis · Detection Engineering</p></article><article class="entry"><span class="eyebrow">OFFENSIVE SECURITY</span><h3>Assessment & Exploitation</h3><p>Penetration Testing · Vulnerability Assessment · API Security · Web Security · Attack Path Analysis</p></article><article class="entry"><span class="eyebrow">SECURITY ENGINEERING</span><h3>Platforms & Controls</h3><p>Cloud Security · DLP · WAF · Identity · Endpoint Security · Security Architecture</p></article>',
+},
+    {
+    id: "research",
+    name: { en: "Research Atlas" },
+    body: { en: "Jupiter" },
+
+    visual: {
+    kind: "gas",
+    size: 3.2,
+    orbit: 37,
+    colors: ["#d9a066", "#a3542a", "#f3dcb5", "#b5452a"],
+    spot: true,
+
+    moons: [
+        {
+            id: "io",
+            name: "Io",
+            group: "offensive",
+            kind: "io",
+            color: 0xe7bd58,
+            size: 0.34,
+            glow: 0.12
+        },
+        {
+    id: "europa",
+    name: "Europa",
+    group: "infrastructure",
+    kind: "europa",
+    color: 0xd8c7a3,
+    size: 0.38,
+    glow: 0.10
+},
+        {
+    id: "ganymede",
+    name: "Ganymede",
+    group: "hardware",
+    kind: "ganymede",
+    color: 0x8f806f,
+    size: 0.42,
+    glow: 0.08
+},
+        {
+    id: "callisto",
+    name: "Callisto",
+    group: "intelligence",
+    kind: "callisto",
+    color: 0x665b50,
+    size: 0.46,
+    glow: 0.06
+}
+    ],
+},
+
+    html: `
+        <p class="lead">Explore the Research Atlas through Jupiter's moons.</p>
+
+        <div class="research-groups">
+
+            <section class="research-group" data-moon="io">
+                <span class="eyebrow">IO</span>
+                <h3>Offensive Security</h3>
+
+                <article class="domain-entry">
+                    <div>
+                        <h3>Mobile Security</h3>
+                        <p>Android and iOS applications, runtime behavior, and mobile APIs.</p>
+                        <span class="planned">Planned</span>
+                    </div>
+                </article>
+
+                <article class="domain-entry">
+                    <div>
+                        <h3>Reverse Engineering</h3>
+                        <p>Static and dynamic analysis, binary formats, and program behavior.</p>
+                        <span class="planned">Planned</span>
+                    </div>
+                </article>
+
+                <article class="domain-entry">
+                    <div>
+                        <h3>Exploit Development</h3>
+                        <p>Memory safety, mitigations, fuzzing, and proof-of-concept research.</p>
+                        <span class="planned">Planned</span>
+                    </div>
+                </article>
+
+                <article class="domain-entry">
+                    <div>
+                        <h3>Web Apps & APIs</h3>
+                        <p>Web vulnerabilities, session security, authentication, and APIs.</p>
+                        <span class="planned">Planned</span>
+                    </div>
+                </article>
+            </section>
+
+            <section class="research-group" data-moon="europa">
+                <span class="eyebrow">EUROPA</span>
+                <h3>Systems & Infrastructure</h3>
+
+                <article class="domain-entry">
+                    <div>
+                        <h3>Cloud & Containers</h3>
+                        <p>Cloud identity, workloads, container security, and configuration.</p>
+                        <span class="planned">Planned</span>
+                    </div>
+                </article>
+
+                <article class="domain-entry">
+                    <div>
+                        <h3>Network & Infrastructure</h3>
+                        <p>Service discovery, protocols, infrastructure, and pivoting.</p>
+                        <span class="planned">Planned</span>
+                    </div>
+                </article>
+
+                <article class="domain-entry">
+                    <div>
+                        <h3>Active Directory & Identity</h3>
+                        <p>Directory services, Kerberos, NTLM, trust, and privilege paths.</p>
+                        <span class="planned">Planned</span>
+                    </div>
+                </article>
+
+                <article class="domain-entry">
+                    <div>
+                        <h3>Cryptography & Cryptanalysis</h3>
+                        <p>Cryptographic protocols, key management, PKI, and implementation analysis.</p>
+                        <span class="planned">Planned</span>
+                    </div>
+                </article>
+            </section>
+
+            <section class="research-group" data-moon="ganymede">
+                <span class="eyebrow">GANYMEDE</span>
+                <h3>Hardware & Wireless</h3>
+
+                <article class="domain-entry">
+                    <div>
+                        <h3>Wireless & RF</h3>
+                        <p>Wi-Fi, Bluetooth, NFC, and software-defined radio.</p>
+                        <span class="planned">Planned</span>
+                    </div>
+                </article>
+
+                <article class="domain-entry">
+                    <div>
+                        <h3>Hardware & Firmware</h3>
+                        <p>Debug interfaces, embedded devices, and firmware analysis.</p>
+                        <span class="planned">Planned</span>
+                    </div>
+                </article>
+
+                <article class="domain-entry">
+                    <div>
+                        <h3>ICS / OT & Specialized</h3>
+                        <p>Industrial systems, protocols, and specialized devices.</p>
+                        <span class="planned">Planned</span>
+                    </div>
+                </article>
+            </section>
+
+            <section class="research-group" data-moon="callisto">
+                <span class="eyebrow">CALLISTO</span>
+                <h3>Intelligence & Analysis</h3>
+
+                <article class="domain-entry">
+                    <div>
+                        <h3>Malware & Forensics</h3>
+                        <p>Malware analysis, memory evidence, and disk forensics.</p>
+                        <span class="planned">Planned</span>
+                    </div>
+                </article>
+
+                <article class="domain-entry">
+                    <div>
+                        <h3>AI Security</h3>
+                        <p>LLM applications, models and data, agents, and AI red teaming.</p>
+                        <span class="planned">Planned</span>
+                    </div>
+                </article>
+
+                <article class="domain-entry">
+                    <div>
+                        <h3>OSINT & Social Engineering</h3>
+                        <p>Public sources, intelligence analysis, and human factors.</p>
+                        <span class="planned">Planned</span>
+                    </div>
+                </article>
+
+            </section>
+
+        </div>
+    `,
+},
   {
     id: "education",
     name: { en: "Education" },
@@ -198,27 +415,112 @@ const SECTIONS = [
   {
     id: "courses",
     name: { en: "Credentials" },
-    body: { en: "Uranus \u00b7 Certifications & additional training" },
+    body: { en: "Uranus · Certifications & additional training" },
+
     visual: {
-      kind: "ice",
-      size: 1.95,
-      orbit: 54,
-      colors: ["#9fe3e6", "#7fcfd6", "#c8f4f4"],
-      tilt: 1.7,
-      faintRing: true,
+        kind: "ice",
+        size: 1.95,
+        orbit: 54,
+        colors: ["#9fe3e6", "#7fcfd6", "#c8f4f4"],
+        tilt: 1.7,
+        faintRing: true,
     },
-    html: '<p class="lead">A foundation across offensive security, security analysis, and service management.</p><article class="entry"><span class="eyebrow">CERTIFICATION</span><h3>CompTIA PenTest+</h3><p>PT0-003 \u00b7 CompTIA</p></article><article class="entry"><span class="eyebrow">CERTIFICATION</span><h3>CompTIA CySA+</h3><p>CS0-003 \u00b7 CompTIA</p></article><article class="entry"><span class="eyebrow">CERTIFICATION</span><h3>CompTIA Security+</h3><p>SY0-701 \u00b7 CompTIA</p></article><article class="entry"><span class="eyebrow">CERTIFICATION</span><h3>ISO/IEC 27001 (ISFS)</h3><p>EXIN</p></article><article class="entry"><span class="eyebrow">CERTIFICATION</span><h3>ITIL 4 Foundation</h3><p>PeopleCert</p></article><article class="entry"><span class="eyebrow">ADDITIONAL TRAINING</span><h3>Continued learning</h3><p>Kaspersky Endpoint Security and Management \u00b7 Kaspersky<br>Cybersecurity Specialization \u00b7 Google<br>Junior Cybersecurity Analyst \u00b7 Cisco</p></article>',
-  },
+
+    html: `
+        <p class="lead">
+            A foundation across offensive security, security analysis,
+            information security and service management.
+        </p>
+
+        <div class="credentials-grid">
+
+            <article class="credential-card">
+                <img class="credential-badge" src="files/CompTIA_PenTest_Plus.png" alt="CompTIA PenTest+">
+                <div class="credential-info">
+                    <span class="eyebrow">CERTIFICATION</span>
+                    <h3>CompTIA PenTest+</h3>
+                    <p>PT0-003 · CompTIA</p>
+                </div>
+            </article>
+
+            <article class="credential-card">
+                <img class="credential-badge" src="files/CompTIA_CySA_Plus.png" alt="CompTIA CySA+">
+                <div class="credential-info">
+                    <span class="eyebrow">CERTIFICATION</span>
+                    <h3>CompTIA CySA+</h3>
+                    <p>CS0-003 · CompTIA</p>
+                </div>
+            </article>
+
+            <article class="credential-card">
+                <img class="credential-badge" src="files/CompTIA_Security_Plus.png" alt="CompTIA Security+">
+                <div class="credential-info">
+                    <span class="eyebrow">CERTIFICATION</span>
+                    <h3>CompTIA Security+</h3>
+                    <p>SY0-701 · CompTIA</p>
+                </div>
+            </article>
+
+            <article class="credential-card">
+                <img class="credential-badge" src="files/EXIN_ISO_27001.png" alt="EXIN ISO IEC 27001">
+                <div class="credential-info">
+                    <span class="eyebrow">CERTIFICATION</span>
+                    <h3>ISO/IEC 27001 (ISFS)</h3>
+                    <p>EXIN</p>
+                </div>
+            </article>
+
+            <article class="credential-card">
+                <img class="credential-badge" src="files/ITIL_4_Foundation.png" alt="ITIL 4 Foundation">
+                <div class="credential-info">
+                    <span class="eyebrow">CERTIFICATION</span>
+                    <h3>ITIL 4 Foundation</h3>
+                    <p>PeopleCert</p>
+                </div>
+            </article>
+
+            <article class="credential-card">
+                <img class="credential-badge" src="files/Kaspersky_Endpoint_Security.png" alt="Kaspersky Endpoint Security and Management">
+                <div class="credential-info">
+                    <span class="eyebrow">ADDITIONAL TRAINING</span>
+                    <h3>Kaspersky Endpoint Security and Management</h3>
+                    <p>Kaspersky</p>
+                </div>
+            </article>
+
+            <article class="credential-card">
+                <img class="credential-badge" src="files/Google_Cybersecurity.png" alt="Google Cybersecurity">
+                <div class="credential-info">
+                    <span class="eyebrow">ADDITIONAL TRAINING</span>
+                    <h3>Cybersecurity Specialization</h3>
+                    <p>Google</p>
+                </div>
+            </article>
+
+            <article class="credential-card">
+                <img class="credential-badge" src="files/Cisco_Junior_Cybersecurity_Analyst.png" alt="Cisco Junior Cybersecurity Analyst">
+                <div class="credential-info">
+                    <span class="eyebrow">ADDITIONAL TRAINING</span>
+                    <h3>Junior Cybersecurity Analyst</h3>
+                    <p>Cisco</p>
+                </div>
+            </article>
+
+        </div>
+    `,
+},
   {
     id: "contact",
     name: { en: "Contact" },
-    body: { en: "Neptune \u00b7 Open a channel" },
+    body: { en: "Neptune · Open a channel" },
+
     visual: {
-      kind: "gas",
-      size: 1.9,
-      orbit: 61,
-      colors: ["#3d6fe0", "#2442a8", "#8fb3ff"],
+        kind: "gas",
+        size: 1.9,
+        orbit: 61,
+        colors: ["#3d6fe0", "#2442a8", "#8fb3ff"],
     },
-    html: '<p class="lead">Let\u2019s connect.</p><p>For professional opportunities, research conversations, or collaboration on cybersecurity projects.</p><div class="contact-links"><a class="btn solid" href="mailto:brunoalmeida438@gmail.com">Email Bruno \u2197</a><a class="btn" href="https://www.linkedin.com/in/bruno-almeida-bruno" target="_blank" rel="noopener noreferrer">LinkedIn \u2197</a><a class="btn" href="files/Bruno_Almeida_Resume.pdf" download>Download r\u00e9sum\u00e9 \u2193</a></div><dl class="facts"><div><dt>Email</dt><dd><a href="mailto:brunoalmeida438@gmail.com">brunoalmeida438@gmail.com</a></dd></div><div><dt>Based in</dt><dd>S\u00e3o Paulo, Brazil</dd></div></dl>',
-  },
+
+    html: '<p class="lead">Let’s connect.</p><p>For professional opportunities, research conversations, or collaboration on cybersecurity projects.</p><div class="contact-links"><a class="btn solid" href="mailto:brunoalmeida438@gmail.com">Email Bruno ↗</a><a class="btn" href="https://www.linkedin.com/in/bruno-almeida-bruno" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a><a class="btn" href="files/Bruno_Almeida_Resume.pdf" download>Download Resumé ↓</a></div><dl class="facts"><div><dt>Email</dt><dd><a href="mailto:brunoalmeida438@gmail.com">brunoalmeida438@gmail.com</a></dd></div><div><dt>Based in</dt><dd>São Paulo, Brazil</dd></div></dl>',
+},
 ];
