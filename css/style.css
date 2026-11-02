@@ -1687,7 +1687,7 @@ a.link:hover,
     z-index: 4;
     left: 50%;
     bottom: 92px;
-    width: min(400px, calc(100vw - 32px));
+    width: min(560px, calc(100vw - 32px));
     padding: 10px;
     border: 1px solid var(--line-strong);
     border-radius: 22px;
@@ -1773,7 +1773,7 @@ a.link:hover,
     margin-top: 18px;
     font-family: var(--display);
     font-weight: 700;
-    font-size: clamp(1.4rem, 6.4vw, 2rem);
+    font-size: clamp(1.35rem, 3.2vw, 1.75rem);
     letter-spacing: .03em;
     white-space: nowrap;
     line-height: 1;
@@ -3152,4 +3152,10 @@ body.research-mode .hint {
     .credential-info h3 {
         font-size: 14px;
     }
+}
+
+/* Voyager — Portuguese title adjustment */
+html[lang="pt-BR"] .standby h2 {
+    font-size: 1.05rem !important;
+    letter-spacing: .015em;
 }
