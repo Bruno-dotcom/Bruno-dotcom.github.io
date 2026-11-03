@@ -132,16 +132,70 @@ experience: {
     </article>
   `,
 },
-  experience: {
-    name: "Experiência",
-    body: "Mercúrio · Experiência na prática",
-    html: '<article class="entry"><span class="eyebrow">JUL 2026 — ATUAL</span><h3>V.tal · Analista de Segurança da Informação</h3><p>Atuação como analista pleno em Operações de Segurança. Investigação de eventos e incidentes, análise de IoCs, threat hunting e melhoria de detecções em ambientes corporativos. Experiência complementar em AppSec, testes de segurança de APIs, análise de riscos e coordenação de testes de intrusão externos.</p></article><article class="entry"><span class="eyebrow">NOV 2025 — JUN 2026</span><h3>V.tal · Analista de Segurança da Informação Júnior</h3><p>Triagem de alertas SIEM e EDR, análise de logs, coleta de evidências e escalonamento de incidentes. Revisão de políticas de firewall e DLP; monitoramento em Microsoft 365, Entra ID, Google Workspace, Datadog, Grafana e Zabbix.</p></article><article class="entry"><span class="eyebrow">NOV 2023 — OUT 2024</span><h3>Bayer Brasil / Suhai · Analista SOC Júnior</h3><p>Investigação de alertas SIEM, EDR e de segurança de perímetro. Documentação de incidentes e relatórios técnicos para apoiar auditorias e melhorias de segurança.</p></article><article class="entry"><span class="eyebrow">EXPERIÊNCIAS ANTERIORES</span><h3>Risco, inteligência e comunicação</h3><p>Meta / Haganá · Agente de Risco e Inteligência (2021–2023). Itaú Unibanco / Belfort · Operador de Monitoramento de Segurança Bilíngue (2016–2021). Wizard by Pearson · Professor de Inglês (2012–2016).</p></article>',
-  },
   focus: {
     name: "Foco",
     body: "Vênus · Onde meu trabalho converge",
-    html: '<article class="entry"><span class="eyebrow">01 · DETECTAR E RESPONDER</span><h3>Operações de Segurança</h3><p>Investigar eventos de segurança, correlacionar evidências, buscar ameaças e melhorar a eficácia dos controles de segurança.</p></article><article class="entry"><span class="eyebrow">02 · TESTAR E ENTENDER</span><h3>Segurança Ofensiva &amp; AppSec</h3><p>Avaliação de vulnerabilidades, testes de segurança de APIs e exploração prática de caminhos de ataque em ambientes controlados.</p></article><article class="entry"><span class="eyebrow">03 · PESQUISAR E APRENDER</span><h3>Segurança de IA</h3><p>Estudar inteligência artificial e desenvolver uma direção de pesquisa em segurança de modelos, aplicações e agentes.</p></article>',
-  },
+
+    html: `
+        <div class="focus-grid">
+
+            <article class="focus-card">
+                <div class="focus-image">
+                    <img
+                        src="files/Escudo_Cybersecurity_Neon.png"
+                        alt="Operações de Segurança"
+                    >
+                </div>
+
+                <div class="focus-card-content">
+                    <span class="eyebrow">01 · DETECTAR E RESPONDER</span>
+                    <h3>Operações de Segurança</h3>
+                    <p>
+                        Investigar eventos de segurança, correlacionar evidências,
+                        buscar ameaças e melhorar a eficácia dos controles de segurança.
+                    </p>
+                </div>
+            </article>
+
+            <article class="focus-card">
+                <div class="focus-image">
+                    <img
+                        src="files/Chapeu_Hacker_Neon.png"
+                        alt="Segurança Ofensiva e AppSec"
+                    >
+                </div>
+
+                <div class="focus-card-content">
+                    <span class="eyebrow">02 · TESTAR E ENTENDER</span>
+                    <h3>Segurança Ofensiva &amp; AppSec</h3>
+                    <p>
+                        Avaliação de vulnerabilidades, testes de segurança de APIs
+                        e exploração prática de caminhos de ataque em ambientes controlados.
+                    </p>
+                </div>
+            </article>
+
+            <article class="focus-card">
+                <div class="focus-image">
+                    <img
+                        src="files/Robo_IA_Neon.png"
+                        alt="Segurança de IA"
+                    >
+                </div>
+
+                <div class="focus-card-content">
+                    <span class="eyebrow">03 · PESQUISAR E APRENDER</span>
+                    <h3>Segurança de IA</h3>
+                    <p>
+                        Estudar inteligência artificial e desenvolver uma direção
+                        de pesquisa em segurança de modelos, aplicações e agentes.
+                    </p>
+                </div>
+            </article>
+
+        </div>
+    `,
+},
   projects: {
     name: "Projetos",
     body: "Terra · Construído no mundo real",
@@ -387,7 +441,8 @@ research: {
     body: "Saturno · Bases para novas descobertas",
     html: '<article class="entry"><span class="eyebrow">EM ANDAMENTO</span><h3>Pós-graduação em Inteligência Artificial</h3><p>Universidade Anhembi Morumbi</p></article><article class="entry"><span class="eyebrow">FORMAÇÃO ACADÊMICA</span><h3>Segurança da Informação</h3><p>Centro Universitário Adventista de São Paulo (UNASP)</p></article><p>Meu aprendizado combina formação acadêmica, certificações profissionais e exploração prática.</p>',
 
-  }, courses: {
+  },
+   courses: {
     name: "Credenciais",
     body: "Urano · Certificações e formação complementar",
 

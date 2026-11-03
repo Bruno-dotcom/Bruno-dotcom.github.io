@@ -156,7 +156,7 @@ const SECTIONS = [
             <article class="focus-card">
                 <div class="focus-image">
                     <img
-                        src="files/Chapeu_Hacker_Neon.PNG"
+                        src="files/Chapeu_Hacker_Neon.png"
                         alt="Offensive Security and AppSec"
                     >
                 </div>
@@ -175,7 +175,7 @@ const SECTIONS = [
             <article class="focus-card">
                 <div class="focus-image">
                     <img
-                        src="files/Robo_IA_Neon.PNG"
+                        src="files/Robo_IA_Neon.png"
                         alt="AI Security"
                     >
                 </div>
