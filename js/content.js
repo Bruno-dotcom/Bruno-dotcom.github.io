@@ -122,15 +122,78 @@ const SECTIONS = [
   {
     id: "focus",
     name: { en: "Focus" },
-    body: { en: "Venus \u00b7 Where my work converges" },
+    body: { en: "Venus · Where my work converges" },
+
     visual: {
-      kind: "gas",
-      size: 1.35,
-      orbit: 15.5,
-      colors: ["#e8c88e", "#d6a65f", "#f5e3bd"],
+        kind: "gas",
+        size: 1.35,
+        orbit: 15.5,
+        colors: ["#e8c88e", "#d6a65f", "#f5e3bd"],
     },
-    html: '<article class="entry"><span class="eyebrow">01 \u00b7 DETECT & RESPOND</span><h3>Security Operations</h3><p>Investigating security events, correlating evidence, hunting threats, and improving the effectiveness of security controls.</p></article><article class="entry"><span class="eyebrow">02 \u00b7 TEST & UNDERSTAND</span><h3>Offensive Security & AppSec</h3><p>Vulnerability assessment, API security testing, and hands-on exploration of attack paths in controlled environments.</p></article><article class="entry"><span class="eyebrow">03 \u00b7 RESEARCH & LEARN</span><h3>AI Security</h3><p>Studying artificial intelligence and developing a research direction around model, application, and agent security.</p></article>',
-  },
+
+    html: `
+        <div class="focus-grid">
+
+            <article class="focus-card">
+                <div class="focus-image">
+                    <img
+                        src="files/Escudo_Cybersecurity_Neon.png"
+                        alt="Security Operations"
+                    >
+                </div>
+
+                <div class="focus-card-content">
+                    <span class="eyebrow">01 · DETECT & RESPOND</span>
+                    <h3>Security Operations</h3>
+                    <p>
+                        Investigating security events, correlating evidence,
+                        hunting threats, and improving the effectiveness of
+                        security controls.
+                    </p>
+                </div>
+            </article>
+
+            <article class="focus-card">
+                <div class="focus-image">
+                    <img
+                        src="files/Chapeu_Hacker_Neon.PNG"
+                        alt="Offensive Security and AppSec"
+                    >
+                </div>
+
+                <div class="focus-card-content">
+                    <span class="eyebrow">02 · TEST & UNDERSTAND</span>
+                    <h3>Offensive Security & AppSec</h3>
+                    <p>
+                        Vulnerability assessment, API security testing,
+                        and hands-on exploration of attack paths in
+                        controlled environments.
+                    </p>
+                </div>
+            </article>
+
+            <article class="focus-card">
+                <div class="focus-image">
+                    <img
+                        src="files/Robo_IA_Neon.PNG"
+                        alt="AI Security"
+                    >
+                </div>
+
+                <div class="focus-card-content">
+                    <span class="eyebrow">03 · RESEARCH & LEARN</span>
+                    <h3>AI Security</h3>
+                    <p>
+                        Studying artificial intelligence and developing
+                        a research direction around model, application,
+                        and agent security.
+                    </p>
+                </div>
+            </article>
+
+        </div>
+    `,
+},
   {
     id: "projects",
     name: { en: "Projects" },
