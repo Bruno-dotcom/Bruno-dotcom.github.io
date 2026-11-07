@@ -55,32 +55,43 @@ const PORTUGUESE_SECTIONS = {
   name: "Sobre",
   body: "Sol · O centro do meu universo",
   html: `
-    <p class="lead">
-      Cibersegurança, segurança ofensiva e inteligência artificial convergem em uma trajetória construída entre investigação, análise e exploração técnica.
-    </p>
+    <div class="about-layout">
 
-    <p>
-      Profissional de cibersegurança com experiência em Operações de Segurança, resposta a incidentes, threat hunting, AppSec e testes de intrusão, com interesse crescente em Segurança Ofensiva e Segurança de IA.
-    </p>
+      <div class="about-copy">
 
-    <dl class="facts">
-      <div>
-        <dt>Cargo atual</dt>
-        <dd>Analista de Segurança da Informação · V.tal</dd>
+        <p class="lead">
+          Cibersegurança, segurança ofensiva e inteligência artificial convergem em uma trajetória construída entre investigação, análise e exploração técnica.
+        </p>
+
+        <p>
+          Profissional de cibersegurança com experiência em Operações de Segurança, resposta a incidentes, threat hunting, AppSec e testes de intrusão, com interesse crescente em Segurança Ofensiva e Segurança de IA.
+        </p>
+
+        <dl class="about-facts">
+          <div>
+            <dt>Cargo atual</dt>
+            <dd>Analista de Segurança da Informação · V.tal</dd>
+          </div>
+
+          <div>
+            <dt>Idiomas</dt>
+            <dd>Português · Inglês · Espanhol</dd>
+          </div>
+        </dl>
+
       </div>
-      <div>
-        <dt>Foco</dt>
-        <dd>Operações de Segurança · Segurança Ofensiva · Segurança de IA</dd>
+
+      <div class="about-portrait">
+        <div class="about-portrait-glow"></div>
+
+        <img
+          src="files/bruno-about.png"
+          alt="Bruno Almeida"
+          class="about-portrait-image"
+        >
       </div>
-      <div>
-        <dt>Idiomas</dt>
-        <dd>Português · Inglês · Espanhol</dd>
-      </div>
-      <div>
-        <dt>Abordagem</dt>
-        <dd>Observar. Entender. Testar. Documentar.</dd>
-      </div>
-    </dl>
+
+    </div>
   `,
 },
 
@@ -267,7 +278,7 @@ skills: {
     name: "Habilidades",
     body: "Marte · Ferramentas, sistemas & métodos",
     html: null
-    
+
 },
 
 research: {

@@ -32,36 +32,44 @@ const SECTIONS = [
     visual: { kind: "sun", size: 6 },
 
     html: `
+  <div class="about-layout">
+
+    <div class="about-copy">
+
       <p class="lead">
-    Cybersecurity, offensive security, and artificial intelligence converge in a career shaped by investigation, analysis, and technical exploration.
-</p>
+        Cybersecurity, offensive security, and artificial intelligence converge in a career shaped by investigation, analysis, and technical exploration.
+      </p>
 
-<p>
-    Cybersecurity professional with experience in Security Operations, incident response, threat hunting, AppSec, and penetration testing, with a growing focus on Offensive Security and AI Security.
-</p>
+      <p>
+        Cybersecurity professional with experience in Security Operations, incident response, threat hunting, AppSec, and penetration testing, with a growing focus on Offensive Security and AI Security.
+      </p>
 
-      <dl class="facts">
+      <dl class="about-facts">
         <div>
           <dt>Current role</dt>
           <dd>Information Security Analyst · V.tal</dd>
         </div>
 
         <div>
-          <dt>Focus</dt>
-          <dd>Offensive Security · Security Architecture · AppSec · AI Security</dd>
-        </div>
-
-        <div>
           <dt>Languages</dt>
           <dd>Portuguese · English · Spanish</dd>
         </div>
-
-        <div>
-          <dt>Approach</dt>
-          <dd>Observe. Understand. Test. Document.</dd>
-        </div>
       </dl>
-    `,
+
+    </div>
+
+    <div class="about-portrait">
+      <div class="about-portrait-glow"></div>
+
+      <img
+        src="files/bruno-about.png"
+        alt="Bruno Almeida"
+        class="about-portrait-image"
+      >
+    </div>
+
+    </div>
+`,
   },
 
   {
