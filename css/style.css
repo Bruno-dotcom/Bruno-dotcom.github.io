@@ -3881,3 +3881,35 @@ html[lang="pt-BR"] .standby h2 {
     line-height: 1.5;
 }
 
+/* Contact — button icons */
+.contact-links .contact-icon {
+    display: block;
+
+    width: 20px;
+    height: 20px;
+    flex: 0 0 20px;
+
+    transition:
+        transform .2s ease,
+        opacity .2s ease;
+}
+
+.contact-links .btn {
+    gap: 9px;
+}
+
+.contact-links .btn:hover .contact-icon {
+    transform: translateY(-1px);
+}
+
+/* Contact — balanced button widths */
+.contact-links .btn {
+    width: 155px;
+    justify-content: flex-start;
+    box-sizing: border-box;
+    white-space: nowrap;
+}
+
+.contact-links .btn[download] {
+    width: 215px;
+}

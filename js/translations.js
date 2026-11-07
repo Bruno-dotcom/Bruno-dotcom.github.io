@@ -32,8 +32,6 @@ UI.pt = {
   standbyNote:
     "Toda descoberta começa com uma pergunta. Continue explorando além do conhecido.",
 
-  cvFile: "files/Bruno_Almeida_Resume.pdf",
-
   pause: "Pausar movimento",
   resume: "Retomar movimento",
 
@@ -610,7 +608,7 @@ research: {
   contact: {
     name: "Contato",
     body: "Netuno · Abra um canal",
-    html: '<p class="lead">Vamos conversar.</p><p>Para oportunidades profissionais, conversas sobre pesquisa ou colaboração em projetos de cibersegurança.</p><div class="contact-links"><a class="btn solid" href="mailto:brunoalmeida438@gmail.com">Enviar e-mail ↗</a><a class="btn" href="https://www.linkedin.com/in/bruno-almeida-bruno" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a><a class="btn" href="files/Bruno_Almeida_Curriculo.pdf" download>Baixar currículo ↓</a></div><dl class="facts"><div><dt>E-mail</dt><dd><a href="mailto:brunoalmeida438@gmail.com">brunoalmeida438@gmail.com</a></dd></div><div><dt>Localização</dt><dd>São Paulo, Brasil</dd></div></dl>',
+    html: '<p class="lead">Vamos nos conectar.</p><p>Para oportunidades profissionais, conversas sobre pesquisa ou colaboração em projetos de cibersegurança.</p><div class="contact-links"><a class="btn" href="mailto:brunoalmeida438@gmail.com"><svg class="contact-icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="#FFFFFF" d="M3.5 5h17A2.5 2.5 0 0 1 23 7.5v9a2.5 2.5 0 0 1-2.5 2.5h-17A2.5 2.5 0 0 1 1 16.5v-9A2.5 2.5 0 0 1 3.5 5Z"/><path fill="#4285F4" d="M1 7.3 4.5 10v9h-1A2.5 2.5 0 0 1 1 16.5V7.3Z"/><path fill="#34A853" d="M23 7.3 19.5 10v9h1a2.5 2.5 0 0 0 2.5-2.5V7.3Z"/><path fill="#EA4335" d="M2 6.1A2.5 2.5 0 0 1 5.2 5.4L12 10.5l6.8-5.1a2.5 2.5 0 0 1 3.2.7L12 13.6 2 6.1Z"/><path fill="#FBBC04" d="M4.5 10 1 7.3v-.8c0-.3.05-.6.15-.87L4.5 8.15V10Z"/><path fill="#C5221F" d="M19.5 10 23 7.3v-.8c0-.3-.05-.6-.15-.87L19.5 8.15V10Z"/></svg>Enviar e-mail</a><a class="btn" href="https://www.linkedin.com/in/bruno-almeida-bruno" target="_blank" rel="noopener noreferrer"><svg class="contact-icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="#0A66C2" d="M20.45 2H3.55A1.55 1.55 0 0 0 2 3.55v16.9A1.55 1.55 0 0 0 3.55 22h16.9A1.55 1.55 0 0 0 22 20.45V3.55A1.55 1.55 0 0 0 20.45 2Z"/><path fill="#fff" d="M5.34 9.49h2.86V18H5.34V9.49Zm1.43-4.23a1.66 1.66 0 1 1 0 3.32 1.66 1.66 0 0 1 0-3.32ZM9.86 9.49h2.74v1.16h.04c.38-.72 1.31-1.48 2.7-1.48 2.89 0 3.42 1.9 3.42 4.37V18H15.9v-3.95c0-.94-.02-2.15-1.31-2.15-1.31 0-1.51 1.02-1.51 2.08V18H9.86V9.49Z"/></svg>LinkedIn</a><a class="btn" href="files/Bruno Almeida - Segurança da Informação.pdf" download><svg class="contact-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 2.75h7l5 5V12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M13 2.75V8h5M6 2.75v18.5h6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M16.5 13v8M13.5 18l3 3 3-3" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>Baixar currículo</a></div><dl class="facts"><div><dt>E-mail</dt><dd><a href="mailto:brunoalmeida438@gmail.com">brunoalmeida438@gmail.com</a></dd></div><div><dt>Localização</dt><dd>São Paulo, Brasil</dd></div></dl>',
 },
 };
 SECTIONS.forEach((section) => {

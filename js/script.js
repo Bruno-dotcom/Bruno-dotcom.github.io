@@ -36,7 +36,6 @@ function setLanguage(next) {
   ? '<span>· PROFISSIONAL DE CIBERSEGURANÇA · OPERAÇÕES DE SEGURANÇA</span><br><span>· SEGURANÇA OFENSIVA · SEGURANÇA DE IA</span>'
   : '<span>· CYBERSECURITY PROFESSIONAL · SECURITY OPERATIONS</span><br><span>· OFFENSIVE SECURITY · AI SECURITY</span>';
 
-    $('#cv').href = t.cvFile;
     $('#stats').innerHTML = t.stats().map(([v, k]) => `<div><dt>${v}</dt><dd>${k}</dd></div>`).join('');
     dock.querySelectorAll('button').forEach((b, i) => { b.querySelector('span').textContent = SECTIONS[i].name[lang]; });
     document.querySelectorAll('.lang button').forEach(b => { const active = b.dataset.lang === lang; b.classList.toggle('active', active); b.setAttribute('aria-pressed', String(active)); });
