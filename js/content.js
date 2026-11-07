@@ -257,6 +257,7 @@ const SECTIONS = [
     id: "skills",
     name: { en: "Skills" },
     body: { en: "Mars · Tools, systems & methods" },
+
     visual: {
         kind: "rocky",
         size: 1.05,
@@ -268,7 +269,43 @@ const SECTIONS = [
             { color: 9076857, size: 0.16 },
         ],
     },
-    html: '<p class="lead">From the signal in a log to the behavior of a system.</p><article class="entry"><span class="eyebrow">SECURITY OPERATIONS</span><h3>Detection & Response</h3><p>SIEM · EDR/XDR · Incident Response · Threat Hunting · Log Analysis · Detection Engineering</p></article><article class="entry"><span class="eyebrow">OFFENSIVE SECURITY</span><h3>Assessment & Exploitation</h3><p>Penetration Testing · Vulnerability Assessment · API Security · Web Security · Attack Path Analysis</p></article><article class="entry"><span class="eyebrow">SECURITY ENGINEERING</span><h3>Platforms & Controls</h3><p>Cloud Security · DLP · WAF · Identity · Endpoint Security · Security Architecture</p></article>',
+
+    html: `
+        <div class="kali-terminal">
+
+            <div class="kali-terminal-bar">
+                <div class="kali-window-controls">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+
+                <div class="kali-terminal-title">
+                    Terminal — bruno@kali
+                </div>
+            </div>
+
+            <div class="kali-terminal-screen">
+
+                <div class="kali-output" id="kali-output"></div>
+
+                <div class="kali-prompt" id="kali-active-prompt">
+
+                    <div class="kali-prompt-top">
+                        ┌──(<span class="kali-user">bruno㉿kali</span>)-[<span class="kali-path">~/skills</span>]
+                    </div>
+
+                    <div class="kali-prompt-command">
+                        <span class="kali-prompt-frame">└─</span><span class="kali-prompt-symbol">$</span>
+                        <span id="kali-command" class="kali-command-text"></span><span class="kali-cursor">█</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    `,
 },
     {
     id: "research",

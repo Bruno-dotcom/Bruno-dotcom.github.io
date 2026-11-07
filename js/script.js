@@ -48,13 +48,19 @@ function setLanguage(next) {
     $('#panel-close').setAttribute('aria-label', t.close);
     $('#standby-close').setAttribute('aria-label', t.close);
     Space.setLabels(lang);
-    if (current !== null) {
-        const scroll = $('#panel-content').scrollTop;
-        const activeFilter = document.querySelector('[data-domain-filter].selected')?.dataset.domainFilter || 'all';
-        renderPanel(current);
-        applyDomainFilter(activeFilter);
+   if (current !== null) {
+    const scroll = $('#panel-content').scrollTop;
+    const activeFilter = document.querySelector('[data-domain-filter].selected')?.dataset.domainFilter || 'all';
+
+    renderPanel(current);
+    applyDomainFilter(activeFilter);
+
+    if (SECTIONS[current].id === 'skills') {
+        runKaliSkillsTerminal();
+    } else {
         $('#panel-content').scrollTop = scroll;
     }
+}
 
     try { localStorage.setItem('language', lang); } catch (e) {}
 }
@@ -154,9 +160,11 @@ function renderPanel(i) {
             </div>
         `;
 
-    } else {
-        $('#panel-content').innerHTML = s.render(lang);
-    }
+    } else if (s.id === 'skills') {
+    $('#panel-content').innerHTML = s.html;
+} else {
+    $('#panel-content').innerHTML = s.render(lang);
+}
 
     $('#panel').dataset.section = s.id;
     bindForm();
@@ -281,6 +289,366 @@ function openMoon(target) {
     );
 }
 
+// ============================================================
+// MARS — SKILLS / KALI TERMINAL
+// ============================================================
+
+let kaliTerminalSession = 0;
+
+const kaliSkills = {
+    investigate: {
+        capabilities: [
+            'incident-investigation',
+            'log-analysis',
+            'ioc-analysis',
+            'evidence-correlation',
+            'incident-response'
+        ],
+        tools: [
+            'wazuh',
+            'crowdstrike',
+            'microsoft-defender',
+            'netskope'
+        ]
+    },
+
+    hunt: {
+        capabilities: [
+            'threat-hunting',
+            'detection-engineering',
+            'behavior-analysis',
+            'detection-tuning',
+            'threat-intelligence'
+        ],
+        tools: [
+            'elastic',
+            'crowdstrike',
+            'mitre-att&ck',
+            'threat-intelligence'
+        ]
+    },
+
+    exploit: {
+        capabilities: [
+            'penetration-testing',
+            'web-api-security',
+            'vulnerability-assessment',
+            'attack-path-analysis',
+            'controlled-exploitation'
+        ],
+        tools: [
+            'burp-suite',
+            'nmap',
+            'metasploit',
+            'impacket',
+            'wireshark',
+            'kali-linux'
+        ]
+    },
+
+    engineer: {
+        capabilities: [
+            'security-controls',
+            'endpoint-security',
+            'identity-security',
+            'data-protection',
+            'cloud-security'
+        ],
+        tools: [
+            'entra-id',
+            'microsoft-purview',
+            'intune',
+            'f5',
+            'cyberark',
+            'qualys'
+        ]
+    }
+};
+
+const kaliWait = ms =>
+    new Promise(resolve => setTimeout(resolve, ms));
+
+async function kaliType(text, element, session, speed = 70) {
+    element.textContent = '';
+
+    for (const char of text) {
+        if (session !== kaliTerminalSession) return false;
+
+        element.textContent += char;
+        await kaliWait(speed);
+    }
+
+    return true;
+}
+
+function kaliPrompt(path, command) {
+    return `
+        <div class="kali-history-prompt">
+            <div>
+                ┌──(<span class="kali-user">bruno㉿kali</span>)-[<span class="kali-path">${path}</span>]
+            </div>
+
+            <div>
+                <span class="kali-prompt-frame">└─</span><span class="kali-prompt-symbol">$</span>
+                <span>${command}</span>
+            </div>
+        </div>
+    `;
+}
+
+function setKaliActivePath(path) {
+    const activePath = document.querySelector(
+        '#kali-active-prompt .kali-path'
+    );
+
+    if (activePath) {
+        activePath.textContent = path;
+    }
+}
+
+function bindKaliRootMenu() {
+    const output = document.querySelector('#kali-output');
+
+    if (!output) return;
+
+    output.querySelectorAll('.kali-root-dir').forEach(dir => {
+        dir.addEventListener('click', () => {
+            openSkillDirectory(dir.dataset.skill);
+        });
+    });
+}
+
+async function runKaliSkillsTerminal() {
+    const session = ++kaliTerminalSession;
+
+    const output = document.querySelector('#kali-output');
+    const command = document.querySelector('#kali-command');
+
+    if (!output || !command) return;
+
+    output.innerHTML = '';
+    command.textContent = '';
+    setKaliActivePath('~/skills');
+
+    await kaliWait(600);
+
+    if (session !== kaliTerminalSession) return;
+
+    const typed = await kaliType(
+        'ls',
+        command,
+        session,
+        150
+    );
+
+    if (!typed) return;
+
+    await kaliWait(250);
+
+    if (session !== kaliTerminalSession) return;
+
+    output.innerHTML = `
+        <div class="kali-root">
+            ${kaliPrompt('~/skills', 'ls')}
+
+            <div class="kali-root-directories">
+                <span class="kali-root-dir" data-skill="investigate">investigate/</span>
+                <span class="kali-root-dir" data-skill="hunt">hunt/</span>
+                <span class="kali-root-dir" data-skill="exploit">exploit/</span>
+                <span class="kali-root-dir" data-skill="engineer">engineer/</span>
+            </div>
+        </div>
+
+        <div class="kali-workspace"></div>
+    `;
+
+    command.textContent = '';
+    bindKaliRootMenu();
+}
+
+async function openSkillDirectory(skill) {
+    const data = kaliSkills[skill];
+
+    if (!data) return;
+
+    const session = ++kaliTerminalSession;
+
+    const workspace = document.querySelector('.kali-workspace');
+    const command = document.querySelector('#kali-command');
+
+    if (!workspace || !command) return;
+
+    const typed = await kaliType(
+        `cd ${skill}/ && ls`,
+        command,
+        session,
+        45
+    );
+
+    if (!typed) return;
+
+    await kaliWait(200);
+
+    if (session !== kaliTerminalSession) return;
+
+    workspace.innerHTML = `
+        <div class="kali-directory-view">
+
+            ${kaliPrompt(
+                '~/skills',
+                `cd ${skill}/ && ls`
+            )}
+
+            <div class="kali-skill-list">
+                ${data.capabilities
+                    .map(item => `<span>${item}</span>`)
+                    .join('')}
+
+                <span
+                    class="kali-tools-dir"
+                    data-skill="${skill}"
+                >
+                    tools/
+                </span>
+            </div>
+
+        </div>
+    `;
+
+    command.textContent = '';
+    setKaliActivePath(`~/skills/${skill}`);
+
+    const toolsDir = workspace.querySelector('.kali-tools-dir');
+
+    if (toolsDir) {
+        toolsDir.addEventListener('click', () => {
+            openSkillTools(skill);
+        });
+    }
+}
+
+async function openSkillTools(skill) {
+    const data = kaliSkills[skill];
+
+    if (!data) return;
+
+    const session = ++kaliTerminalSession;
+
+    const workspace = document.querySelector('.kali-workspace');
+    const command = document.querySelector('#kali-command');
+
+    if (!workspace || !command) return;
+
+    const typed = await kaliType(
+        'cd tools/ && ls',
+        command,
+        session,
+        45
+    );
+
+    if (!typed) return;
+
+    await kaliWait(200);
+
+    if (session !== kaliTerminalSession) return;
+
+    workspace.innerHTML = `
+        <div class="kali-tools-view">
+
+            ${kaliPrompt(
+                `~/skills/${skill}`,
+                'cd tools/ && ls'
+            )}
+
+            <div class="kali-tools-list">
+                ${data.tools
+                    .map(tool => `<span>${tool}</span>`)
+                    .join('')}
+            </div>
+
+            <span
+                class="kali-tools-back"
+                data-skill="${skill}"
+            >
+                ../
+            </span>
+
+        </div>
+    `;
+
+    command.textContent = '';
+    setKaliActivePath(`~/skills/${skill}/tools`);
+
+    const back = workspace.querySelector('.kali-tools-back');
+
+    if (back) {
+        back.addEventListener('click', () => {
+            returnToSkillDirectory(skill);
+        });
+    }
+}
+
+async function returnToSkillDirectory(skill) {
+    const data = kaliSkills[skill];
+
+    if (!data) return;
+
+    const session = ++kaliTerminalSession;
+
+    const workspace = document.querySelector('.kali-workspace');
+    const command = document.querySelector('#kali-command');
+
+    if (!workspace || !command) return;
+
+    const typed = await kaliType(
+        'cd ..',
+        command,
+        session,
+        45
+    );
+
+    if (!typed) return;
+
+    await kaliWait(150);
+
+    if (session !== kaliTerminalSession) return;
+
+    workspace.innerHTML = `
+        <div class="kali-directory-view">
+
+            ${kaliPrompt(
+                `~/skills/${skill}/tools`,
+                'cd ..'
+            )}
+
+            <div class="kali-skill-list">
+                ${data.capabilities
+                    .map(item => `<span>${item}</span>`)
+                    .join('')}
+
+                <span
+                    class="kali-tools-dir"
+                    data-skill="${skill}"
+                >
+                    tools/
+                </span>
+            </div>
+
+        </div>
+    `;
+
+    command.textContent = '';
+    setKaliActivePath(`~/skills/${skill}`);
+
+    const toolsDir = workspace.querySelector('.kali-tools-dir');
+
+    if (toolsDir) {
+        toolsDir.addEventListener('click', () => {
+            openSkillTools(skill);
+        });
+    }
+}
+
 function open(i) {
     currentMoon = null;
     document.body.classList.remove('research-mode');
@@ -291,6 +659,10 @@ function open(i) {
     renderPanel(i);
     if (changed) $('#panel-content').scrollTop = 0;
 
+    // Mars / Skills — initialize Kali terminal
+    if (SECTIONS[i].id === 'skills') {
+    runKaliSkillsTerminal();
+    }
     document.body.classList.add('focused');
     panel.setAttribute('aria-hidden', 'false');
     dock.querySelectorAll('button').forEach((b, k) => b.classList.toggle('active', k === i));

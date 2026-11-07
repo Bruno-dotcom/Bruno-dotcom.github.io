@@ -3257,3 +3257,364 @@ html[lang="pt-BR"] .standby h2 {
         line-height: 1.4;
     }
 }
+
+/* ============================================================
+   MARS — SKILLS / LARGE TERMINAL PANEL
+   ============================================================ */
+
+.panel[data-section="skills"] {
+    top: 70px;
+    right: 40px;
+    bottom: 70px;
+
+    width: min(920px, 62vw);
+
+    transform: translateX(calc(100% + 60px));
+
+    border-radius: 18px;
+}
+
+.focused .panel[data-section="skills"] {
+    transform: none;
+}
+
+/* Skills header — compact */
+.panel[data-section="skills"] .panel-head {
+    padding: 16px 22px 0;
+}
+
+.panel[data-section="skills"] #panel-title {
+    padding: 6px 22px 14px;
+    font-size: 1.65rem;
+}
+
+/* Give the terminal almost the entire panel */
+.panel[data-section="skills"] .panel-content {
+    padding: 18px 22px 20px;
+    overflow: hidden;
+    min-height: 0;
+}
+
+/* Remove generic spacing rules inside the terminal */
+.panel[data-section="skills"] .panel-content > * + * {
+    margin-top: 0;
+}
+
+/* Footer remains compact */
+.panel[data-section="skills"] .panel-foot {
+    padding: 10px 18px;
+}
+
+/* ============================================================
+   MARS — KALI TERMINAL
+   ============================================================ */
+
+.kali-terminal {
+    width: 100%;
+    height: 100%;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+
+    border: 1px solid rgba(255, 255, 255, .13);
+    border-radius: 10px;
+
+    background: #09090b;
+
+    box-shadow:
+        0 24px 60px rgba(0, 0, 0, .45),
+        inset 0 0 0 1px rgba(255, 255, 255, .025);
+
+    font-family:
+        "Cascadia Code",
+        "JetBrains Mono",
+        "Fira Code",
+        Consolas,
+        monospace;
+}
+
+/* Terminal title bar */
+
+.kali-terminal-bar {
+    position: relative;
+    flex: 0 0 42px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0 16px;
+
+    background: #17171b;
+    border-bottom: 1px solid rgba(255, 255, 255, .09);
+}
+
+.kali-window-controls {
+    position: absolute;
+    left: 15px;
+
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.kali-window-controls span {
+    display: block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+}
+
+.kali-window-controls span:nth-child(1) {
+    background: #ff5f57;
+}
+
+.kali-window-controls span:nth-child(2) {
+    background: #febc2e;
+}
+
+.kali-window-controls span:nth-child(3) {
+    background: #28c840;
+}
+
+.kali-terminal-title {
+    color: #aaa8b2;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: .01em;
+}
+
+/* Terminal screen */
+
+.kali-terminal-screen {
+    flex: 1;
+    min-height: 0;
+
+    position: relative;
+
+    padding: 28px 30px;
+
+    overflow: auto;
+
+    background:
+        radial-gradient(
+            circle at 75% 45%,
+            rgba(92, 37, 128, .09),
+            transparent 35%
+        ),
+        #09090b;
+
+    color: #e5e5e7;
+
+    font-size: 14px;
+    line-height: 1.65;
+
+    scrollbar-width: thin;
+    scrollbar-color: #34313b transparent;
+}
+
+/* Terminal output */
+
+.kali-output {
+    display: block;
+}
+
+.kali-history-prompt {
+    margin-bottom: 8px;
+    color: #d7d7db;
+    white-space: nowrap;
+}
+
+/* Kali prompt */
+
+.kali-user {
+    color: #54d6d6;
+    font-weight: 600;
+}
+
+.kali-path {
+    color: #7da6ff;
+}
+
+.kali-prompt-frame {
+    color: #d8d8dc;
+}
+
+.kali-prompt-symbol {
+    margin-right: 8px;
+    color: #9d68ff;
+    font-weight: 700;
+}
+
+/* Active prompt */
+
+.kali-prompt {
+    margin-top: 22px;
+    color: #d7d7db;
+    white-space: nowrap;
+}
+
+.kali-prompt-command {
+    display: flex;
+    align-items: center;
+    min-height: 24px;
+}
+
+.kali-command-text {
+    color: #f0f0f2;
+}
+
+/* Cursor */
+
+.kali-cursor {
+    display: inline-block;
+    margin-left: 2px;
+    color: #9d68ff;
+    animation: kaliCursorBlink 1s steps(1) infinite;
+}
+
+@keyframes kaliCursorBlink {
+    0%,
+    48% {
+        opacity: 1;
+    }
+
+    49%,
+    100% {
+        opacity: 0;
+    }
+}
+
+/* Skills — compact horizontal header */
+
+.panel[data-section="skills"] .panel-head {
+    position: relative;
+    min-height: 48px;
+    padding: 14px 70px 10px 18px;
+    align-items: center;
+}
+
+.panel[data-section="skills"] .panel-meta {
+    gap: 2px;
+}
+
+.panel[data-section="skills"] #panel-title {
+    position: absolute;
+
+    top: 12px;
+    right: 420px;
+
+    padding: 0;
+    border-bottom: 0;
+    
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: clamp(2.2rem, 3.6vw, 3rem);
+    letter-spacing: -.03em;
+    line-height: 1.05;
+    
+}
+
+.panel[data-section="skills"] .close {
+    position: absolute;
+    top: 10px;
+    right: 16px;
+}
+
+/* Remove the vertical title space */
+.panel[data-section="skills"] > #panel-title {
+    margin: 0;
+}
+
+/* ============================================================
+   MARS — KALI DIRECTORIES
+   ============================================================ */
+
+.kali-root-directories {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 14px 28px;
+
+    margin: 6px 0 0;
+}
+
+.kali-root-dir,
+.kali-tools-dir,
+.kali-tools-back {
+    color: #4ea5ff;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        color .15s ease,
+        text-shadow .15s ease;
+}
+
+.kali-root-dir:hover,
+.kali-tools-dir:hover,
+.kali-tools-back:hover {
+    color: #8bc5ff;
+
+    text-shadow:
+        0 0 8px rgba(78, 165, 255, .35);
+}
+
+/* Dynamic workspace */
+
+.kali-workspace {
+    margin-top: 24px;
+}
+
+.kali-directory-view,
+.kali-tools-view {
+    animation: kaliWorkspaceIn .18s ease-out;
+}
+
+@keyframes kaliWorkspaceIn {
+    from {
+        opacity: 0;
+        transform: translateY(3px);
+    }
+
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+/* Skills inside a directory */
+
+.kali-skill-list,
+.kali-tools-list {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+
+    gap: 8px 26px;
+
+    margin-top: 7px;
+}
+
+.kali-skill-list > span:not(.kali-tools-dir),
+.kali-tools-list > span {
+    color: #d8d8dc;
+}
+
+.kali-tools-dir {
+    color: #4ea5ff;
+}
+
+/* ../ inside tools */
+
+.kali-tools-back {
+    display: inline-block;
+    margin-top: 14px;
+}
+
+/* Skills title — Portuguese alignment */
+html[lang="pt-BR"] .panel[data-section="skills"] #panel-title {
+    right: 345px;
+}

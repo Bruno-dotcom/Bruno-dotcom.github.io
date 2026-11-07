@@ -266,29 +266,8 @@ experience: {
 skills: {
     name: "Habilidades",
     body: "Marte · Ferramentas, sistemas & métodos",
-    html: `
-        <p class="lead">
-            Do sinal em um log ao comportamento de um sistema.
-        </p>
-
-        <article class="entry">
-            <span class="eyebrow">OPERAÇÕES DE SEGURANÇA</span>
-            <h3>Detecção & Resposta</h3>
-            <p>SIEM · EDR/XDR · Resposta a Incidentes · Threat Hunting · Análise de Logs · Engenharia de Detecção</p>
-        </article>
-
-        <article class="entry">
-            <span class="eyebrow">SEGURANÇA OFENSIVA</span>
-            <h3>Avaliação & Exploração</h3>
-            <p>Teste de Intrusão · Avaliação de Vulnerabilidades · Segurança de APIs · Segurança Web · Análise de Caminhos de Ataque</p>
-        </article>
-
-        <article class="entry">
-            <span class="eyebrow">ENGENHARIA DE SEGURANÇA</span>
-            <h3>Plataformas & Controles</h3>
-            <p>Segurança em Nuvem · DLP · WAF · Identidade · Segurança de Endpoints · Arquitetura de Segurança</p>
-        </article>
-    `,
+    html: null
+    
 },
 
 research: {
