@@ -72,71 +72,16 @@ const SECTIONS = [
 `,
   },
 
-  {
-    id: "experience",
-    name: { en: "Experience" },
-    body: { en: "Mercury · Field experience" },
-    visual: {
-      kind: "rocky",
-      size: 0.9,
-      orbit: 11,
-      colors: ["#8f8984", "#6a645f", "#c2bbb3"],
-    },
-
-    html: `
-    <article class="entry">
-      <span class="eyebrow">JUL 2026 — PRESENT</span>
-      <h3>V.tal · Information Security Analyst</h3>
-      <p>
-        Mid-level role in Security Operations. Security event and incident
-        investigation, IoC analysis, threat hunting, and detection improvements
-        across enterprise environments. Complementary work in AppSec, API security
-        testing, risk assessments, and coordination of external penetration tests.
-      </p>
-    </article>
-
-    <article class="entry">
-      <span class="eyebrow">NOV 2025 — JUN 2026</span>
-      <h3>V.tal · Junior Information Security Analyst</h3>
-      <p>
-        SIEM and EDR alert triage, log analysis, evidence collection, and incident
-        escalation. Firewall and DLP policy reviews; monitoring across Microsoft 365,
-        Entra ID, Google Workspace, Datadog, Grafana, and Zabbix.
-      </p>
-    </article>
-
-    <article class="entry">
-      <span class="eyebrow">NOV 2023 — OCT 2024</span>
-      <h3>Bayer Brasil / Suhai · Junior SOC Analyst</h3>
-      <p>
-        Investigation of SIEM, EDR, and perimeter security alerts. Incident
-        documentation and technical reporting to support audits and security
-        improvements.
-      </p>
-    </article>
-
-    <article class="entry">
-      <span class="eyebrow">EARLIER EXPERIENCE</span>
-      <h3>Risk, intelligence & communication</h3>
-
-      <p class="career-list">
-        <span>Meta / Haganá · Risk and Intelligence Agent (2021–2023).</span>
-        <span>Itaú Unibanco / Belfort · Bilingual Security Monitoring Operator (2016–2021).</span>
-        <span>Wizard by Pearson · English Teacher (2012–2016).</span>
-      </p>
-    </article>
-  `,
-  },
-  {
+ {
     id: "focus",
     name: { en: "Focus" },
-    body: { en: "Venus · Where my work converges" },
+    body: { en: "Mercury · Where my work converges" },
 
     visual: {
-        kind: "gas",
-        size: 1.35,
-        orbit: 15.5,
-        colors: ["#e8c88e", "#d6a65f", "#f5e3bd"],
+        kind: "rocky",
+        size: 0.9,
+        orbit: 11,
+        colors: ["#8f8984", "#6a645f", "#c2bbb3"],
     },
 
     html: `
@@ -202,6 +147,64 @@ const SECTIONS = [
         </div>
     `,
 },
+
+{
+    id: "experience",
+    name: { en: "Experience" },
+    body: { en: "Venus · Field experience" },
+
+    visual: {
+        kind: "gas",
+        size: 1.35,
+        orbit: 15.5,
+        colors: ["#e8c88e", "#d6a65f", "#f5e3bd"],
+    },
+
+    html: `
+    <article class="entry">
+      <span class="eyebrow">JUL 2026 — PRESENT</span>
+      <h3>V.tal · Information Security Analyst</h3>
+      <p>
+        Mid-level role in Security Operations. Security event and incident
+        investigation, IoC analysis, threat hunting, and detection improvements
+        across enterprise environments. Complementary work in AppSec, API security
+        testing, risk assessments, and coordination of external penetration tests.
+      </p>
+    </article>
+
+    <article class="entry">
+      <span class="eyebrow">NOV 2025 — JUN 2026</span>
+      <h3>V.tal · Junior Information Security Analyst</h3>
+      <p>
+        SIEM and EDR alert triage, log analysis, evidence collection, and incident
+        escalation. Firewall and DLP policy reviews; monitoring across Microsoft 365,
+        Entra ID, Google Workspace, Datadog, Grafana, and Zabbix.
+      </p>
+    </article>
+
+    <article class="entry">
+      <span class="eyebrow">NOV 2023 — OCT 2024</span>
+      <h3>Bayer Brasil / Suhai · Junior SOC Analyst</h3>
+      <p>
+        Investigation of SIEM, EDR, and perimeter security alerts. Incident
+        documentation and technical reporting to support audits and security
+        improvements.
+      </p>
+    </article>
+
+    <article class="entry">
+      <span class="eyebrow">EARLIER EXPERIENCE</span>
+      <h3>Risk, intelligence & communication</h3>
+
+      <p class="career-list">
+        <span>Meta / Haganá · Risk and Intelligence Agent (2021–2023).</span>
+        <span>Itaú Unibanco / Belfort · Bilingual Security Monitoring Operator (2016–2021).</span>
+        <span>Wizard by Pearson · English Teacher (2012–2016).</span>
+      </p>
+    </article>
+  `,
+},
+
   {
     id: "projects",
     name: { en: "Projects" },

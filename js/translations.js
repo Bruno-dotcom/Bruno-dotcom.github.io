@@ -97,7 +97,7 @@ const PORTUGUESE_SECTIONS = {
 
 experience: {
   name: "Experiência",
-  body: "Mercúrio · Experiência na prática",
+  body: "Vênus · Experiência na prática",
   html: `
     <article class="entry">
       <span class="eyebrow">JUL 2026 — ATUAL</span>
@@ -145,7 +145,7 @@ experience: {
 },
   focus: {
     name: "Foco",
-    body: "Vênus · Onde meu trabalho converge",
+    body: "Mercúrio · Onde meu trabalho converge",
 
     html: `
         <div class="focus-grid">
