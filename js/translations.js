@@ -83,7 +83,7 @@ const PORTUGUESE_SECTIONS = {
         <div class="about-portrait-glow"></div>
 
         <img
-          src="files/bruno-about.png"
+          src="files/About - Sun/bruno-about.png"
           alt="Bruno Almeida"
           class="about-portrait-image"
         >
@@ -105,7 +105,7 @@ experience: {
         <div class="experience-main">
 
           <div class="experience-logo experience-logo-vtal">
-            <img src="files/vtal-logo.png" alt="V.tal">
+            <img src="files/Experience - Venus/vtal-logo.png" alt="V.tal">
           </div>
 
           <div class="experience-copy">
@@ -142,7 +142,7 @@ experience: {
         <div class="experience-main">
 
           <div class="experience-logo">
-            <img src="files/bayer-logo.png" alt="Bayer">
+            <img src="files/Experience - Venus/bayer-logo.png" alt="Bayer">
           </div>
 
           <div class="experience-copy">
@@ -168,7 +168,7 @@ experience: {
 
           <div class="earlier-career-item">
             <div class="experience-logo">
-              <img src="files/meta-logo.png" alt="Meta">
+              <img src="files/Experience - Venus/meta-logo.png" alt="Meta">
             </div>
 
             <span>
@@ -178,7 +178,7 @@ experience: {
 
           <div class="earlier-career-item">
             <div class="experience-logo">
-              <img src="files/itau-logo.png" alt="Itaú">
+              <img src="files/Experience - Venus/itau-logo.png" alt="Itaú">
             </div>
 
             <span>
@@ -188,7 +188,7 @@ experience: {
 
           <div class="earlier-career-item">
             <div class="experience-logo">
-              <img src="files/wizard-logo.png" alt="Wizard by Pearson">
+              <img src="files/Experience - Venus/wizard-logo.png" alt="Wizard by Pearson">
             </div>
 
             <span>
@@ -198,7 +198,7 @@ experience: {
 
           <div class="earlier-career-item">
             <div class="experience-logo">
-              <img src="files/ymca-logo.png" alt="YMCA">
+              <img src="files/Experience - Venus/ymca-logo.png" alt="YMCA">
             </div>
 
             <span>
@@ -223,7 +223,7 @@ experience: {
             <article class="focus-card">
                 <div class="focus-image">
                     <img
-                        src="files/Escudo_Cybersecurity_Neon.png"
+                        src="files/Focus - Mercury/Escudo_Cybersecurity_Neon.png"
                         alt="Operações de Segurança"
                     >
                 </div>
@@ -241,7 +241,7 @@ experience: {
             <article class="focus-card">
                 <div class="focus-image">
                     <img
-                        src="files/Chapeu_Hacker_Neon.png"
+                        src="files/Focus - Mercury/Chapeu_Hacker_Neon.png"
                         alt="Segurança Ofensiva e AppSec"
                     >
                 </div>
@@ -259,7 +259,7 @@ experience: {
             <article class="focus-card">
                 <div class="focus-image">
                     <img
-                        src="files/Robo_IA_Neon.png"
+                        src="files/Focus - Mercury/Robo_IA_Neon.png"
                         alt="Segurança de IA"
                     >
                 </div>
@@ -291,7 +291,7 @@ experience: {
 
             <article class="project-card">
                 <div class="project-image">
-                    <img src="files/home-server-cq40.png"
+                    <img src="files/Projects - Earth/home-server-cq40.png"
                          alt="HP Compaq Presario CQ40 Home Server">
                 </div>
 
@@ -309,7 +309,7 @@ experience: {
 
             <article class="project-card">
                 <div class="project-image project-image-cardputer">
-                    <img src="files/cardputer.png"
+                    <img src="files/Projects - Earth/cardputer.png"
                          alt="M5Stack Cardputer ADV">
                 </div>
 
@@ -499,9 +499,42 @@ research: {
  education: {
     name: "Formação",
     body: "Saturno · Bases para novas descobertas",
-    html: '<article class="entry"><span class="eyebrow">EM ANDAMENTO</span><h3>Pós-graduação em Inteligência Artificial</h3><p>Universidade Anhembi Morumbi</p></article><article class="entry"><span class="eyebrow">FORMAÇÃO ACADÊMICA</span><h3>Segurança da Informação</h3><p>Centro Universitário Adventista de São Paulo (UNASP)</p></article><p>Meu aprendizado combina formação acadêmica, certificações profissionais e exploração prática.</p>',
 
-  },
+    html: `
+        <div class="education-list">
+
+            <article class="education-item">
+                <div class="education-logo">
+                    <img src="files/Education - Saturn/daryus-logo.png" alt="Instituto Daryus">
+                </div>
+
+                <div class="education-copy">
+                    <span class="eyebrow">PÓS-GRADUAÇÃO · EM ANDAMENTO</span>
+                    <h3>Cyber Threat Intelligence</h3>
+                    <p>Instituto Daryus</p>
+                </div>
+            </article>
+
+            <article class="education-item">
+                <div class="education-logo">
+                    <img src="files/Education - Saturn/unasp-logo.jpg" alt="UNASP">
+                </div>
+
+                <div class="education-copy">
+                    <span class="eyebrow">FORMAÇÃO ACADÊMICA</span>
+                    <h3>Segurança da Informação</h3>
+                    <p>Centro Universitário Adventista de São Paulo (UNASP)</p>
+                </div>
+            </article>
+
+        </div>
+
+        <p class="education-note">
+            Meu aprendizado combina formação acadêmica, certificações profissionais e exploração prática.
+        </p>
+    `,
+
+},
    courses: {
     name: "Credenciais",
     body: "Urano · Certificações e formação complementar",
@@ -516,7 +549,7 @@ research: {
 
             <article class="credential-card">
                 <img class="credential-badge"
-                     src="files/CompTIA_PenTest_Plus.png"
+                     src="files/Credentials - Uranus/CompTIA_PenTest_Plus.png"
                      alt="CompTIA PenTest+">
                 <div class="credential-info">
                     <span class="eyebrow">CERTIFICAÇÃO</span>
@@ -527,7 +560,7 @@ research: {
 
             <article class="credential-card">
                 <img class="credential-badge"
-                     src="files/CompTIA_CySA_Plus.png"
+                     src="files/Credentials - Uranus/CompTIA_CySA_Plus.png"
                      alt="CompTIA CySA+">
                 <div class="credential-info">
                     <span class="eyebrow">CERTIFICAÇÃO</span>
@@ -538,7 +571,7 @@ research: {
 
             <article class="credential-card">
                 <img class="credential-badge"
-                     src="files/CompTIA_Security_Plus.png"
+                     src="files/Credentials - Uranus/CompTIA_Security_Plus.png"
                      alt="CompTIA Security+">
                 <div class="credential-info">
                     <span class="eyebrow">CERTIFICAÇÃO</span>
@@ -549,7 +582,7 @@ research: {
 
             <article class="credential-card">
                 <img class="credential-badge"
-                     src="files/EXIN_ISO_27001.png"
+                     src="files/Credentials - Uranus/EXIN_ISO_27001.png"
                      alt="EXIN ISO IEC 27001">
                 <div class="credential-info">
                     <span class="eyebrow">CERTIFICAÇÃO</span>
@@ -560,7 +593,7 @@ research: {
 
             <article class="credential-card">
                 <img class="credential-badge"
-                     src="files/ITIL_4_Foundation.png"
+                     src="files/Credentials - Uranus/ITIL_4_Foundation.png"
                      alt="ITIL 4 Foundation">
                 <div class="credential-info">
                     <span class="eyebrow">CERTIFICAÇÃO</span>
@@ -571,7 +604,7 @@ research: {
 
             <article class="credential-card">
                 <img class="credential-badge"
-                     src="files/Kaspersky_Endpoint_Security.png"
+                     src="files/Credentials - Uranus/Kaspersky_Endpoint_Security.png"
                      alt="Kaspersky Endpoint Security and Management">
                 <div class="credential-info">
                     <span class="eyebrow">FORMAÇÃO COMPLEMENTAR</span>
@@ -582,7 +615,7 @@ research: {
 
             <article class="credential-card">
                 <img class="credential-badge"
-                     src="files/Google_Cybersecurity.png"
+                     src="files/Credentials - Uranus/Google_Cybersecurity.png"
                      alt="Google Cybersecurity">
                 <div class="credential-info">
                     <span class="eyebrow">FORMAÇÃO COMPLEMENTAR</span>
@@ -593,7 +626,7 @@ research: {
 
             <article class="credential-card">
                 <img class="credential-badge"
-                     src="files/Cisco_Junior_Cybersecurity_Analyst.png"
+                     src="files/Credentials - Uranus/Cisco_Junior_Cybersecurity_Analyst.png"
                      alt="Cisco Junior Cybersecurity Analyst">
                 <div class="credential-info">
                     <span class="eyebrow">FORMAÇÃO COMPLEMENTAR</span>
@@ -608,7 +641,7 @@ research: {
   contact: {
     name: "Contato",
     body: "Netuno · Abra um canal",
-    html: '<p class="lead">Vamos nos conectar.</p><p>Para oportunidades profissionais, conversas sobre pesquisa ou colaboração em projetos de cibersegurança.</p><div class="contact-links"><a class="btn" href="mailto:brunoalmeida438@gmail.com"><svg class="contact-icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="#FFFFFF" d="M3.5 5h17A2.5 2.5 0 0 1 23 7.5v9a2.5 2.5 0 0 1-2.5 2.5h-17A2.5 2.5 0 0 1 1 16.5v-9A2.5 2.5 0 0 1 3.5 5Z"/><path fill="#4285F4" d="M1 7.3 4.5 10v9h-1A2.5 2.5 0 0 1 1 16.5V7.3Z"/><path fill="#34A853" d="M23 7.3 19.5 10v9h1a2.5 2.5 0 0 0 2.5-2.5V7.3Z"/><path fill="#EA4335" d="M2 6.1A2.5 2.5 0 0 1 5.2 5.4L12 10.5l6.8-5.1a2.5 2.5 0 0 1 3.2.7L12 13.6 2 6.1Z"/><path fill="#FBBC04" d="M4.5 10 1 7.3v-.8c0-.3.05-.6.15-.87L4.5 8.15V10Z"/><path fill="#C5221F" d="M19.5 10 23 7.3v-.8c0-.3-.05-.6-.15-.87L19.5 8.15V10Z"/></svg>Enviar e-mail</a><a class="btn" href="https://www.linkedin.com/in/bruno-almeida-bruno" target="_blank" rel="noopener noreferrer"><svg class="contact-icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="#0A66C2" d="M20.45 2H3.55A1.55 1.55 0 0 0 2 3.55v16.9A1.55 1.55 0 0 0 3.55 22h16.9A1.55 1.55 0 0 0 22 20.45V3.55A1.55 1.55 0 0 0 20.45 2Z"/><path fill="#fff" d="M5.34 9.49h2.86V18H5.34V9.49Zm1.43-4.23a1.66 1.66 0 1 1 0 3.32 1.66 1.66 0 0 1 0-3.32ZM9.86 9.49h2.74v1.16h.04c.38-.72 1.31-1.48 2.7-1.48 2.89 0 3.42 1.9 3.42 4.37V18H15.9v-3.95c0-.94-.02-2.15-1.31-2.15-1.31 0-1.51 1.02-1.51 2.08V18H9.86V9.49Z"/></svg>LinkedIn</a><a class="btn" href="files/Bruno Almeida - Segurança da Informação.pdf" download><svg class="contact-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 2.75h7l5 5V12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M13 2.75V8h5M6 2.75v18.5h6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M16.5 13v8M13.5 18l3 3 3-3" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>Baixar currículo</a></div><dl class="facts"><div><dt>E-mail</dt><dd><a href="mailto:brunoalmeida438@gmail.com">brunoalmeida438@gmail.com</a></dd></div><div><dt>Localização</dt><dd>São Paulo, Brasil</dd></div></dl>',
+    html: '<p class="lead">Vamos nos conectar.</p><p>Para oportunidades profissionais, conversas sobre pesquisa ou colaboração em projetos de cibersegurança.</p><div class="contact-links"><a class="btn" href="mailto:brunoalmeida438@gmail.com"><svg class="contact-icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="#FFFFFF" d="M3.5 5h17A2.5 2.5 0 0 1 23 7.5v9a2.5 2.5 0 0 1-2.5 2.5h-17A2.5 2.5 0 0 1 1 16.5v-9A2.5 2.5 0 0 1 3.5 5Z"/><path fill="#4285F4" d="M1 7.3 4.5 10v9h-1A2.5 2.5 0 0 1 1 16.5V7.3Z"/><path fill="#34A853" d="M23 7.3 19.5 10v9h1a2.5 2.5 0 0 0 2.5-2.5V7.3Z"/><path fill="#EA4335" d="M2 6.1A2.5 2.5 0 0 1 5.2 5.4L12 10.5l6.8-5.1a2.5 2.5 0 0 1 3.2.7L12 13.6 2 6.1Z"/><path fill="#FBBC04" d="M4.5 10 1 7.3v-.8c0-.3.05-.6.15-.87L4.5 8.15V10Z"/><path fill="#C5221F" d="M19.5 10 23 7.3v-.8c0-.3-.05-.6-.15-.87L19.5 8.15V10Z"/></svg>Enviar e-mail</a><a class="btn" href="https://www.linkedin.com/in/bruno-almeida-bruno" target="_blank" rel="noopener noreferrer"><svg class="contact-icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="#0A66C2" d="M20.45 2H3.55A1.55 1.55 0 0 0 2 3.55v16.9A1.55 1.55 0 0 0 3.55 22h16.9A1.55 1.55 0 0 0 22 20.45V3.55A1.55 1.55 0 0 0 20.45 2Z"/><path fill="#fff" d="M5.34 9.49h2.86V18H5.34V9.49Zm1.43-4.23a1.66 1.66 0 1 1 0 3.32 1.66 1.66 0 0 1 0-3.32ZM9.86 9.49h2.74v1.16h.04c.38-.72 1.31-1.48 2.7-1.48 2.89 0 3.42 1.9 3.42 4.37V18H15.9v-3.95c0-.94-.02-2.15-1.31-2.15-1.31 0-1.51 1.02-1.51 2.08V18H9.86V9.49Z"/></svg>LinkedIn</a><a class="btn" href="files/Contact - Neptune/Bruno Almeida - Segurança da Informação.pdf" download><svg class="contact-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 2.75h7l5 5V12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M13 2.75V8h5M6 2.75v18.5h6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M16.5 13v8M13.5 18l3 3 3-3" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>Baixar currículo</a></div><dl class="facts"><div><dt>E-mail</dt><dd><a href="mailto:brunoalmeida438@gmail.com">brunoalmeida438@gmail.com</a></dd></div><div><dt>Localização</dt><dd>São Paulo, Brasil</dd></div></dl>',
 },
 };
 SECTIONS.forEach((section) => {
