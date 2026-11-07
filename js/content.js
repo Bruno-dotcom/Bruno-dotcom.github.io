@@ -1,4 +1,4 @@
-const UI = {
+﻿const UI = {
   en: {
     ...{
       role: "Cybersecurity Professional",
@@ -6,7 +6,7 @@ const UI = {
         "Security Operations ·\u00A0Offensive\u00A0Security · AI Security",
       lead: "Investigating threats. Exploring attack paths. Building knowledge across the cybersecurity universe.",
       explore: "Explore my universe",
-      cv: "Download résumé",
+      cv: "Download rÃ©sumÃ©",
       hint: "Drag to orbit · Scroll to zoom · Select a planet",
       prev: "Previous",
       next: "Next",
@@ -160,52 +160,121 @@ const SECTIONS = [
         colors: ["#e8c88e", "#d6a65f", "#f5e3bd"],
     },
 
-    html: `
-    <article class="entry">
-      <span class="eyebrow">JUL 2026 — PRESENT</span>
-      <h3>V.tal · Information Security Analyst</h3>
-      <p>
-        Mid-level role in Security Operations. Security event and incident
-        investigation, IoC analysis, threat hunting, and detection improvements
-        across enterprise environments. Complementary work in AppSec, API security
-        testing, risk assessments, and coordination of external penetration tests.
-      </p>
+   html: `
+  <div class="experience-timeline">
+
+    <!-- V.TAL -->
+    <article class="entry experience-entry experience-company">
+      <div class="experience-main">
+
+        <div class="experience-logo experience-logo-vtal">
+          <img src="files/vtal-logo.png" alt="V.tal">
+        </div>
+
+        <div class="experience-copy">
+
+          <div class="experience-role">
+            <span class="eyebrow">JUL 2026 — PRESENT</span>
+            <h3>V.tal · Information Security Analyst</h3>
+            <p>
+              Mid-level role in Security Operations. Security event and incident
+              investigation, IoC analysis, threat hunting, and detection improvements
+              across enterprise environments. Complementary work in AppSec, API security
+              testing, risk assessments, and coordination of external penetration tests.
+            </p>
+          </div>
+
+          <div class="experience-role experience-role-secondary">
+            <span class="eyebrow">NOV 2025 — JUN 2026</span>
+            <h3>V.tal · Junior Information Security Analyst</h3>
+            <p>
+              SIEM and EDR alert triage, log analysis, evidence collection, and incident
+              escalation. Firewall and DLP policy reviews; monitoring across Microsoft 365,
+              Entra ID, Google Workspace, Datadog, Grafana, and Zabbix.
+            </p>
+          </div>
+
+        </div>
+      </div>
     </article>
 
-    <article class="entry">
-      <span class="eyebrow">NOV 2025 — JUN 2026</span>
-      <h3>V.tal · Junior Information Security Analyst</h3>
-      <p>
-        SIEM and EDR alert triage, log analysis, evidence collection, and incident
-        escalation. Firewall and DLP policy reviews; monitoring across Microsoft 365,
-        Entra ID, Google Workspace, Datadog, Grafana, and Zabbix.
-      </p>
+
+    <!-- BAYER -->
+    <article class="entry experience-entry">
+      <div class="experience-main">
+
+        <div class="experience-logo">
+          <img src="files/bayer-logo.png" alt="Bayer">
+        </div>
+
+        <div class="experience-copy">
+          <span class="eyebrow">NOV 2023 — OCT 2024</span>
+          <h3>Bayer Brasil / Suhai · Junior SOC Analyst</h3>
+          <p>
+            Investigation of SIEM, EDR, and perimeter security alerts. Incident
+            documentation and technical reporting to support audits and security
+            improvements.
+          </p>
+        </div>
+
+      </div>
     </article>
 
-    <article class="entry">
-      <span class="eyebrow">NOV 2023 — OCT 2024</span>
-      <h3>Bayer Brasil / Suhai · Junior SOC Analyst</h3>
-      <p>
-        Investigation of SIEM, EDR, and perimeter security alerts. Incident
-        documentation and technical reporting to support audits and security
-        improvements.
-      </p>
-    </article>
-
-    <article class="entry">
+    <!-- EARLIER EXPERIENCE -->
+    <article class="entry experience-entry experience-earlier">
       <span class="eyebrow">EARLIER EXPERIENCE</span>
       <h3>Risk, intelligence & communication</h3>
 
-      <p class="career-list">
-        <span>Meta / Haganá · Risk and Intelligence Agent (2021–2023).</span>
-        <span>Itaú Unibanco / Belfort · Bilingual Security Monitoring Operator (2016–2021).</span>
-        <span>Wizard by Pearson · English Teacher (2012–2016).</span>
-      </p>
+      <div class="earlier-career-list">
+
+        <div class="earlier-career-item">
+          <div class="experience-logo">
+            <img src="files/meta-logo.png" alt="Meta">
+          </div>
+
+          <span>
+            Meta / Haganá · Risk and Intelligence Agent (2021-2023).
+          </span>
+        </div>
+
+        <div class="earlier-career-item">
+          <div class="experience-logo">
+            <img src="files/itau-logo.png" alt="Itaú">
+          </div>
+
+          <span>
+            Itaú Unibanco / Belfort · Bilingual Security Monitoring Operator (2016-2021).
+          </span>
+        </div>
+
+        <div class="earlier-career-item">
+          <div class="experience-logo">
+            <img src="files/wizard-logo.png" alt="Wizard by Pearson">
+          </div>
+
+          <span>
+            Wizard by Pearson · English Teacher (2012-2016).
+          </span>
+        </div>
+
+        <div class="earlier-career-item">
+          <div class="experience-logo">
+           <img src="files/ymca-logo.png" alt="YMCA">
+        </div>
+
+         <span>
+           YMCA · Camp Counselor · Work & Travel · North Carolina, United States (Jun-Dec 2011).
+        </span>
+        </div>
+
+      </div>
     </article>
-  `,
+
+    </div>
+`,
 },
 
-  {
+{
     id: "projects",
     name: { en: "Projects" },
     body: { en: "Earth · Built in the real world" },
@@ -303,13 +372,13 @@ const SECTIONS = [
                 <div class="kali-prompt" id="kali-active-prompt">
 
                     <div class="kali-prompt-top">
-                        ┌──(<span class="kali-user">bruno㉿kali</span>)-[<span class="kali-path">~/skills</span>]
-                    </div>
+                    ┌──(<span class="kali-user">bruno㉿kali</span>)-[<span class="kali-path">~/skills</span>]
+                </div>
 
-                    <div class="kali-prompt-command">
-                        <span class="kali-prompt-frame">└─</span><span class="kali-prompt-symbol">$</span>
-                        <span id="kali-command" class="kali-command-text"></span><span class="kali-cursor">█</span>
-                    </div>
+                <div class="kali-prompt-command">
+                <span class="kali-prompt-frame">└─</span><span class="kali-prompt-symbol">$</span>
+                <span id="kali-command" class="kali-command-text"></span><span class="kali-cursor">█</span>
+                </div>
 
                 </div>
 
@@ -632,6 +701,7 @@ const SECTIONS = [
         colors: ["#3d6fe0", "#2442a8", "#8fb3ff"],
     },
 
-    html: '<p class="lead">Let’s connect.</p><p>For professional opportunities, research conversations, or collaboration on cybersecurity projects.</p><div class="contact-links"><a class="btn solid" href="mailto:brunoalmeida438@gmail.com">Email Bruno ↗</a><a class="btn" href="https://www.linkedin.com/in/bruno-almeida-bruno" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a><a class="btn" href="files/Bruno_Almeida_Resume.pdf" download>Download Resumé ↓</a></div><dl class="facts"><div><dt>Email</dt><dd><a href="mailto:brunoalmeida438@gmail.com">brunoalmeida438@gmail.com</a></dd></div><div><dt>Based in</dt><dd>São Paulo, Brazil</dd></div></dl>',
+    html: '<p class="lead">Letâ€™s connect.</p><p>For professional opportunities, research conversations, or collaboration on cybersecurity projects.</p><div class="contact-links"><a class="btn solid" href="mailto:brunoalmeida438@gmail.com">Email Bruno â†—</a><a class="btn" href="https://www.linkedin.com/in/bruno-almeida-bruno" target="_blank" rel="noopener noreferrer">LinkedIn â†—</a><a class="btn" href="files/Bruno_Almeida_Resume.pdf" download>Download ResumÃ© â†“</a></div><dl class="facts"><div><dt>Email</dt><dd><a href="mailto:brunoalmeida438@gmail.com">brunoalmeida438@gmail.com</a></dd></div><div><dt>Based in</dt><dd>SÃ£o Paulo, Brazil</dd></div></dl>',
 },
 ];
+

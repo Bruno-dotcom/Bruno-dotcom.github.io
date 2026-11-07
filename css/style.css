@@ -3503,17 +3503,26 @@ html[lang="pt-BR"] .standby h2 {
     position: absolute;
 
     top: 12px;
-    right: 420px;
+    left: 50%;
+    right: auto;
+
+    transform: translateX(-50%);
+
+    width: max-content;
+    max-width: 42%;
 
     padding: 0;
+    margin: 0;
+
     border-bottom: 0;
-    
+
     font-family: var(--display);
     font-weight: 700;
-    font-size: clamp(2.2rem, 3.6vw, 3rem);
+    font-size: clamp(2rem, 3.4vw, 2.8rem);
     letter-spacing: -.03em;
     line-height: 1.05;
-    
+
+    white-space: nowrap;
 }
 
 .panel[data-section="skills"] .close {
@@ -3614,10 +3623,6 @@ html[lang="pt-BR"] .standby h2 {
     margin-top: 14px;
 }
 
-/* Skills title — Portuguese alignment */
-html[lang="pt-BR"] .panel[data-section="skills"] #panel-title {
-    right: 345px;
-}
 
 /* ============================================================
    SUN — ABOUT / LARGE PROFILE PANEL
@@ -3645,7 +3650,8 @@ html[lang="pt-BR"] .panel[data-section="skills"] #panel-title {
 
 .panel[data-section="about"] .panel-content {
     padding: 26px 30px 24px;
-    overflow: hidden;
+    overflow-y: auto;
+    overflow-x: hidden;
     min-height: 0;
 }
 
@@ -3694,6 +3700,7 @@ html[lang="pt-BR"] .panel[data-section="skills"] #panel-title {
 
 .panel[data-section="about"] .about-facts > div {
     padding-top: 14px;
+    padding-bottom: 14px;
     border-top: 1px solid rgba(255, 255, 255, .10);
 }
 
@@ -3796,3 +3803,81 @@ html[lang="pt-BR"] .panel[data-section="skills"] #panel-title {
 
     background: var(--line);
 }
+
+/* ============================================================
+   VENUS — EXPERIENCE / COMPANY LOGOS
+   ============================================================ */
+
+.panel[data-section="experience"] .experience-main {
+    display: grid;
+    grid-template-columns: 82px minmax(0, 1fr);
+    gap: 18px;
+    align-items: start;
+    margin-top: 10px;
+}
+
+.panel[data-section="experience"] .experience-copy {
+    min-width: 0;
+}
+
+.panel[data-section="experience"] .experience-copy h3 {
+    margin-top: 0;
+}
+
+/* Standard company badge */
+
+.panel[data-section="experience"] .experience-logo {
+    width: 82px;
+    height: 72px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0;
+
+    overflow: visible;
+
+    border: 0;
+    border-radius: 0;
+    background: none;
+    box-shadow: none;
+
+    flex: 0 0 auto;
+}
+
+/* Normalize logos regardless of original dimensions */
+
+.panel[data-section="experience"] .experience-logo img {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+    object-position: center;
+
+    border-radius: 4px;
+}
+
+/* Earlier experience */
+
+.panel[data-section="experience"] .earlier-career-list {
+    display: grid;
+    gap: 12px;
+
+    margin-top: 16px;
+}
+
+.panel[data-section="experience"] .earlier-career-item {
+    display: grid;
+    grid-template-columns: 82px minmax(0, 1fr);
+    gap: 18px;
+    align-items: center;
+}
+
+.panel[data-section="experience"] .earlier-career-item span {
+    color: var(--muted);
+    line-height: 1.5;
+}
+

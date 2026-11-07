@@ -98,51 +98,123 @@ const PORTUGUESE_SECTIONS = {
 experience: {
   name: "Experiência",
   body: "Vênus · Experiência na prática",
+
   html: `
-    <article class="entry">
-      <span class="eyebrow">JUL 2026 — ATUAL</span>
-      <h3>V.tal · Analista de Segurança da Informação</h3>
-      <p>
-        Atuação como analista pleno em Operações de Segurança. Investigação de eventos
-        e incidentes, análise de IoCs, threat hunting e melhoria de detecções em
-        ambientes corporativos. Experiência complementar em AppSec, testes de segurança
-        de APIs, análise de riscos e coordenação de testes de intrusão externos.
-      </p>
-    </article>
+    <div class="experience-timeline">
 
-    <article class="entry">
-      <span class="eyebrow">NOV 2025 — JUN 2026</span>
-      <h3>V.tal · Analista de Segurança da Informação Júnior</h3>
-      <p>
-        Triagem de alertas SIEM e EDR, análise de logs, coleta de evidências e
-        escalonamento de incidentes. Revisão de políticas de firewall e DLP;
-        monitoramento em Microsoft 365, Entra ID, Google Workspace, Datadog,
-        Grafana e Zabbix.
-      </p>
-    </article>
+      <!-- V.TAL -->
+      <article class="entry experience-entry experience-company">
+        <div class="experience-main">
 
-    <article class="entry">
-      <span class="eyebrow">NOV 2023 — OUT 2024</span>
-      <h3>Bayer Brasil / Suhai · Analista SOC Júnior</h3>
-      <p>
-        Investigação de alertas SIEM, EDR e de segurança de perímetro.
-        Documentação de incidentes e relatórios técnicos para apoiar auditorias
-        e melhorias de segurança.
-      </p>
-    </article>
+          <div class="experience-logo experience-logo-vtal">
+            <img src="files/vtal-logo.png" alt="V.tal">
+          </div>
 
-    <article class="entry">
-      <span class="eyebrow">EXPERIÊNCIAS ANTERIORES</span>
-      <h3>Risco, inteligência e comunicação</h3>
+          <div class="experience-copy">
 
-      <p class="career-list">
-        <span>Meta / Haganá · Agente de Risco e Inteligência (2021–2023).</span>
-        <span>Itaú Unibanco / Belfort · Operador de Monitoramento de Segurança Bilíngue (2016–2021).</span>
-        <span>Wizard by Pearson · Professor de Inglês (2012–2016).</span>
-      </p>
-    </article>
+            <div class="experience-role">
+              <span class="eyebrow">JUL 2026 — ATUAL</span>
+              <h3>V.tal · Analista de Segurança da Informação</h3>
+              <p>
+                Atuação como analista pleno em Operações de Segurança. Investigação de eventos
+                e incidentes, análise de IoCs, threat hunting e melhoria de detecções em
+                ambientes corporativos. Experiência complementar em AppSec, testes de segurança
+                de APIs, análise de riscos e coordenação de testes de intrusão externos.
+              </p>
+            </div>
+
+            <div class="experience-role experience-role-secondary">
+              <span class="eyebrow">NOV 2025 — JUN 2026</span>
+              <h3>V.tal · Analista de Segurança da Informação Júnior</h3>
+              <p>
+                Triagem de alertas SIEM e EDR, análise de logs, coleta de evidências e
+                escalonamento de incidentes. Revisão de políticas de firewall e DLP;
+                monitoramento em Microsoft 365, Entra ID, Google Workspace, Datadog,
+                Grafana e Zabbix.
+              </p>
+            </div>
+
+          </div>
+        </div>
+      </article>
+
+
+      <!-- BAYER -->
+      <article class="entry experience-entry">
+        <div class="experience-main">
+
+          <div class="experience-logo">
+            <img src="files/bayer-logo.png" alt="Bayer">
+          </div>
+
+          <div class="experience-copy">
+            <span class="eyebrow">NOV 2023 — OUT 2024</span>
+            <h3>Bayer Brasil / Suhai · Analista SOC Júnior</h3>
+            <p>
+              Investigação de alertas SIEM, EDR e de segurança de perímetro.
+              Documentação de incidentes e relatórios técnicos para apoiar auditorias
+              e melhorias de segurança.
+            </p>
+          </div>
+
+        </div>
+      </article>
+
+
+      <!-- EXPERIÊNCIAS ANTERIORES -->
+      <article class="entry experience-entry experience-earlier">
+        <span class="eyebrow">EXPERIÊNCIAS ANTERIORES</span>
+        <h3>Risco, inteligência e comunicação</h3>
+
+        <div class="earlier-career-list">
+
+          <div class="earlier-career-item">
+            <div class="experience-logo">
+              <img src="files/meta-logo.png" alt="Meta">
+            </div>
+
+            <span>
+              Meta / Haganá · Agente de Risco e Inteligência (2021–2023).
+            </span>
+          </div>
+
+          <div class="earlier-career-item">
+            <div class="experience-logo">
+              <img src="files/itau-logo.png" alt="Itaú">
+            </div>
+
+            <span>
+              Itaú Unibanco / Belfort · Operador de Monitoramento de Segurança Bilíngue (2016–2021).
+            </span>
+          </div>
+
+          <div class="earlier-career-item">
+            <div class="experience-logo">
+              <img src="files/wizard-logo.png" alt="Wizard by Pearson">
+            </div>
+
+            <span>
+              Wizard by Pearson · Professor de Inglês (2012–2016).
+            </span>
+          </div>
+
+          <div class="earlier-career-item">
+            <div class="experience-logo">
+              <img src="files/ymca-logo.png" alt="YMCA">
+            </div>
+
+            <span>
+              YMCA · Monitor de Acampamento · Work & Travel · Carolina do Norte, Estados Unidos (Jun–Dez 2011).
+            </span>
+          </div>
+
+        </div>
+      </article>
+
+    </div>
   `,
 },
+
   focus: {
     name: "Foco",
     body: "Mercúrio · Onde meu trabalho converge",
