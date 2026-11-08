@@ -78,6 +78,11 @@ function renderPanel(i) {
     const s = SECTIONS[i];
     const t = UI[lang];
 
+    if (s.id !== 'research') {
+        currentMoon = null;
+        hideMoonDock();
+    }
+
     $('#panel-orbit').textContent =
         i === 0 ? '☉ 00' : `${t.orbit} ${String(i).padStart(2, '0')}`;
 
