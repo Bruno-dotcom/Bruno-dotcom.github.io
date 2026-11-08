@@ -449,7 +449,14 @@ const SECTIONS = [
                 <h3>Offensive Security</h3>
 
                 <article class="domain-entry">
-                    <div>
+                    <div class="domain-logo">
+                        <img
+                            src="files/Atlas - Jupiter/Offensive Security - Io/mobile_security.png"
+                            alt="Mobile Security"
+                        >
+                    </div>
+
+                    <div class="domain-copy">
                         <h3>Mobile Security</h3>
                         <p>Android and iOS applications, runtime behavior, and mobile APIs.</p>
                         <span class="planned">Planned</span>
@@ -457,7 +464,14 @@ const SECTIONS = [
                 </article>
 
                 <article class="domain-entry">
-                    <div>
+                    <div class="domain-logo">
+                        <img
+                            src="files/Atlas - Jupiter/Offensive Security - Io/reverse_engineering.png"
+                            alt="Reverse Engineering"
+                        >
+                    </div>
+
+                    <div class="domain-copy">
                         <h3>Reverse Engineering</h3>
                         <p>Static and dynamic analysis, binary formats, and program behavior.</p>
                         <span class="planned">Planned</span>
@@ -465,7 +479,14 @@ const SECTIONS = [
                 </article>
 
                 <article class="domain-entry">
-                    <div>
+                    <div class="domain-logo">
+                        <img
+                            src="files/Atlas - Jupiter/Offensive Security - Io/exploit_development.png"
+                            alt="Exploit Development"
+                        >
+                    </div>
+
+                    <div class="domain-copy">
                         <h3>Exploit Development</h3>
                         <p>Memory safety, mitigations, fuzzing, and proof-of-concept research.</p>
                         <span class="planned">Planned</span>
@@ -473,12 +494,20 @@ const SECTIONS = [
                 </article>
 
                 <article class="domain-entry">
-                    <div>
+                    <div class="domain-logo">
+                        <img
+                            src="files/Atlas - Jupiter/Offensive Security - Io/web_apps_api.png"
+                            alt="Web Apps & APIs"
+                        >
+                    </div>
+
+                    <div class="domain-copy">
                         <h3>Web Apps & APIs</h3>
                         <p>Web vulnerabilities, session security, authentication, and APIs.</p>
                         <span class="planned">Planned</span>
                     </div>
                 </article>
+
             </section>
 
             <section class="research-group" data-moon="europa">
@@ -486,7 +515,14 @@ const SECTIONS = [
                 <h3>Systems & Infrastructure</h3>
 
                 <article class="domain-entry">
-                    <div>
+                    <div class="domain-logo">
+                        <img
+                            src="files/Atlas - Jupiter/Systems and Infrastructure - Europa/cloud_containers.png"
+                            alt="Cloud & Containers"
+                        >
+                    </div>
+
+                    <div class="domain-copy">
                         <h3>Cloud & Containers</h3>
                         <p>Cloud identity, workloads, container security, and configuration.</p>
                         <span class="planned">Planned</span>
@@ -494,7 +530,14 @@ const SECTIONS = [
                 </article>
 
                 <article class="domain-entry">
-                    <div>
+                    <div class="domain-logo">
+                        <img
+                            src="files/Atlas - Jupiter/Systems and Infrastructure - Europa/network_infrastructure.png"
+                            alt="Network & Infrastructure"
+                        >
+                    </div>
+
+                    <div class="domain-copy">
                         <h3>Network & Infrastructure</h3>
                         <p>Service discovery, protocols, infrastructure, and pivoting.</p>
                         <span class="planned">Planned</span>
@@ -502,7 +545,14 @@ const SECTIONS = [
                 </article>
 
                 <article class="domain-entry">
-                    <div>
+                    <div class="domain-logo">
+                        <img
+                            src="files/Atlas - Jupiter/Systems and Infrastructure - Europa/active_directory_identity.png"
+                            alt="Active Directory & Identity"
+                        >
+                    </div>
+
+                    <div class="domain-copy">
                         <h3>Active Directory & Identity</h3>
                         <p>Directory services, Kerberos, NTLM, trust, and privilege paths.</p>
                         <span class="planned">Planned</span>
@@ -510,12 +560,20 @@ const SECTIONS = [
                 </article>
 
                 <article class="domain-entry">
-                    <div>
+                    <div class="domain-logo">
+                        <img
+                            src="files/Atlas - Jupiter/Systems and Infrastructure - Europa/cryptography_cryptanalysis.png"
+                            alt="Cryptography & Cryptanalysis"
+                        >
+                    </div>
+
+                    <div class="domain-copy">
                         <h3>Cryptography & Cryptanalysis</h3>
                         <p>Cryptographic protocols, key management, PKI, and implementation analysis.</p>
                         <span class="planned">Planned</span>
                     </div>
                 </article>
+
             </section>
 
             <section class="research-group" data-moon="ganymede">
@@ -523,7 +581,14 @@ const SECTIONS = [
                 <h3>Hardware & Wireless</h3>
 
                 <article class="domain-entry">
-                    <div>
+                    <div class="domain-logo">
+                        <img
+                            src="files/Atlas - Jupiter/Hardware and Wireless - Ganymede/wireless_rf.png"
+                            alt="Wireless & RF"
+                        >
+                    </div>
+
+                    <div class="domain-copy">
                         <h3>Wireless & RF</h3>
                         <p>Wi-Fi, Bluetooth, NFC, and software-defined radio.</p>
                         <span class="planned">Planned</span>
@@ -531,7 +596,14 @@ const SECTIONS = [
                 </article>
 
                 <article class="domain-entry">
-                    <div>
+                    <div class="domain-logo">
+                        <img
+                            src="files/Atlas - Jupiter/Hardware and Wireless - Ganymede/hardware_firmware.png"
+                            alt="Hardware & Firmware"
+                        >
+                    </div>
+
+                    <div class="domain-copy">
                         <h3>Hardware & Firmware</h3>
                         <p>Debug interfaces, embedded devices, and firmware analysis.</p>
                         <span class="planned">Planned</span>
@@ -539,12 +611,20 @@ const SECTIONS = [
                 </article>
 
                 <article class="domain-entry">
-                    <div>
+                    <div class="domain-logo">
+                        <img
+                            src="files/Atlas - Jupiter/Hardware and Wireless - Ganymede/ICS &amp; OT &amp; Specialized.png"
+                            alt="ICS / OT & Specialized"
+                        >
+                    </div>
+
+                    <div class="domain-copy">
                         <h3>ICS / OT & Specialized</h3>
                         <p>Industrial systems, protocols, and specialized devices.</p>
                         <span class="planned">Planned</span>
                     </div>
                 </article>
+
             </section>
 
             <section class="research-group" data-moon="callisto">
@@ -552,7 +632,14 @@ const SECTIONS = [
                 <h3>Intelligence & Analysis</h3>
 
                 <article class="domain-entry">
-                    <div>
+                    <div class="domain-logo">
+                        <img
+                            src="files/Atlas - Jupiter/Intelligence and Analysis - Callisto/malware_forensics.png"
+                            alt="Malware & Forensics"
+                        >
+                    </div>
+
+                    <div class="domain-copy">
                         <h3>Malware & Forensics</h3>
                         <p>Malware analysis, memory evidence, and disk forensics.</p>
                         <span class="planned">Planned</span>
@@ -560,7 +647,14 @@ const SECTIONS = [
                 </article>
 
                 <article class="domain-entry">
-                    <div>
+                    <div class="domain-logo">
+                        <img
+                            src="files/Atlas - Jupiter/Intelligence and Analysis - Callisto/ai_security.png"
+                            alt="AI Security"
+                        >
+                    </div>
+
+                    <div class="domain-copy">
                         <h3>AI Security</h3>
                         <p>LLM applications, models and data, agents, and AI red teaming.</p>
                         <span class="planned">Planned</span>
@@ -568,7 +662,14 @@ const SECTIONS = [
                 </article>
 
                 <article class="domain-entry">
-                    <div>
+                    <div class="domain-logo">
+                        <img
+                            src="files/Atlas - Jupiter/Intelligence and Analysis - Callisto/osint_social_engineering.png"
+                            alt="OSINT & Social Engineering"
+                        >
+                    </div>
+
+                    <div class="domain-copy">
                         <h3>OSINT & Social Engineering</h3>
                         <p>Public sources, intelligence analysis, and human factors.</p>
                         <span class="planned">Planned</span>

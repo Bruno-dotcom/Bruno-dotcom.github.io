@@ -3956,3 +3956,22 @@ html[lang="pt-BR"] .standby h2 {
 .panel[data-section="education"] .education-copy h3 {
     margin-top: 5px;
 }
+
+/* RESEARCH ATLAS — DOMAIN LOGOS */
+
+.panel[data-section="research"] .domain-logo {
+    width: 88px;
+    height: 88px;
+    flex: 0 0 88px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.panel[data-section="research"] .domain-logo img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}

@@ -365,7 +365,14 @@ research: {
                 <h3>Segurança Ofensiva</h3>
 
                 <article class="domain-entry">
-                    <div>
+                    <div class="domain-logo">
+                        <img
+                            src="files/Atlas - Jupiter/Offensive Security - Io/mobile_security.png"
+                            alt="Segurança Mobile"
+                        >
+                    </div>
+
+                    <div class="domain-copy">
                         <h3>Segurança Mobile</h3>
                         <p>Aplicações Android e iOS, comportamento em execução e APIs móveis.</p>
                         <span class="planned">Planejado</span>
@@ -373,7 +380,14 @@ research: {
                 </article>
 
                 <article class="domain-entry">
-                    <div>
+                    <div class="domain-logo">
+                        <img
+                            src="files/Atlas - Jupiter/Offensive Security - Io/reverse_engineering.png"
+                            alt="Engenharia Reversa"
+                        >
+                    </div>
+
+                    <div class="domain-copy">
                         <h3>Engenharia Reversa</h3>
                         <p>Análise estática e dinâmica, formatos binários e comportamento de programas.</p>
                         <span class="planned">Planejado</span>
@@ -381,7 +395,14 @@ research: {
                 </article>
 
                 <article class="domain-entry">
-                    <div>
+                    <div class="domain-logo">
+                        <img
+                            src="files/Atlas - Jupiter/Offensive Security - Io/exploit_development.png"
+                            alt="Desenvolvimento de Exploits"
+                        >
+                    </div>
+
+                    <div class="domain-copy">
                         <h3>Desenvolvimento de Exploits</h3>
                         <p>Segurança de memória, mitigações, fuzzing e pesquisa de provas de conceito.</p>
                         <span class="planned">Planejado</span>
@@ -389,12 +410,20 @@ research: {
                 </article>
 
                 <article class="domain-entry">
-                    <div>
+                    <div class="domain-logo">
+                        <img
+                            src="files/Atlas - Jupiter/Offensive Security - Io/web_apps_api.png"
+                            alt="Aplicações Web & APIs"
+                        >
+                    </div>
+
+                    <div class="domain-copy">
                         <h3>Aplicações Web & APIs</h3>
                         <p>Vulnerabilidades web, segurança de sessões, autenticação e APIs.</p>
                         <span class="planned">Planejado</span>
                     </div>
                 </article>
+
             </section>
 
             <section class="research-group" data-moon="europa">
@@ -402,7 +431,14 @@ research: {
                 <h3>Sistemas & Infraestrutura</h3>
 
                 <article class="domain-entry">
-                    <div>
+                    <div class="domain-logo">
+                        <img
+                            src="files/Atlas - Jupiter/Systems and Infrastructure - Europa/cloud_containers.png"
+                            alt="Nuvem & Contêineres"
+                        >
+                    </div>
+
+                    <div class="domain-copy">
                         <h3>Nuvem & Contêineres</h3>
                         <p>Identidade em nuvem, cargas de trabalho, segurança de contêineres e configuração.</p>
                         <span class="planned">Planejado</span>
@@ -410,7 +446,14 @@ research: {
                 </article>
 
                 <article class="domain-entry">
-                    <div>
+                    <div class="domain-logo">
+                        <img
+                            src="files/Atlas - Jupiter/Systems and Infrastructure - Europa/network_infrastructure.png"
+                            alt="Redes & Infraestrutura"
+                        >
+                    </div>
+
+                    <div class="domain-copy">
                         <h3>Redes & Infraestrutura</h3>
                         <p>Descoberta de serviços, protocolos, infraestrutura e pivoting.</p>
                         <span class="planned">Planejado</span>
@@ -418,7 +461,14 @@ research: {
                 </article>
 
                 <article class="domain-entry">
-                    <div>
+                    <div class="domain-logo">
+                        <img
+                            src="files/Atlas - Jupiter/Systems and Infrastructure - Europa/active_directory_identity.png"
+                            alt="Active Directory & Identidade"
+                        >
+                    </div>
+
+                    <div class="domain-copy">
                         <h3>Active Directory & Identidade</h3>
                         <p>Serviços de diretório, Kerberos, NTLM, relações de confiança e caminhos de privilégio.</p>
                         <span class="planned">Planejado</span>
@@ -426,12 +476,20 @@ research: {
                 </article>
 
                 <article class="domain-entry">
-                    <div>
+                    <div class="domain-logo">
+                        <img
+                            src="files/Atlas - Jupiter/Systems and Infrastructure - Europa/cryptography_cryptanalysis.png"
+                            alt="Criptografia & Criptoanálise"
+                        >
+                    </div>
+
+                    <div class="domain-copy">
                         <h3>Criptografia & Criptoanálise</h3>
                         <p>Protocolos criptográficos, gestão de chaves, PKI e análise de implementações.</p>
                         <span class="planned">Planejado</span>
                     </div>
                 </article>
+
             </section>
 
             <section class="research-group" data-moon="ganymede">
@@ -439,7 +497,14 @@ research: {
                 <h3>Hardware & Wireless</h3>
 
                 <article class="domain-entry">
-                    <div>
+                    <div class="domain-logo">
+                        <img
+                            src="files/Atlas - Jupiter/Hardware and Wireless - Ganymede/wireless_rf.png"
+                            alt="Wireless & RF"
+                        >
+                    </div>
+
+                    <div class="domain-copy">
                         <h3>Wireless & RF</h3>
                         <p>Wi-Fi, Bluetooth, NFC e rádio definido por software.</p>
                         <span class="planned">Planejado</span>
@@ -447,7 +512,14 @@ research: {
                 </article>
 
                 <article class="domain-entry">
-                    <div>
+                    <div class="domain-logo">
+                        <img
+                            src="files/Atlas - Jupiter/Hardware and Wireless - Ganymede/hardware_firmware.png"
+                            alt="Hardware & Firmware"
+                        >
+                    </div>
+
+                    <div class="domain-copy">
                         <h3>Hardware & Firmware</h3>
                         <p>Interfaces de depuração, dispositivos embarcados e análise de firmware.</p>
                         <span class="planned">Planejado</span>
@@ -455,12 +527,20 @@ research: {
                 </article>
 
                 <article class="domain-entry">
-                    <div>
+                    <div class="domain-logo">
+                        <img
+                            src="files/Atlas - Jupiter/Hardware and Wireless - Ganymede/ICS &amp; OT &amp; Specialized.png"
+                            alt="ICS / OT & Especializados"
+                        >
+                    </div>
+
+                    <div class="domain-copy">
                         <h3>ICS / OT & Especializados</h3>
                         <p>Sistemas industriais, protocolos e dispositivos especializados.</p>
                         <span class="planned">Planejado</span>
                     </div>
                 </article>
+
             </section>
 
             <section class="research-group" data-moon="callisto">
@@ -468,7 +548,14 @@ research: {
                 <h3>Inteligência & Análise</h3>
 
                 <article class="domain-entry">
-                    <div>
+                    <div class="domain-logo">
+                        <img
+                            src="files/Atlas - Jupiter/Intelligence and Analysis - Callisto/malware_forensics.png"
+                            alt="Malware & Forense"
+                        >
+                    </div>
+
+                    <div class="domain-copy">
                         <h3>Malware & Forense</h3>
                         <p>Análise de malware, evidências em memória e análise forense de disco.</p>
                         <span class="planned">Planejado</span>
@@ -476,7 +563,14 @@ research: {
                 </article>
 
                 <article class="domain-entry">
-                    <div>
+                    <div class="domain-logo">
+                        <img
+                            src="files/Atlas - Jupiter/Intelligence and Analysis - Callisto/ai_security.png"
+                            alt="Segurança de IA"
+                        >
+                    </div>
+
+                    <div class="domain-copy">
                         <h3>Segurança de IA</h3>
                         <p>Aplicações com LLMs, modelos e dados, agentes e red teaming de IA.</p>
                         <span class="planned">Planejado</span>
@@ -484,7 +578,14 @@ research: {
                 </article>
 
                 <article class="domain-entry">
-                    <div>
+                    <div class="domain-logo">
+                        <img
+                            src="files/Atlas - Jupiter/Intelligence and Analysis - Callisto/osint_social_engineering.png"
+                            alt="OSINT & Engenharia Social"
+                        >
+                    </div>
+
+                    <div class="domain-copy">
                         <h3>OSINT & Engenharia Social</h3>
                         <p>Fontes abertas, análise de inteligência e fatores humanos.</p>
                         <span class="planned">Planejado</span>
@@ -496,45 +597,13 @@ research: {
         </div>
     `,
 },
+
  education: {
     name: "Formação",
     body: "Saturno · Bases para novas descobertas",
+    html: '<article class="entry"><span class="eyebrow">EM ANDAMENTO</span><h3>Pós-graduação em Inteligência Artificial</h3><p>Universidade Anhembi Morumbi</p></article><article class="entry"><span class="eyebrow">FORMAÇÃO ACADÊMICA</span><h3>Segurança da Informação</h3><p>Centro Universitário Adventista de São Paulo (UNASP)</p></article><p>Meu aprendizado combina formação acadêmica, certificações profissionais e exploração prática.</p>',
 
-    html: `
-        <div class="education-list">
-
-            <article class="education-item">
-                <div class="education-logo">
-                    <img src="files/Education - Saturn/daryus-logo.png" alt="Instituto Daryus">
-                </div>
-
-                <div class="education-copy">
-                    <span class="eyebrow">PÓS-GRADUAÇÃO · EM ANDAMENTO</span>
-                    <h3>Cyber Threat Intelligence</h3>
-                    <p>Instituto Daryus</p>
-                </div>
-            </article>
-
-            <article class="education-item">
-                <div class="education-logo">
-                    <img src="files/Education - Saturn/unasp-logo.jpg" alt="UNASP">
-                </div>
-
-                <div class="education-copy">
-                    <span class="eyebrow">FORMAÇÃO ACADÊMICA</span>
-                    <h3>Segurança da Informação</h3>
-                    <p>Centro Universitário Adventista de São Paulo (UNASP)</p>
-                </div>
-            </article>
-
-        </div>
-
-        <p class="education-note">
-            Meu aprendizado combina formação acadêmica, certificações profissionais e exploração prática.
-        </p>
-    `,
-
-},
+  },
    courses: {
     name: "Credenciais",
     body: "Urano · Certificações e formação complementar",
