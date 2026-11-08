@@ -601,9 +601,41 @@ research: {
  education: {
     name: "Formação",
     body: "Saturno · Bases para novas descobertas",
-    html: '<article class="entry"><span class="eyebrow">EM ANDAMENTO</span><h3>Pós-graduação em Inteligência Artificial</h3><p>Universidade Anhembi Morumbi</p></article><article class="entry"><span class="eyebrow">FORMAÇÃO ACADÊMICA</span><h3>Segurança da Informação</h3><p>Centro Universitário Adventista de São Paulo (UNASP)</p></article><p>Meu aprendizado combina formação acadêmica, certificações profissionais e exploração prática.</p>',
 
-  },
+    html: `
+        <div class="education-list">
+
+            <article class="education-item">
+                <div class="education-logo">
+                    <img src="files/Education - Saturn/daryus-logo.png" alt="Instituto Daryus">
+                </div>
+
+                <div class="education-copy">
+                    <span class="eyebrow">PÓS-GRADUAÇÃO · EM ANDAMENTO</span>
+                    <h3>Cyber Threat Intelligence</h3>
+                    <p>Instituto Daryus</p>
+                </div>
+            </article>
+
+            <article class="education-item">
+                <div class="education-logo">
+                    <img src="files/Education - Saturn/unasp-logo.jpg" alt="UNASP">
+                </div>
+
+                <div class="education-copy">
+                    <span class="eyebrow">FORMAÇÃO ACADÊMICA</span>
+                    <h3>Segurança da Informação</h3>
+                    <p>Centro Universitário Adventista de São Paulo (UNASP)</p>
+                </div>
+            </article>
+
+        </div>
+
+        <p class="education-note">
+            Meu aprendizado combina formação acadêmica, certificações profissionais e exploração prática.
+        </p>
+    `,
+},
    courses: {
     name: "Credenciais",
     body: "Urano · Certificações e formação complementar",

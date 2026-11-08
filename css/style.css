@@ -3975,3 +3975,21 @@ html[lang="pt-BR"] .standby h2 {
     height: 100%;
     object-fit: contain;
 }
+
+/* ============================================================
+   JUPITER — OBSERVER / TELESCOPE
+   ============================================================ */
+
+.panel[data-section="research"] .research-observer {
+    width: 100%;
+    overflow: hidden;
+}
+
+.panel[data-section="research"] .research-observer img {
+    display: block;
+    width: 100%;
+    max-width: none;
+    height: auto;
+    object-fit: cover;
+    margin: 0;
+}

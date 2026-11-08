@@ -154,9 +154,13 @@ function renderPanel(i) {
                     </div>
 
                     <span class="research-moon-arrow">→</span>
-                </button>
+                               </button>
 
             </div>
+
+            <div class="research-observer">
+    <img src="files/Atlas - Jupiter/bruno-telescope-night.png" alt="">
+</div>
         `;
 
     } else if (s.id === 'skills') {
