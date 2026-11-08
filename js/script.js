@@ -918,9 +918,7 @@ setInterval(tick, 1000);
 
 /* ---------- boot ---------- */
 
-let initialLanguage = 'en';
-try { initialLanguage = localStorage.getItem('language') || 'en'; } catch (e) {}
-setLanguage(initialLanguage);
+setLanguage('en');
 
 const fromHash = SECTIONS.findIndex(s => '#' + s.id === location.hash);
 if (fromHash >= 0) setTimeout(() => open(fromHash), 400);
