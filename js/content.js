@@ -2,17 +2,13 @@
   en: {
     ...{
       role: "Cybersecurity Professional",
-      tagline:
-        "Security Operations ·\u00A0Offensive\u00A0Security · AI Security",
       lead: "Investigating threats. Exploring attack paths. Building knowledge across the cybersecurity universe.",
       explore: "Explore my universe",
-      cv: "Download rÃ©sumÃ©",
       hint: "Drag to orbit · Scroll to zoom · Select a planet",
       prev: "Previous",
       next: "Next",
       orbit: "Orbit",
       close: "Close",
-      status: "CYBERSECURITY · RESEARCH · EXPLORATION",
       standbySignal: "a signal from beyond",
       standbyNote:
         "Every discovery starts with a question. Keep looking beyond the familiar.",
@@ -27,32 +23,30 @@
 const SECTIONS = [
   {
     id: "about",
-    name: { en: "About" },
-    body: { en: "Sun · The center of my universe" },
     visual: { kind: "sun", size: 6 },
 
-    html: `
+    template: (text) => `
   <div class="about-layout">
 
     <div class="about-copy">
 
       <p class="lead">
-        Cybersecurity, offensive security, and artificial intelligence converge in a career shaped by investigation, analysis, and technical exploration.
+        ${text.lead}
       </p>
 
       <p>
-        Cybersecurity professional with experience in Security Operations, incident response, threat hunting, AppSec, and penetration testing, with a growing focus on Offensive Security and AI Security.
+        ${text.description}
       </p>
 
       <dl class="about-facts">
         <div>
-          <dt>Current role</dt>
-          <dd>Information Security Analyst · V.tal</dd>
+          <dt>${text.roleLabel}</dt>
+          <dd>${text.currentRole}</dd>
         </div>
 
         <div>
-          <dt>Languages</dt>
-          <dd>Portuguese · English · Spanish</dd>
+          <dt>${text.languagesLabel}</dt>
+          <dd>${text.languages}</dd>
         </div>
       </dl>
 
@@ -74,8 +68,6 @@ const SECTIONS = [
 
  {
     id: "focus",
-    name: { en: "Focus" },
-    body: { en: "Mercury · Where my work converges" },
 
     visual: {
         kind: "rocky",
@@ -84,24 +76,22 @@ const SECTIONS = [
         colors: ["#8f8984", "#6a645f", "#c2bbb3"],
     },
 
-    html: `
+    template: (text) => `
         <div class="focus-grid">
 
             <article class="focus-card">
                 <div class="focus-image">
                     <img
                         src="files/Focus - Mercury/Escudo_Cybersecurity_Neon.png"
-                        alt="Security Operations"
+                        alt="${text.operationsTitle}"
                     >
                 </div>
 
                 <div class="focus-card-content">
-                    <span class="eyebrow">01 · DETECT & RESPOND</span>
-                    <h3>Security Operations</h3>
+                    <span class="eyebrow">${text.operationsLabel}</span>
+                    <h3>${text.operationsTitle}</h3>
                     <p>
-                        Investigating security events, correlating evidence,
-                        hunting threats, and improving the effectiveness of
-                        security controls.
+                        ${text.operationsDescription}
                     </p>
                 </div>
             </article>
@@ -110,17 +100,15 @@ const SECTIONS = [
                 <div class="focus-image">
                     <img
                         src="files/Focus - Mercury/Chapeu_Hacker_Neon.png"
-                        alt="Offensive Security and AppSec"
+                        alt="${text.offensiveAlt}"
                     >
                 </div>
 
                 <div class="focus-card-content">
-                    <span class="eyebrow">02 · TEST & UNDERSTAND</span>
-                    <h3>Offensive Security & AppSec</h3>
+                    <span class="eyebrow">${text.offensiveLabel}</span>
+                    <h3>${text.offensiveTitle}</h3>
                     <p>
-                        Vulnerability assessment, API security testing,
-                        and hands-on exploration of attack paths in
-                        controlled environments.
+                        ${text.offensiveDescription}
                     </p>
                 </div>
             </article>
@@ -129,17 +117,15 @@ const SECTIONS = [
                 <div class="focus-image">
                     <img
                         src="files/Focus - Mercury/Robo_IA_Neon.png"
-                        alt="AI Security"
+                        alt="${text.aiTitle}"
                     >
                 </div>
 
                 <div class="focus-card-content">
-                    <span class="eyebrow">03 · RESEARCH & LEARN</span>
-                    <h3>AI Security</h3>
+                    <span class="eyebrow">${text.aiLabel}</span>
+                    <h3>${text.aiTitle}</h3>
                     <p>
-                        Studying artificial intelligence and developing
-                        a research direction around model, application,
-                        and agent security.
+                        ${text.aiDescription}
                     </p>
                 </div>
             </article>
@@ -150,8 +136,6 @@ const SECTIONS = [
 
 {
     id: "experience",
-    name: { en: "Experience" },
-    body: { en: "Venus · Field experience" },
 
     visual: {
         kind: "gas",
@@ -160,7 +144,7 @@ const SECTIONS = [
         colors: ["#e8c88e", "#d6a65f", "#f5e3bd"],
     },
 
-   html: `
+    template: (text) => `
   <div class="experience-timeline">
 
     <!-- V.TAL -->
@@ -174,23 +158,18 @@ const SECTIONS = [
         <div class="experience-copy">
 
           <div class="experience-role">
-            <span class="eyebrow">JUL 2026 — PRESENT</span>
-            <h3>V.tal · Information Security Analyst</h3>
+            <span class="eyebrow">${text.vtalDates}</span>
+            <h3>${text.vtalTitle}</h3>
             <p>
-              Mid-level role in Security Operations. Security event and incident
-              investigation, IoC analysis, threat hunting, and detection improvements
-              across enterprise environments. Complementary work in AppSec, API security
-              testing, risk assessments, and coordination of external penetration tests.
+              ${text.vtalDescription}
             </p>
           </div>
 
           <div class="experience-role experience-role-secondary">
             <span class="eyebrow">NOV 2025 — JUN 2026</span>
-            <h3>V.tal · Junior Information Security Analyst</h3>
+            <h3>${text.juniorTitle}</h3>
             <p>
-              SIEM and EDR alert triage, log analysis, evidence collection, and incident
-              escalation. Firewall and DLP policy reviews; monitoring across Microsoft 365,
-              Entra ID, Google Workspace, Datadog, Grafana, and Zabbix.
+              ${text.juniorDescription}
             </p>
           </div>
 
@@ -208,12 +187,10 @@ const SECTIONS = [
         </div>
 
         <div class="experience-copy">
-          <span class="eyebrow">NOV 2023 — OCT 2024</span>
-          <h3>Bayer Brasil / Suhai · Junior SOC Analyst</h3>
+          <span class="eyebrow">${text.bayerDates}</span>
+          <h3>${text.bayerTitle}</h3>
           <p>
-            Investigation of SIEM, EDR, and perimeter security alerts. Incident
-            documentation and technical reporting to support audits and security
-            improvements.
+            ${text.bayerDescription}
           </p>
         </div>
 
@@ -222,8 +199,8 @@ const SECTIONS = [
 
     <!-- EARLIER EXPERIENCE -->
     <article class="entry experience-entry experience-earlier">
-      <span class="eyebrow">EARLIER EXPERIENCE</span>
-      <h3>Risk, intelligence & communication</h3>
+      <span class="eyebrow">${text.earlierLabel}</span>
+      <h3>${text.earlierTitle}</h3>
 
       <div class="earlier-career-list">
 
@@ -233,7 +210,7 @@ const SECTIONS = [
           </div>
 
           <span>
-            Meta / Haganá · Risk and Intelligence Agent (2021-2023).
+            ${text.meta}
           </span>
         </div>
 
@@ -243,7 +220,7 @@ const SECTIONS = [
           </div>
 
           <span>
-            Itaú Unibanco / Belfort · Bilingual Security Monitoring Operator (2016-2021).
+            ${text.itau}
           </span>
         </div>
 
@@ -253,7 +230,7 @@ const SECTIONS = [
           </div>
 
           <span>
-            Wizard by Pearson · English Teacher (2012-2016).
+            ${text.wizard}
           </span>
         </div>
 
@@ -263,7 +240,7 @@ const SECTIONS = [
         </div>
 
          <span>
-           YMCA · Camp Counselor · Work & Travel · North Carolina, United States (Jun-Dec 2011).
+           ${text.ymca}
         </span>
         </div>
 
@@ -276,8 +253,6 @@ const SECTIONS = [
 
 {
     id: "projects",
-    name: { en: "Projects" },
-    body: { en: "Earth · Built in the real world" },
 
     visual: {
         kind: "earth",
@@ -286,25 +261,25 @@ const SECTIONS = [
         moons: [{ color: 10328724, size: 0.38 }],
     },
 
-    html: `
-        <p class="lead">Personal projects where cybersecurity, infrastructure, hardware and artificial intelligence meet hands-on experimentation.</p>
+    template: (text) => `
+        <p class="lead">${text.lead}</p>
 
         <div class="project-grid">
 
-            <article class="project-card">
-                <div class="project-image">
-                   <img src="files/Projects - Earth/home-server-cq40.png" alt="HP Compaq Presario CQ40 Home Server">
+            <article class="project-card project-card-clickable" data-project="home-server" tabindex="0" role="button">
+                <div class="project-image project-image-home-server">
+                   <img src="files/Projects - Earth/home-server-cq40.png" alt="${text.homeServerAlt}">
                 </div>
 
                 <div class="project-card-content">
-                    <span class="eyebrow">HOME LAB · INFRASTRUCTURE</span>
+                    <span class="eyebrow">${text.homeServerLabel}</span>
                     <h3>Home Server</h3>
                     <p class="project-device">HP Compaq Presario CQ40</p>
-                    <p>Repurposed legacy hardware running Debian Server as the core of my home cybersecurity laboratory and network infrastructure.</p>
+                    <p>${text.homeServerDescription}</p>
                 </div>
             </article>
 
-            <article class="project-card">
+            <article class="project-card project-card-clickable" data-project="cardputer" tabindex="0" role="button">
                 <div class="project-image project-image-cardputer">
                     <img src="files/Projects - Earth/cardputer.png" alt="M5Stack Cardputer ADV">
                 </div>
@@ -313,20 +288,20 @@ const SECTIONS = [
                     <span class="eyebrow">HARDWARE · WIRELESS</span>
                     <h3>Cardputer ADV</h3>
                     <p class="project-device">M5Stack · ESP32-S3</p>
-                    <p>A portable embedded platform used for hardware, wireless and security experimentation.</p>
+                    <p>${text.cardputerDescription}</p>
                 </div>
             </article>
 
-            <article class="project-card project-card-mavie">
+            <article class="project-card project-card-marie project-card-clickable" data-project="marie" tabindex="0" role="button">
                 <div class="project-image project-image-placeholder">
                     <span>MARIE</span>
                 </div>
 
                 <div class="project-card-content">
-                    <span class="eyebrow">ARTIFICIAL INTELLIGENCE</span>
+                    <span class="eyebrow">${text.marieLabel}</span>
                     <h3>Marie</h3>
-                    <p class="project-device">Local AI Project</p>
-                    <p>An experimental local AI system exploring persistent memory, autonomous reflection and private on-device intelligence.</p>
+                    <p class="project-device">${text.marieType}</p>
+                    <p>${text.marieDescription}</p>
                 </div>
             </article>
 
@@ -335,8 +310,6 @@ const SECTIONS = [
 },
   {
     id: "skills",
-    name: { en: "Skills" },
-    body: { en: "Mars · Tools, systems & methods" },
 
     visual: {
         kind: "rocky",
@@ -389,8 +362,6 @@ const SECTIONS = [
 },
     {
     id: "research",
-    name: { en: "Research Atlas" },
-    body: { en: "Jupiter" },
 
     visual: {
     kind: "gas",
@@ -439,27 +410,25 @@ const SECTIONS = [
     ],
 },
 
-    html: `
-        <p class="lead">Explore the Research Atlas through Jupiter's moons.</p>
-
+    template: (text) => `
         <div class="research-groups">
 
             <section class="research-group" data-moon="io">
                 <span class="eyebrow">IO</span>
-                <h3>Offensive Security</h3>
+                <h3>${text.ioTitle}</h3>
 
                 <article class="domain-entry">
                     <div class="domain-logo">
                         <img
                             src="files/Atlas - Jupiter/Offensive Security - Io/mobile_security.png"
-                            alt="Mobile Security"
+                            alt="${text.mobileTitle}"
                         >
                     </div>
 
                     <div class="domain-copy">
-                        <h3>Mobile Security</h3>
-                        <p>Android and iOS applications, runtime behavior, and mobile APIs.</p>
-                        <span class="planned">Planned</span>
+                        <h3>${text.mobileTitle}</h3>
+                        <p>${text.mobileDescription}</p>
+                        <span class="planned">${text.planned}</span>
                     </div>
                 </article>
 
@@ -467,14 +436,14 @@ const SECTIONS = [
                     <div class="domain-logo">
                         <img
                             src="files/Atlas - Jupiter/Offensive Security - Io/reverse_engineering.png"
-                            alt="Reverse Engineering"
+                            alt="${text.reverseEngineeringTitle}"
                         >
                     </div>
 
                     <div class="domain-copy">
-                        <h3>Reverse Engineering</h3>
-                        <p>Static and dynamic analysis, binary formats, and program behavior.</p>
-                        <span class="planned">Planned</span>
+                        <h3>${text.reverseEngineeringTitle}</h3>
+                        <p>${text.reverseEngineeringDescription}</p>
+                        <span class="planned">${text.planned}</span>
                     </div>
                 </article>
 
@@ -482,14 +451,14 @@ const SECTIONS = [
                     <div class="domain-logo">
                         <img
                             src="files/Atlas - Jupiter/Offensive Security - Io/exploit_development.png"
-                            alt="Exploit Development"
+                            alt="${text.exploitTitle}"
                         >
                     </div>
 
                     <div class="domain-copy">
-                        <h3>Exploit Development</h3>
-                        <p>Memory safety, mitigations, fuzzing, and proof-of-concept research.</p>
-                        <span class="planned">Planned</span>
+                        <h3>${text.exploitTitle}</h3>
+                        <p>${text.exploitDescription}</p>
+                        <span class="planned">${text.planned}</span>
                     </div>
                 </article>
 
@@ -497,14 +466,14 @@ const SECTIONS = [
                     <div class="domain-logo">
                         <img
                             src="files/Atlas - Jupiter/Offensive Security - Io/web_apps_api.png"
-                            alt="Web Apps & APIs"
+                            alt="${text.webAppsTitle}"
                         >
                     </div>
 
                     <div class="domain-copy">
-                        <h3>Web Apps & APIs</h3>
-                        <p>Web vulnerabilities, session security, authentication, and APIs.</p>
-                        <span class="planned">Planned</span>
+                        <h3>${text.webAppsTitle}</h3>
+                        <p>${text.webAppsDescription}</p>
+                        <span class="planned">${text.planned}</span>
                     </div>
                 </article>
 
@@ -512,20 +481,20 @@ const SECTIONS = [
 
             <section class="research-group" data-moon="europa">
                 <span class="eyebrow">EUROPA</span>
-                <h3>Systems & Infrastructure</h3>
+                <h3>${text.europaTitle}</h3>
 
                 <article class="domain-entry">
                     <div class="domain-logo">
                         <img
                             src="files/Atlas - Jupiter/Systems and Infrastructure - Europa/cloud_containers.png"
-                            alt="Cloud & Containers"
+                            alt="${text.cloudTitle}"
                         >
                     </div>
 
                     <div class="domain-copy">
-                        <h3>Cloud & Containers</h3>
-                        <p>Cloud identity, workloads, container security, and configuration.</p>
-                        <span class="planned">Planned</span>
+                        <h3>${text.cloudTitle}</h3>
+                        <p>${text.cloudDescription}</p>
+                        <span class="planned">${text.planned}</span>
                     </div>
                 </article>
 
@@ -533,14 +502,14 @@ const SECTIONS = [
                     <div class="domain-logo">
                         <img
                             src="files/Atlas - Jupiter/Systems and Infrastructure - Europa/network_infrastructure.png"
-                            alt="Network & Infrastructure"
+                            alt="${text.networkTitle}"
                         >
                     </div>
 
                     <div class="domain-copy">
-                        <h3>Network & Infrastructure</h3>
-                        <p>Service discovery, protocols, infrastructure, and pivoting.</p>
-                        <span class="planned">Planned</span>
+                        <h3>${text.networkTitle}</h3>
+                        <p>${text.networkDescription}</p>
+                        <span class="planned">${text.planned}</span>
                     </div>
                 </article>
 
@@ -548,14 +517,14 @@ const SECTIONS = [
                     <div class="domain-logo">
                         <img
                             src="files/Atlas - Jupiter/Systems and Infrastructure - Europa/active_directory_identity.png"
-                            alt="Active Directory & Identity"
+                            alt="${text.directoryTitle}"
                         >
                     </div>
 
                     <div class="domain-copy">
-                        <h3>Active Directory & Identity</h3>
-                        <p>Directory services, Kerberos, NTLM, trust, and privilege paths.</p>
-                        <span class="planned">Planned</span>
+                        <h3>${text.directoryTitle}</h3>
+                        <p>${text.directoryDescription}</p>
+                        <span class="planned">${text.planned}</span>
                     </div>
                 </article>
 
@@ -563,14 +532,14 @@ const SECTIONS = [
                     <div class="domain-logo">
                         <img
                             src="files/Atlas - Jupiter/Systems and Infrastructure - Europa/cryptography_cryptanalysis.png"
-                            alt="Cryptography & Cryptanalysis"
+                            alt="${text.cryptographyTitle}"
                         >
                     </div>
 
                     <div class="domain-copy">
-                        <h3>Cryptography & Cryptanalysis</h3>
-                        <p>Cryptographic protocols, key management, PKI, and implementation analysis.</p>
-                        <span class="planned">Planned</span>
+                        <h3>${text.cryptographyTitle}</h3>
+                        <p>${text.cryptographyDescription}</p>
+                        <span class="planned">${text.planned}</span>
                     </div>
                 </article>
 
@@ -590,8 +559,8 @@ const SECTIONS = [
 
                     <div class="domain-copy">
                         <h3>Wireless & RF</h3>
-                        <p>Wi-Fi, Bluetooth, NFC, and software-defined radio.</p>
-                        <span class="planned">Planned</span>
+                        <p>${text.wirelessDescription}</p>
+                        <span class="planned">${text.planned}</span>
                     </div>
                 </article>
 
@@ -605,8 +574,8 @@ const SECTIONS = [
 
                     <div class="domain-copy">
                         <h3>Hardware & Firmware</h3>
-                        <p>Debug interfaces, embedded devices, and firmware analysis.</p>
-                        <span class="planned">Planned</span>
+                        <p>${text.firmwareDescription}</p>
+                        <span class="planned">${text.planned}</span>
                     </div>
                 </article>
 
@@ -614,14 +583,14 @@ const SECTIONS = [
                     <div class="domain-logo">
                         <img
                             src="files/Atlas - Jupiter/Hardware and Wireless - Ganymede/ICS &amp; OT &amp; Specialized.png"
-                            alt="ICS / OT & Specialized"
+                            alt="${text.industrialTitle}"
                         >
                     </div>
 
                     <div class="domain-copy">
-                        <h3>ICS / OT & Specialized</h3>
-                        <p>Industrial systems, protocols, and specialized devices.</p>
-                        <span class="planned">Planned</span>
+                        <h3>${text.industrialTitle}</h3>
+                        <p>${text.industrialDescription}</p>
+                        <span class="planned">${text.planned}</span>
                     </div>
                 </article>
 
@@ -629,20 +598,20 @@ const SECTIONS = [
 
             <section class="research-group" data-moon="callisto">
                 <span class="eyebrow">CALLISTO</span>
-                <h3>Intelligence & Analysis</h3>
+                <h3>${text.callistoTitle}</h3>
 
                 <article class="domain-entry">
                     <div class="domain-logo">
                         <img
                             src="files/Atlas - Jupiter/Intelligence and Analysis - Callisto/malware_forensics.png"
-                            alt="Malware & Forensics"
+                            alt="${text.malwareTitle}"
                         >
                     </div>
 
                     <div class="domain-copy">
-                        <h3>Malware & Forensics</h3>
-                        <p>Malware analysis, memory evidence, and disk forensics.</p>
-                        <span class="planned">Planned</span>
+                        <h3>${text.malwareTitle}</h3>
+                        <p>${text.malwareDescription}</p>
+                        <span class="planned">${text.planned}</span>
                     </div>
                 </article>
 
@@ -650,14 +619,14 @@ const SECTIONS = [
                     <div class="domain-logo">
                         <img
                             src="files/Atlas - Jupiter/Intelligence and Analysis - Callisto/ai_security.png"
-                            alt="AI Security"
+                            alt="${text.aiTitle}"
                         >
                     </div>
 
                     <div class="domain-copy">
-                        <h3>AI Security</h3>
-                        <p>LLM applications, models and data, agents, and AI red teaming.</p>
-                        <span class="planned">Planned</span>
+                        <h3>${text.aiTitle}</h3>
+                        <p>${text.aiDescription}</p>
+                        <span class="planned">${text.planned}</span>
                     </div>
                 </article>
 
@@ -665,14 +634,14 @@ const SECTIONS = [
                     <div class="domain-logo">
                         <img
                             src="files/Atlas - Jupiter/Intelligence and Analysis - Callisto/osint_social_engineering.png"
-                            alt="OSINT & Social Engineering"
+                            alt="${text.osintTitle}"
                         >
                     </div>
 
                     <div class="domain-copy">
-                        <h3>OSINT & Social Engineering</h3>
-                        <p>Public sources, intelligence analysis, and human factors.</p>
-                        <span class="planned">Planned</span>
+                        <h3>${text.osintTitle}</h3>
+                        <p>${text.osintDescription}</p>
+                        <span class="planned">${text.planned}</span>
                     </div>
                 </article>
 
@@ -683,15 +652,13 @@ const SECTIONS = [
 },
   {
     id: "education",
-    name: { en: "Education" },
-    body: { en: "Saturn \u00b7 Foundations for further discovery" },
     visual: {
       kind: "ringed",
       size: 2.6,
       orbit: 46,
       colors: ["#d9c38f", "#b89a5e", "#f1e2b8"],
     },
-html: `
+    template: (text) => `
     <div class="education-list">
 
         <article class="education-item">
@@ -700,7 +667,7 @@ html: `
             </div>
 
             <div class="education-copy">
-    <span class="eyebrow">POSTGRADUATE PROGRAM · IN PROGRESS</span>
+    <span class="eyebrow">${text.postgraduateLabel}</span>
     <h3>Cyber Threat Intelligence</h3>
     <p>Instituto Daryus</p>
 </div>
@@ -712,23 +679,21 @@ html: `
             </div>
 
             <div class="education-copy">
-                <span class="eyebrow">ACADEMIC BACKGROUND</span>
-                <h3>Information Security</h3>
-                <p>Adventist University of São Paulo (UNASP)</p>
+                <span class="eyebrow">${text.academicLabel}</span>
+                <h3>${text.degree}</h3>
+                <p>${text.university}</p>
             </div>
         </article>
 
     </div>
 
     <p class="education-note">
-        My learning combines formal education, professional certifications, and practical exploration.
+        ${text.learningSummary}
     </p>
 `,
 },
   {
     id: "courses",
-    name: { en: "Credentials" },
-    body: { en: "Uranus · Certifications & additional training" },
 
     visual: {
         kind: "ice",
@@ -739,10 +704,9 @@ html: `
         faintRing: true,
     },
 
-    html: `
+    template: (text) => `
         <p class="lead">
-            A foundation across offensive security, security analysis,
-            information security and service management.
+            ${text.lead}
         </p>
 
         <div class="credentials-grid">
@@ -750,7 +714,7 @@ html: `
             <article class="credential-card">
                 <img class="credential-badge" src="files/Credentials - Uranus/CompTIA_PenTest_Plus.png" alt="CompTIA PenTest+">
                 <div class="credential-info">
-                    <span class="eyebrow">CERTIFICATION</span>
+                    <span class="eyebrow">${text.certification}</span>
                     <h3>CompTIA PenTest+</h3>
                     <p>PT0-003 · CompTIA</p>
                 </div>
@@ -759,7 +723,7 @@ html: `
             <article class="credential-card">
                 <img class="credential-badge" src="files/Credentials - Uranus/CompTIA_CySA_Plus.png" alt="CompTIA CySA+">
                 <div class="credential-info">
-                    <span class="eyebrow">CERTIFICATION</span>
+                    <span class="eyebrow">${text.certification}</span>
                     <h3>CompTIA CySA+</h3>
                     <p>CS0-003 · CompTIA</p>
                 </div>
@@ -768,7 +732,7 @@ html: `
             <article class="credential-card">
                 <img class="credential-badge" src="files/Credentials - Uranus/CompTIA_Security_Plus.png" alt="CompTIA Security+">
                 <div class="credential-info">
-                    <span class="eyebrow">CERTIFICATION</span>
+                    <span class="eyebrow">${text.certification}</span>
                     <h3>CompTIA Security+</h3>
                     <p>SY0-701 · CompTIA</p>
                 </div>
@@ -777,7 +741,7 @@ html: `
             <article class="credential-card">
                 <img class="credential-badge" src="files/Credentials - Uranus/EXIN_ISO_27001.png" alt="EXIN ISO IEC 27001">
                 <div class="credential-info">
-                    <span class="eyebrow">CERTIFICATION</span>
+                    <span class="eyebrow">${text.certification}</span>
                     <h3>ISO/IEC 27001 (ISFS)</h3>
                     <p>EXIN</p>
                 </div>
@@ -786,7 +750,7 @@ html: `
             <article class="credential-card">
                 <img class="credential-badge" src="files/Credentials - Uranus/ITIL_4_Foundation.png" alt="ITIL 4 Foundation">
                 <div class="credential-info">
-                    <span class="eyebrow">CERTIFICATION</span>
+                    <span class="eyebrow">${text.certification}</span>
                     <h3>ITIL 4 Foundation</h3>
                     <p>PeopleCert</p>
                 </div>
@@ -795,7 +759,7 @@ html: `
             <article class="credential-card">
                 <img class="credential-badge" src="files/Credentials - Uranus/Kaspersky_Endpoint_Security.png" alt="Kaspersky Endpoint Security and Management">
                 <div class="credential-info">
-                    <span class="eyebrow">ADDITIONAL TRAINING</span>
+                    <span class="eyebrow">${text.training}</span>
                     <h3>Kaspersky Endpoint Security and Management</h3>
                     <p>Kaspersky</p>
                 </div>
@@ -804,8 +768,8 @@ html: `
             <article class="credential-card">
                 <img class="credential-badge" src="files/Credentials - Uranus/Google_Cybersecurity.png" alt="Google Cybersecurity">
                 <div class="credential-info">
-                    <span class="eyebrow">ADDITIONAL TRAINING</span>
-                    <h3>Cybersecurity Specialization</h3>
+                    <span class="eyebrow">${text.training}</span>
+                    <h3>${text.cybersecuritySpecialization}</h3>
                     <p>Google</p>
                 </div>
             </article>
@@ -813,7 +777,7 @@ html: `
             <article class="credential-card">
                 <img class="credential-badge" src="files/Credentials - Uranus/Cisco_Junior_Cybersecurity_Analyst.png" alt="Cisco Junior Cybersecurity Analyst">
                 <div class="credential-info">
-                    <span class="eyebrow">ADDITIONAL TRAINING</span>
+                    <span class="eyebrow">${text.training}</span>
                     <h3>Junior Cybersecurity Analyst</h3>
                     <p>Cisco</p>
                 </div>
@@ -824,8 +788,6 @@ html: `
 },
   {
     id: "contact",
-    name: { en: "Contact" },
-    body: { en: "Neptune · Open a channel" },
 
     visual: {
         kind: "gas",
@@ -834,7 +796,30 @@ html: `
         colors: ["#3d6fe0", "#2442a8", "#8fb3ff"],
     },
 
-    html: '<p class="lead">Let’s connect.</p><p>For professional opportunities, research conversations, or collaboration on cybersecurity projects.</p><div class="contact-links"><a class="btn" href="mailto:brunoalmeida438@gmail.com"><svg class="contact-icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="#FFFFFF" d="M3.5 5h17A2.5 2.5 0 0 1 23 7.5v9a2.5 2.5 0 0 1-2.5 2.5h-17A2.5 2.5 0 0 1 1 16.5v-9A2.5 2.5 0 0 1 3.5 5Z"/><path fill="#4285F4" d="M1 7.3 4.5 10v9h-1A2.5 2.5 0 0 1 1 16.5V7.3Z"/><path fill="#34A853" d="M23 7.3 19.5 10v9h1a2.5 2.5 0 0 0 2.5-2.5V7.3Z"/><path fill="#EA4335" d="M2 6.1A2.5 2.5 0 0 1 5.2 5.4L12 10.5l6.8-5.1a2.5 2.5 0 0 1 3.2.7L12 13.6 2 6.1Z"/><path fill="#FBBC04" d="M4.5 10 1 7.3v-.8c0-.3.05-.6.15-.87L4.5 8.15V10Z"/><path fill="#C5221F" d="M19.5 10 23 7.3v-.8c0-.3-.05-.6-.15-.87L19.5 8.15V10Z"/></svg>Email Bruno</a><a class="btn" href="https://www.linkedin.com/in/bruno-almeida-bruno" target="_blank" rel="noopener noreferrer"><svg class="contact-icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="#0A66C2" d="M20.45 2H3.55A1.55 1.55 0 0 0 2 3.55v16.9A1.55 1.55 0 0 0 3.55 22h16.9A1.55 1.55 0 0 0 22 20.45V3.55A1.55 1.55 0 0 0 20.45 2Z"/><path fill="#fff" d="M5.34 9.49h2.86V18H5.34V9.49Zm1.43-4.23a1.66 1.66 0 1 1 0 3.32 1.66 1.66 0 0 1 0-3.32ZM9.86 9.49h2.74v1.16h.04c.38-.72 1.31-1.48 2.7-1.48 2.89 0 3.42 1.9 3.42 4.37V18H15.9v-3.95c0-.94-.02-2.15-1.31-2.15-1.31 0-1.51 1.02-1.51 2.08V18H9.86V9.49Z"/></svg>LinkedIn</a><a class="btn" href="files/Contact - Neptune/Bruno Almeida - Professional Summary.pdf" download><svg class="contact-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 2.75h7l5 5V12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M13 2.75V8h5M6 2.75v18.5h6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M16.5 13v8M13.5 18l3 3 3-3" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>Download Résumé</a></div><dl class="facts"><div><dt>Email</dt><dd><a href="mailto:brunoalmeida438@gmail.com">brunoalmeida438@gmail.com</a></dd></div><div><dt>Based in</dt><dd>São Paulo, Brazil</dd></div></dl>',
+    template: (text) => `
+      <p class="lead">${text.lead}</p>
+      <p>${text.description}</p>
+      <div class="contact-links">
+        <a class="btn" href="mailto:brunoalmeida438@gmail.com"><svg class="contact-icon" viewBox="0 0 24 24" aria-hidden="true">
+          <path fill="#FFFFFF" d="M3.5 5h17A2.5 2.5 0 0 1 23 7.5v9a2.5 2.5 0 0 1-2.5 2.5h-17A2.5 2.5 0 0 1 1 16.5v-9A2.5 2.5 0 0 1 3.5 5Z"/>
+          <path fill="#4285F4" d="M1 7.3 4.5 10v9h-1A2.5 2.5 0 0 1 1 16.5V7.3Z"/>
+          <path fill="#34A853" d="M23 7.3 19.5 10v9h1a2.5 2.5 0 0 0 2.5-2.5V7.3Z"/>
+          <path fill="#EA4335" d="M2 6.1A2.5 2.5 0 0 1 5.2 5.4L12 10.5l6.8-5.1a2.5 2.5 0 0 1 3.2.7L12 13.6 2 6.1Z"/>
+          <path fill="#FBBC04" d="M4.5 10 1 7.3v-.8c0-.3.05-.6.15-.87L4.5 8.15V10Z"/>
+          <path fill="#C5221F" d="M19.5 10 23 7.3v-.8c0-.3-.05-.6-.15-.87L19.5 8.15V10Z"/>
+        </svg>${text.emailAction}</a>
+        <a class="btn" href="https://www.linkedin.com/in/bruno-almeida-bruno" target="_blank" rel="noopener noreferrer"><svg class="contact-icon" viewBox="0 0 24 24" aria-hidden="true">
+          <path fill="#0A66C2" d="M20.45 2H3.55A1.55 1.55 0 0 0 2 3.55v16.9A1.55 1.55 0 0 0 3.55 22h16.9A1.55 1.55 0 0 0 22 20.45V3.55A1.55 1.55 0 0 0 20.45 2Z"/>
+          <path fill="#fff" d="M5.34 9.49h2.86V18H5.34V9.49Zm1.43-4.23a1.66 1.66 0 1 1 0 3.32 1.66 1.66 0 0 1 0-3.32ZM9.86 9.49h2.74v1.16h.04c.38-.72 1.31-1.48 2.7-1.48 2.89 0 3.42 1.9 3.42 4.37V18H15.9v-3.95c0-.94-.02-2.15-1.31-2.15-1.31 0-1.51 1.02-1.51 2.08V18H9.86V9.49Z"/>
+        </svg>LinkedIn</a>
+        <a class="btn" href="${text.resumePath}" download><svg class="contact-icon" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M6 2.75h7l5 5V12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M13 2.75V8h5M6 2.75v18.5h6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M16.5 13v8M13.5 18l3 3 3-3" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>${text.resumeAction}</a>
+      </div>
+      <dl class="facts"><div><dt>${text.emailLabel}</dt><dd><a href="mailto:brunoalmeida438@gmail.com">brunoalmeida438@gmail.com</a></dd></div><div><dt>${text.locationLabel}</dt><dd>${text.location}</dd></div></dl>
+    `,
 },
 ];
 

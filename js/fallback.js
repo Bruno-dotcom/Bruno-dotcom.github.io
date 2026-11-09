@@ -1,6 +1,6 @@
 /* Animated Canvas alternative for browsers without WebGL. */
 if (document.body.classList.contains('no-webgl')) {
- const old=document.getElementById('space'), canvas=document.createElement('canvas'); canvas.id='space'; old.replaceWith(canvas);
+ const old=document.getElementById('space'), canvas=document.createElement('canvas'); canvas.id='space'; canvas.setAttribute('aria-hidden','true'); old.replaceWith(canvas);
  const ctx=canvas.getContext('2d'), reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
  const stars=Array.from({length:1050},()=>({x:Math.random(),y:Math.random(),s:Math.random()*1.25+.2,a:Math.random()*.65+.2}));
  let w=innerWidth,h=innerHeight,angle=-.6,zoom=1,drag=false,lastX=0,focused=null,points=[],last=performance.now(),moved=false;

@@ -1,45 +1,47 @@
-/* Portuguese localization for the approved portfolio. Scene and layout are unchanged. */
+/* English and Portuguese copy for the shared interface and section templates. */
 
 Object.assign(UI.en, {
-  pause: "Pause motion",
-  resume: "Resume motion",
+  backToProjects: "BACK TO PROJECTS",
+  taglineLines: [
+    "· CYBERSECURITY PROFESSIONAL · SECURITY OPERATIONS",
+    "· OFFENSIVE SECURITY · AI SECURITY",
+  ],
   standbyTitle: "Stay curious. Keep exploring.",
   probeLabel: "BA · DEEP SPACE",
   navigation: "Portfolio destinations",
+  moonNavigation: "Jupiter research areas",
   language: "Language",
 });
 
 UI.pt = {
   role: "Profissional de Cibersegurança",
-  tagline: "Operações de Segurança · Segurança Ofensiva · Segurança de IA",
+  taglineLines: [
+    "· PROFISSIONAL DE CIBERSEGURANÇA · OPERAÇÕES DE SEGURANÇA",
+    "· SEGURANÇA OFENSIVA · SEGURANÇA DE IA",
+  ],
 
   lead: "Investigando ameaças. Explorando caminhos de ataque. Construindo conhecimento pelo universo da cibersegurança.",
 
   explore: "Explore meu universo",
-  cv: "Currículo em inglês",
-
   hint: "Arraste para girar · Role para aproximar · Selecione um planeta",
 
   prev: "Anterior",
   next: "Próximo",
+  backToProjects: "VOLTAR A PROJETOS",
   orbit: "Órbita",
   close: "Fechar",
-
-  status: "CIBERSEGURANÇA · PESQUISA · EXPLORAÇÃO",
 
   standbySignal: "um sinal do além",
 
   standbyNote:
     "Toda descoberta começa com uma pergunta. Continue explorando além do conhecido.",
 
-  pause: "Pausar movimento",
-  resume: "Retomar movimento",
-
   standbyTitle: "Mantenha a curiosidade. Continue explorando.",
 
   probeLabel: "BA · ESPAÇO PROFUNDO",
 
   navigation: "Seções do portfólio",
+  moonNavigation: "Áreas de pesquisa de Júpiter",
 
   language: "Idioma",
 
@@ -48,718 +50,787 @@ UI.pt = {
     ["03", "certificações CompTIA"],
   ],
 };
-const PORTUGUESE_SECTIONS = {
+// The templates in content.js receive only the copy for the active language.
+const SECTION_TEXT = {
   about: {
-  name: "Sobre",
-  body: "Sol · O centro do meu universo",
-  html: `
-    <div class="about-layout">
-
-      <div class="about-copy">
-
-        <p class="lead">
-          Cibersegurança, segurança ofensiva e inteligência artificial convergem em uma trajetória construída entre investigação, análise e exploração técnica.
-        </p>
-
-        <p>
-          Profissional de cibersegurança com experiência em Operações de Segurança, resposta a incidentes, threat hunting, AppSec e testes de intrusão, com interesse crescente em Segurança Ofensiva e Segurança de IA.
-        </p>
-
-        <dl class="about-facts">
-          <div>
-            <dt>Cargo atual</dt>
-            <dd>Analista de Segurança da Informação · V.tal</dd>
-          </div>
-
-          <div>
-            <dt>Idiomas</dt>
-            <dd>Português · Inglês · Espanhol</dd>
-          </div>
-        </dl>
-
-      </div>
-
-      <div class="about-portrait">
-        <div class="about-portrait-glow"></div>
-
-        <img
-          src="files/About - Sun/bruno-about.png"
-          alt="Bruno Almeida"
-          class="about-portrait-image"
-        >
-      </div>
-
-    </div>
-  `,
-},
-
-experience: {
-  name: "Experiência",
-  body: "Vênus · Experiência na prática",
-
-  html: `
-    <div class="experience-timeline">
-
-      <!-- V.TAL -->
-      <article class="entry experience-entry experience-company">
-        <div class="experience-main">
-
-          <div class="experience-logo experience-logo-vtal">
-            <img src="files/Experience - Venus/vtal-logo.png" alt="V.tal">
-          </div>
-
-          <div class="experience-copy">
-
-            <div class="experience-role">
-              <span class="eyebrow">JUL 2026 — ATUAL</span>
-              <h3>V.tal · Analista de Segurança da Informação</h3>
-              <p>
-                Atuação como analista pleno em Operações de Segurança. Investigação de eventos
-                e incidentes, análise de IoCs, threat hunting e melhoria de detecções em
-                ambientes corporativos. Experiência complementar em AppSec, testes de segurança
-                de APIs, análise de riscos e coordenação de testes de intrusão externos.
-              </p>
-            </div>
-
-            <div class="experience-role experience-role-secondary">
-              <span class="eyebrow">NOV 2025 — JUN 2026</span>
-              <h3>V.tal · Analista de Segurança da Informação Júnior</h3>
-              <p>
-                Triagem de alertas SIEM e EDR, análise de logs, coleta de evidências e
-                escalonamento de incidentes. Revisão de políticas de firewall e DLP;
-                monitoramento em Microsoft 365, Entra ID, Google Workspace, Datadog,
-                Grafana e Zabbix.
-              </p>
-            </div>
-
-          </div>
-        </div>
-      </article>
-
-
-      <!-- BAYER -->
-      <article class="entry experience-entry">
-        <div class="experience-main">
-
-          <div class="experience-logo">
-            <img src="files/Experience - Venus/bayer-logo.png" alt="Bayer">
-          </div>
-
-          <div class="experience-copy">
-            <span class="eyebrow">NOV 2023 — OUT 2024</span>
-            <h3>Bayer Brasil / Suhai · Analista SOC Júnior</h3>
-            <p>
-              Investigação de alertas SIEM, EDR e de segurança de perímetro.
-              Documentação de incidentes e relatórios técnicos para apoiar auditorias
-              e melhorias de segurança.
-            </p>
-          </div>
-
-        </div>
-      </article>
-
-
-      <!-- EXPERIÊNCIAS ANTERIORES -->
-      <article class="entry experience-entry experience-earlier">
-        <span class="eyebrow">EXPERIÊNCIAS ANTERIORES</span>
-        <h3>Risco, inteligência e comunicação</h3>
-
-        <div class="earlier-career-list">
-
-          <div class="earlier-career-item">
-            <div class="experience-logo">
-              <img src="files/Experience - Venus/meta-logo.png" alt="Meta">
-            </div>
-
-            <span>
-              Meta / Haganá · Agente de Risco e Inteligência (2021–2023).
-            </span>
-          </div>
-
-          <div class="earlier-career-item">
-            <div class="experience-logo">
-              <img src="files/Experience - Venus/itau-logo.png" alt="Itaú">
-            </div>
-
-            <span>
-              Itaú Unibanco / Belfort · Operador de Monitoramento de Segurança Bilíngue (2016–2021).
-            </span>
-          </div>
-
-          <div class="earlier-career-item">
-            <div class="experience-logo">
-              <img src="files/Experience - Venus/wizard-logo.png" alt="Wizard by Pearson">
-            </div>
-
-            <span>
-              Wizard by Pearson · Professor de Inglês (2012–2016).
-            </span>
-          </div>
-
-          <div class="earlier-career-item">
-            <div class="experience-logo">
-              <img src="files/Experience - Venus/ymca-logo.png" alt="YMCA">
-            </div>
-
-            <span>
-              YMCA · Monitor de Acampamento · Work & Travel · Carolina do Norte, Estados Unidos (Jun–Dez 2011).
-            </span>
-          </div>
-
-        </div>
-      </article>
-
-    </div>
-  `,
-},
-
+    en: {
+      name: "About",
+      body: "Sun · The center of my universe",
+      lead: "Cybersecurity, offensive security, and artificial intelligence converge in a career shaped by investigation, analysis, and technical exploration.",
+      description: "Cybersecurity professional with experience in Security Operations, incident response, threat hunting, AppSec, and penetration testing, with a growing focus on Offensive Security and AI Security.",
+      roleLabel: "Current role",
+      currentRole: "Information Security Analyst · V.tal",
+      languagesLabel: "Languages",
+      languages: "Portuguese · English · Spanish",
+    },
+    pt: {
+      name: "Sobre",
+      body: "Sol · O centro do meu universo",
+      lead: "Cibersegurança, segurança ofensiva e inteligência artificial convergem em uma trajetória construída entre investigação, análise e exploração técnica.",
+      description: "Profissional de cibersegurança com experiência em Operações de Segurança, resposta a incidentes, threat hunting, AppSec e testes de intrusão, com interesse crescente em Segurança Ofensiva e Segurança de IA.",
+      roleLabel: "Cargo atual",
+      currentRole: "Analista de Segurança da Informação · V.tal",
+      languagesLabel: "Idiomas",
+      languages: "Português · Inglês · Espanhol",
+    },
+  },
+  courses: {
+    en: {
+      name: "Credentials",
+      body: "Uranus · Certifications & additional training",
+      lead: "A foundation across offensive security, security analysis, information security and service management.",
+      certification: "CERTIFICATION",
+      training: "ADDITIONAL TRAINING",
+      cybersecuritySpecialization: "Cybersecurity Specialization",
+    },
+    pt: {
+      name: "Credenciais",
+      body: "Urano · Certificações e formação complementar",
+      lead: "Uma base em segurança ofensiva, análise de segurança, segurança da informação e gestão de serviços.",
+      certification: "CERTIFICAÇÃO",
+      training: "FORMAÇÃO COMPLEMENTAR",
+      cybersecuritySpecialization: "Especialização em Cibersegurança",
+    },
+  },
   focus: {
-    name: "Foco",
-    body: "Mercúrio · Onde meu trabalho converge",
-
-    html: `
-        <div class="focus-grid">
-
-            <article class="focus-card">
-                <div class="focus-image">
-                    <img
-                        src="files/Focus - Mercury/Escudo_Cybersecurity_Neon.png"
-                        alt="Operações de Segurança"
-                    >
-                </div>
-
-                <div class="focus-card-content">
-                    <span class="eyebrow">01 · DETECTAR E RESPONDER</span>
-                    <h3>Operações de Segurança</h3>
-                    <p>
-                        Investigar eventos de segurança, correlacionar evidências,
-                        buscar ameaças e melhorar a eficácia dos controles de segurança.
-                    </p>
-                </div>
-            </article>
-
-            <article class="focus-card">
-                <div class="focus-image">
-                    <img
-                        src="files/Focus - Mercury/Chapeu_Hacker_Neon.png"
-                        alt="Segurança Ofensiva e AppSec"
-                    >
-                </div>
-
-                <div class="focus-card-content">
-                    <span class="eyebrow">02 · TESTAR E ENTENDER</span>
-                    <h3>Segurança Ofensiva &amp; AppSec</h3>
-                    <p>
-                        Avaliação de vulnerabilidades, testes de segurança de APIs
-                        e exploração prática de caminhos de ataque em ambientes controlados.
-                    </p>
-                </div>
-            </article>
-
-            <article class="focus-card">
-                <div class="focus-image">
-                    <img
-                        src="files/Focus - Mercury/Robo_IA_Neon.png"
-                        alt="Segurança de IA"
-                    >
-                </div>
-
-                <div class="focus-card-content">
-                    <span class="eyebrow">03 · PESQUISAR E APRENDER</span>
-                    <h3>Segurança de IA</h3>
-                    <p>
-                        Estudar inteligência artificial e desenvolver uma direção
-                        de pesquisa em segurança de modelos, aplicações e agentes.
-                    </p>
-                </div>
-            </article>
-
-        </div>
-    `,
-},
-  projects: {
-    name: "Projetos",
-    body: "Terra · Construído no mundo real",
-
-    html: `
-        <p class="lead">
-            Projetos pessoais onde cibersegurança, infraestrutura,
-            hardware e inteligência artificial se encontram na experimentação prática.
-        </p>
-
-        <div class="project-grid">
-
-            <article class="project-card">
-                <div class="project-image">
-                    <img src="files/Projects - Earth/home-server-cq40.png"
-                         alt="HP Compaq Presario CQ40 Home Server">
-                </div>
-
-                <div class="project-card-content">
-                    <span class="eyebrow">HOME LAB · INFRAESTRUTURA</span>
-                    <h3>Home Server</h3>
-                    <p class="project-device">HP Compaq Presario CQ40</p>
-                    <p>
-                        Hardware legado reaproveitado executando Debian Server
-                        como núcleo do meu laboratório doméstico de cibersegurança
-                        e infraestrutura de rede.
-                    </p>
-                </div>
-            </article>
-
-            <article class="project-card">
-                <div class="project-image project-image-cardputer">
-                    <img src="files/Projects - Earth/cardputer.png"
-                         alt="M5Stack Cardputer ADV">
-                </div>
-
-                <div class="project-card-content">
-                    <span class="eyebrow">HARDWARE · WIRELESS</span>
-                    <h3>Cardputer ADV</h3>
-                    <p class="project-device">M5Stack · ESP32-S3</p>
-                    <p>
-                        Plataforma embarcada portátil utilizada para experimentação
-                        com hardware, comunicação sem fio e segurança.
-                    </p>
-                </div>
-            </article>
-
-            <article class="project-card project-card-marie">
-                <div class="project-image project-image-placeholder">
-                    <span>MARIE</span>
-                </div>
-
-                <div class="project-card-content">
-                    <span class="eyebrow">INTELIGÊNCIA ARTIFICIAL</span>
-                    <h3>Marie</h3>
-                    <p class="project-device">Projeto de IA Local</p>
-                    <p>
-                        Sistema experimental de IA local explorando memória persistente,
-                        reflexão autônoma e inteligência privada executada localmente.
-                    </p>
-                </div>
-            </article>
-
-        </div>
-    `,
-},
-
-skills: {
-    name: "Habilidades",
-    body: "Marte · Ferramentas, sistemas & métodos",
-    html: null
-
-},
-
-research: {
-    name: "Atlas de Pesquisa",
-    body: "Júpiter",
-
-    html: `
-        <p class="lead">Explore o Atlas de Pesquisa através das luas de Júpiter.</p>
-
-        <div class="research-groups">
-
-            <section class="research-group" data-moon="io">
-                <span class="eyebrow">IO</span>
-                <h3>Segurança Ofensiva</h3>
-
-                <article class="domain-entry">
-                    <div class="domain-logo">
-                        <img
-                            src="files/Atlas - Jupiter/Offensive Security - Io/mobile_security.png"
-                            alt="Segurança Mobile"
-                        >
-                    </div>
-
-                    <div class="domain-copy">
-                        <h3>Segurança Mobile</h3>
-                        <p>Aplicações Android e iOS, comportamento em execução e APIs móveis.</p>
-                        <span class="planned">Planejado</span>
-                    </div>
-                </article>
-
-                <article class="domain-entry">
-                    <div class="domain-logo">
-                        <img
-                            src="files/Atlas - Jupiter/Offensive Security - Io/reverse_engineering.png"
-                            alt="Engenharia Reversa"
-                        >
-                    </div>
-
-                    <div class="domain-copy">
-                        <h3>Engenharia Reversa</h3>
-                        <p>Análise estática e dinâmica, formatos binários e comportamento de programas.</p>
-                        <span class="planned">Planejado</span>
-                    </div>
-                </article>
-
-                <article class="domain-entry">
-                    <div class="domain-logo">
-                        <img
-                            src="files/Atlas - Jupiter/Offensive Security - Io/exploit_development.png"
-                            alt="Desenvolvimento de Exploits"
-                        >
-                    </div>
-
-                    <div class="domain-copy">
-                        <h3>Desenvolvimento de Exploits</h3>
-                        <p>Segurança de memória, mitigações, fuzzing e pesquisa de provas de conceito.</p>
-                        <span class="planned">Planejado</span>
-                    </div>
-                </article>
-
-                <article class="domain-entry">
-                    <div class="domain-logo">
-                        <img
-                            src="files/Atlas - Jupiter/Offensive Security - Io/web_apps_api.png"
-                            alt="Aplicações Web & APIs"
-                        >
-                    </div>
-
-                    <div class="domain-copy">
-                        <h3>Aplicações Web & APIs</h3>
-                        <p>Vulnerabilidades web, segurança de sessões, autenticação e APIs.</p>
-                        <span class="planned">Planejado</span>
-                    </div>
-                </article>
-
-            </section>
-
-            <section class="research-group" data-moon="europa">
-                <span class="eyebrow">EUROPA</span>
-                <h3>Sistemas & Infraestrutura</h3>
-
-                <article class="domain-entry">
-                    <div class="domain-logo">
-                        <img
-                            src="files/Atlas - Jupiter/Systems and Infrastructure - Europa/cloud_containers.png"
-                            alt="Nuvem & Contêineres"
-                        >
-                    </div>
-
-                    <div class="domain-copy">
-                        <h3>Nuvem & Contêineres</h3>
-                        <p>Identidade em nuvem, cargas de trabalho, segurança de contêineres e configuração.</p>
-                        <span class="planned">Planejado</span>
-                    </div>
-                </article>
-
-                <article class="domain-entry">
-                    <div class="domain-logo">
-                        <img
-                            src="files/Atlas - Jupiter/Systems and Infrastructure - Europa/network_infrastructure.png"
-                            alt="Redes & Infraestrutura"
-                        >
-                    </div>
-
-                    <div class="domain-copy">
-                        <h3>Redes & Infraestrutura</h3>
-                        <p>Descoberta de serviços, protocolos, infraestrutura e pivoting.</p>
-                        <span class="planned">Planejado</span>
-                    </div>
-                </article>
-
-                <article class="domain-entry">
-                    <div class="domain-logo">
-                        <img
-                            src="files/Atlas - Jupiter/Systems and Infrastructure - Europa/active_directory_identity.png"
-                            alt="Active Directory & Identidade"
-                        >
-                    </div>
-
-                    <div class="domain-copy">
-                        <h3>Active Directory & Identidade</h3>
-                        <p>Serviços de diretório, Kerberos, NTLM, relações de confiança e caminhos de privilégio.</p>
-                        <span class="planned">Planejado</span>
-                    </div>
-                </article>
-
-                <article class="domain-entry">
-                    <div class="domain-logo">
-                        <img
-                            src="files/Atlas - Jupiter/Systems and Infrastructure - Europa/cryptography_cryptanalysis.png"
-                            alt="Criptografia & Criptoanálise"
-                        >
-                    </div>
-
-                    <div class="domain-copy">
-                        <h3>Criptografia & Criptoanálise</h3>
-                        <p>Protocolos criptográficos, gestão de chaves, PKI e análise de implementações.</p>
-                        <span class="planned">Planejado</span>
-                    </div>
-                </article>
-
-            </section>
-
-            <section class="research-group" data-moon="ganymede">
-                <span class="eyebrow">GANYMEDE</span>
-                <h3>Hardware & Wireless</h3>
-
-                <article class="domain-entry">
-                    <div class="domain-logo">
-                        <img
-                            src="files/Atlas - Jupiter/Hardware and Wireless - Ganymede/wireless_rf.png"
-                            alt="Wireless & RF"
-                        >
-                    </div>
-
-                    <div class="domain-copy">
-                        <h3>Wireless & RF</h3>
-                        <p>Wi-Fi, Bluetooth, NFC e rádio definido por software.</p>
-                        <span class="planned">Planejado</span>
-                    </div>
-                </article>
-
-                <article class="domain-entry">
-                    <div class="domain-logo">
-                        <img
-                            src="files/Atlas - Jupiter/Hardware and Wireless - Ganymede/hardware_firmware.png"
-                            alt="Hardware & Firmware"
-                        >
-                    </div>
-
-                    <div class="domain-copy">
-                        <h3>Hardware & Firmware</h3>
-                        <p>Interfaces de depuração, dispositivos embarcados e análise de firmware.</p>
-                        <span class="planned">Planejado</span>
-                    </div>
-                </article>
-
-                <article class="domain-entry">
-                    <div class="domain-logo">
-                        <img
-                            src="files/Atlas - Jupiter/Hardware and Wireless - Ganymede/ICS &amp; OT &amp; Specialized.png"
-                            alt="ICS / OT & Especializados"
-                        >
-                    </div>
-
-                    <div class="domain-copy">
-                        <h3>ICS / OT & Especializados</h3>
-                        <p>Sistemas industriais, protocolos e dispositivos especializados.</p>
-                        <span class="planned">Planejado</span>
-                    </div>
-                </article>
-
-            </section>
-
-            <section class="research-group" data-moon="callisto">
-                <span class="eyebrow">CALLISTO</span>
-                <h3>Inteligência & Análise</h3>
-
-                <article class="domain-entry">
-                    <div class="domain-logo">
-                        <img
-                            src="files/Atlas - Jupiter/Intelligence and Analysis - Callisto/malware_forensics.png"
-                            alt="Malware & Forense"
-                        >
-                    </div>
-
-                    <div class="domain-copy">
-                        <h3>Malware & Forense</h3>
-                        <p>Análise de malware, evidências em memória e análise forense de disco.</p>
-                        <span class="planned">Planejado</span>
-                    </div>
-                </article>
-
-                <article class="domain-entry">
-                    <div class="domain-logo">
-                        <img
-                            src="files/Atlas - Jupiter/Intelligence and Analysis - Callisto/ai_security.png"
-                            alt="Segurança de IA"
-                        >
-                    </div>
-
-                    <div class="domain-copy">
-                        <h3>Segurança de IA</h3>
-                        <p>Aplicações com LLMs, modelos e dados, agentes e red teaming de IA.</p>
-                        <span class="planned">Planejado</span>
-                    </div>
-                </article>
-
-                <article class="domain-entry">
-                    <div class="domain-logo">
-                        <img
-                            src="files/Atlas - Jupiter/Intelligence and Analysis - Callisto/osint_social_engineering.png"
-                            alt="OSINT & Engenharia Social"
-                        >
-                    </div>
-
-                    <div class="domain-copy">
-                        <h3>OSINT & Engenharia Social</h3>
-                        <p>Fontes abertas, análise de inteligência e fatores humanos.</p>
-                        <span class="planned">Planejado</span>
-                    </div>
-                </article>
-
-            </section>
-
-        </div>
-    `,
-},
-
- education: {
-    name: "Formação",
-    body: "Saturno · Bases para novas descobertas",
-
-    html: `
-        <div class="education-list">
-
-            <article class="education-item">
-                <div class="education-logo">
-                    <img src="files/Education - Saturn/daryus-logo.png" alt="Instituto Daryus">
-                </div>
-
-                <div class="education-copy">
-                    <span class="eyebrow">PÓS-GRADUAÇÃO · EM ANDAMENTO</span>
-                    <h3>Cyber Threat Intelligence</h3>
-                    <p>Instituto Daryus</p>
-                </div>
-            </article>
-
-            <article class="education-item">
-                <div class="education-logo">
-                    <img src="files/Education - Saturn/unasp-logo.jpg" alt="UNASP">
-                </div>
-
-                <div class="education-copy">
-                    <span class="eyebrow">FORMAÇÃO ACADÊMICA</span>
-                    <h3>Segurança da Informação</h3>
-                    <p>Centro Universitário Adventista de São Paulo (UNASP)</p>
-                </div>
-            </article>
-
-        </div>
-
-        <p class="education-note">
-            Meu aprendizado combina formação acadêmica, certificações profissionais e exploração prática.
-        </p>
-    `,
-},
-   courses: {
-    name: "Credenciais",
-    body: "Urano · Certificações e formação complementar",
-
-    html: `
-        <p class="lead">
-            Uma base em segurança ofensiva, análise de segurança,
-            segurança da informação e gestão de serviços.
-        </p>
-
-        <div class="credentials-grid">
-
-            <article class="credential-card">
-                <img class="credential-badge"
-                     src="files/Credentials - Uranus/CompTIA_PenTest_Plus.png"
-                     alt="CompTIA PenTest+">
-                <div class="credential-info">
-                    <span class="eyebrow">CERTIFICAÇÃO</span>
-                    <h3>CompTIA PenTest+</h3>
-                    <p>PT0-003 · CompTIA</p>
-                </div>
-            </article>
-
-            <article class="credential-card">
-                <img class="credential-badge"
-                     src="files/Credentials - Uranus/CompTIA_CySA_Plus.png"
-                     alt="CompTIA CySA+">
-                <div class="credential-info">
-                    <span class="eyebrow">CERTIFICAÇÃO</span>
-                    <h3>CompTIA CySA+</h3>
-                    <p>CS0-003 · CompTIA</p>
-                </div>
-            </article>
-
-            <article class="credential-card">
-                <img class="credential-badge"
-                     src="files/Credentials - Uranus/CompTIA_Security_Plus.png"
-                     alt="CompTIA Security+">
-                <div class="credential-info">
-                    <span class="eyebrow">CERTIFICAÇÃO</span>
-                    <h3>CompTIA Security+</h3>
-                    <p>SY0-701 · CompTIA</p>
-                </div>
-            </article>
-
-            <article class="credential-card">
-                <img class="credential-badge"
-                     src="files/Credentials - Uranus/EXIN_ISO_27001.png"
-                     alt="EXIN ISO IEC 27001">
-                <div class="credential-info">
-                    <span class="eyebrow">CERTIFICAÇÃO</span>
-                    <h3>ISO/IEC 27001 (ISFS)</h3>
-                    <p>EXIN</p>
-                </div>
-            </article>
-
-            <article class="credential-card">
-                <img class="credential-badge"
-                     src="files/Credentials - Uranus/ITIL_4_Foundation.png"
-                     alt="ITIL 4 Foundation">
-                <div class="credential-info">
-                    <span class="eyebrow">CERTIFICAÇÃO</span>
-                    <h3>ITIL 4 Foundation</h3>
-                    <p>PeopleCert</p>
-                </div>
-            </article>
-
-            <article class="credential-card">
-                <img class="credential-badge"
-                     src="files/Credentials - Uranus/Kaspersky_Endpoint_Security.png"
-                     alt="Kaspersky Endpoint Security and Management">
-                <div class="credential-info">
-                    <span class="eyebrow">FORMAÇÃO COMPLEMENTAR</span>
-                    <h3>Kaspersky Endpoint Security and Management</h3>
-                    <p>Kaspersky</p>
-                </div>
-            </article>
-
-            <article class="credential-card">
-                <img class="credential-badge"
-                     src="files/Credentials - Uranus/Google_Cybersecurity.png"
-                     alt="Google Cybersecurity">
-                <div class="credential-info">
-                    <span class="eyebrow">FORMAÇÃO COMPLEMENTAR</span>
-                    <h3>Especialização em Cibersegurança</h3>
-                    <p>Google</p>
-                </div>
-            </article>
-
-            <article class="credential-card">
-                <img class="credential-badge"
-                     src="files/Credentials - Uranus/Cisco_Junior_Cybersecurity_Analyst.png"
-                     alt="Cisco Junior Cybersecurity Analyst">
-                <div class="credential-info">
-                    <span class="eyebrow">FORMAÇÃO COMPLEMENTAR</span>
-                    <h3>Junior Cybersecurity Analyst</h3>
-                    <p>Cisco</p>
-                </div>
-            </article>
-
-        </div>
-    `,
-},
+    en: {
+      name: "Focus",
+      body: "Mercury · Where my work converges",
+      operationsTitle: "Security Operations",
+      operationsLabel: "01 · DETECT & RESPOND",
+      operationsDescription: "Investigating security events, correlating evidence, hunting threats, and improving the effectiveness of security controls.",
+      offensiveAlt: "Offensive Security and AppSec",
+      offensiveLabel: "02 · TEST & UNDERSTAND",
+      offensiveTitle: "Offensive Security & AppSec",
+      offensiveDescription: "Vulnerability assessment, API security testing, and hands-on exploration of attack paths in controlled environments.",
+      aiTitle: "AI Security",
+      aiLabel: "03 · RESEARCH & LEARN",
+      aiDescription: "Studying artificial intelligence and developing a research direction around model, application, and agent security.",
+    },
+    pt: {
+      name: "Foco",
+      body: "Mercúrio · Onde meu trabalho converge",
+      operationsTitle: "Operações de Segurança",
+      operationsLabel: "01 · DETECTAR E RESPONDER",
+      operationsDescription: "Investigar eventos de segurança, correlacionar evidências, buscar ameaças e melhorar a eficácia dos controles de segurança.",
+      offensiveAlt: "Segurança Ofensiva e AppSec",
+      offensiveLabel: "02 · TESTAR E ENTENDER",
+      offensiveTitle: "Segurança Ofensiva &amp; AppSec",
+      offensiveDescription: "Avaliação de vulnerabilidades, testes de segurança de APIs e exploração prática de caminhos de ataque em ambientes controlados.",
+      aiTitle: "Segurança de IA",
+      aiLabel: "03 · PESQUISAR E APRENDER",
+      aiDescription: "Estudar inteligência artificial e desenvolver uma direção de pesquisa em segurança de modelos, aplicações e agentes.",
+    },
+  },
+  experience: {
+    en: {
+      name: "Experience",
+      body: "Venus · Field experience",
+      vtalDates: "JUL 2026 — PRESENT",
+      vtalTitle: "V.tal · Information Security Analyst",
+      vtalDescription: "Mid-level role in Security Operations. Security event and incident investigation, IoC analysis, threat hunting, and detection improvements across enterprise environments. Complementary work in AppSec, API security testing, risk assessments, and coordination of external penetration tests.",
+      juniorTitle: "V.tal · Junior Information Security Analyst",
+      juniorDescription: "SIEM and EDR alert triage, log analysis, evidence collection, and incident escalation. Firewall and DLP policy reviews; monitoring across Microsoft 365, Entra ID, Google Workspace, Datadog, Grafana, and Zabbix.",
+      bayerDates: "NOV 2023 — OCT 2024",
+      bayerTitle: "Bayer Brasil / Suhai · Junior SOC Analyst",
+      bayerDescription: "Investigation of SIEM, EDR, and perimeter security alerts. Incident documentation and technical reporting to support audits and security improvements.",
+      earlierLabel: "EARLIER EXPERIENCE",
+      earlierTitle: "Risk, intelligence & communication",
+      meta: "Meta / Haganá · Risk and Intelligence Agent (2021-2023).",
+      itau: "Itaú Unibanco / Belfort · Bilingual Security Monitoring Operator (2016-2021).",
+      wizard: "Wizard by Pearson · English Teacher (2012-2016).",
+      ymca: "YMCA · Camp Counselor · Work & Travel · North Carolina, United States (Jun-Dec 2011).",
+    },
+    pt: {
+      name: "Experiência",
+      body: "Vênus · Experiência na prática",
+      vtalDates: "JUL 2026 — ATUAL",
+      vtalTitle: "V.tal · Analista de Segurança da Informação",
+      vtalDescription: "Atuação como analista pleno em Operações de Segurança. Investigação de eventos e incidentes, análise de IoCs, threat hunting e melhoria de detecções em ambientes corporativos. Experiência complementar em AppSec, testes de segurança de APIs, análise de riscos e coordenação de testes de intrusão externos.",
+      juniorTitle: "V.tal · Analista de Segurança da Informação Júnior",
+      juniorDescription: "Triagem de alertas SIEM e EDR, análise de logs, coleta de evidências e escalonamento de incidentes. Revisão de políticas de firewall e DLP; monitoramento em Microsoft 365, Entra ID, Google Workspace, Datadog, Grafana e Zabbix.",
+      bayerDates: "NOV 2023 — OUT 2024",
+      bayerTitle: "Bayer Brasil / Suhai · Analista SOC Júnior",
+      bayerDescription: "Investigação de alertas SIEM, EDR e de segurança de perímetro. Documentação de incidentes e relatórios técnicos para apoiar auditorias e melhorias de segurança.",
+      earlierLabel: "EXPERIÊNCIAS ANTERIORES",
+      earlierTitle: "Risco, inteligência e comunicação",
+      meta: "Meta / Haganá · Agente de Risco e Inteligência (2021–2023).",
+      itau: "Itaú Unibanco / Belfort · Operador de Monitoramento de Segurança Bilíngue (2016–2021).",
+      wizard: "Wizard by Pearson · Professor de Inglês (2012–2016).",
+      ymca: "YMCA · Monitor de Acampamento · Work & Travel · Carolina do Norte, Estados Unidos (Jun–Dez 2011).",
+    },
+  },
+  education: {
+    en: {
+      name: "Education",
+      body: "Saturn · Foundations for further discovery",
+      postgraduateLabel: "POSTGRADUATE PROGRAM · IN PROGRESS",
+      academicLabel: "ACADEMIC BACKGROUND",
+      degree: "Information Security",
+      university: "Adventist University of São Paulo (UNASP)",
+      learningSummary: "My learning combines formal education, professional certifications, and practical exploration.",
+    },
+    pt: {
+      name: "Formação",
+      body: "Saturno · Bases para novas descobertas",
+      postgraduateLabel: "PÓS-GRADUAÇÃO · EM ANDAMENTO",
+      academicLabel: "FORMAÇÃO ACADÊMICA",
+      degree: "Segurança da Informação",
+      university: "Centro Universitário Adventista de São Paulo (UNASP)",
+      learningSummary: "Meu aprendizado combina formação acadêmica, certificações profissionais e exploração prática.",
+    },
+  },
   contact: {
-    name: "Contato",
-    body: "Netuno · Abra um canal",
-    html: '<p class="lead">Vamos nos conectar.</p><p>Para oportunidades profissionais, conversas sobre pesquisa ou colaboração em projetos de cibersegurança.</p><div class="contact-links"><a class="btn" href="mailto:brunoalmeida438@gmail.com"><svg class="contact-icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="#FFFFFF" d="M3.5 5h17A2.5 2.5 0 0 1 23 7.5v9a2.5 2.5 0 0 1-2.5 2.5h-17A2.5 2.5 0 0 1 1 16.5v-9A2.5 2.5 0 0 1 3.5 5Z"/><path fill="#4285F4" d="M1 7.3 4.5 10v9h-1A2.5 2.5 0 0 1 1 16.5V7.3Z"/><path fill="#34A853" d="M23 7.3 19.5 10v9h1a2.5 2.5 0 0 0 2.5-2.5V7.3Z"/><path fill="#EA4335" d="M2 6.1A2.5 2.5 0 0 1 5.2 5.4L12 10.5l6.8-5.1a2.5 2.5 0 0 1 3.2.7L12 13.6 2 6.1Z"/><path fill="#FBBC04" d="M4.5 10 1 7.3v-.8c0-.3.05-.6.15-.87L4.5 8.15V10Z"/><path fill="#C5221F" d="M19.5 10 23 7.3v-.8c0-.3-.05-.6-.15-.87L19.5 8.15V10Z"/></svg>Enviar e-mail</a><a class="btn" href="https://www.linkedin.com/in/bruno-almeida-bruno" target="_blank" rel="noopener noreferrer"><svg class="contact-icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="#0A66C2" d="M20.45 2H3.55A1.55 1.55 0 0 0 2 3.55v16.9A1.55 1.55 0 0 0 3.55 22h16.9A1.55 1.55 0 0 0 22 20.45V3.55A1.55 1.55 0 0 0 20.45 2Z"/><path fill="#fff" d="M5.34 9.49h2.86V18H5.34V9.49Zm1.43-4.23a1.66 1.66 0 1 1 0 3.32 1.66 1.66 0 0 1 0-3.32ZM9.86 9.49h2.74v1.16h.04c.38-.72 1.31-1.48 2.7-1.48 2.89 0 3.42 1.9 3.42 4.37V18H15.9v-3.95c0-.94-.02-2.15-1.31-2.15-1.31 0-1.51 1.02-1.51 2.08V18H9.86V9.49Z"/></svg>LinkedIn</a><a class="btn" href="files/Contact - Neptune/Bruno Almeida - Segurança da Informação.pdf" download><svg class="contact-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 2.75h7l5 5V12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M13 2.75V8h5M6 2.75v18.5h6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M16.5 13v8M13.5 18l3 3 3-3" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>Baixar currículo</a></div><dl class="facts"><div><dt>E-mail</dt><dd><a href="mailto:brunoalmeida438@gmail.com">brunoalmeida438@gmail.com</a></dd></div><div><dt>Localização</dt><dd>São Paulo, Brasil</dd></div></dl>',
-},
+    en: {
+      name: "Contact",
+      body: "Neptune · Open a channel",
+      lead: "Let’s connect.",
+      description: "For professional opportunities, research conversations, or collaboration on cybersecurity projects.",
+      emailAction: "Email Bruno",
+      resumePath: "files/Contact - Neptune/Bruno Almeida - Professional Summary.pdf",
+      resumeAction: "Download Résumé",
+      emailLabel: "Email",
+      locationLabel: "Based in",
+      location: "São Paulo, Brazil",
+    },
+    pt: {
+      name: "Contato",
+      body: "Netuno · Abra um canal",
+      lead: "Vamos nos conectar.",
+      description: "Para oportunidades profissionais, conversas sobre pesquisa ou colaboração em projetos de cibersegurança.",
+      emailAction: "Enviar e-mail",
+      resumePath: "files/Contact - Neptune/Bruno Almeida - Segurança da Informação.pdf",
+      resumeAction: "Baixar currículo",
+      emailLabel: "E-mail",
+      locationLabel: "Localização",
+      location: "São Paulo, Brasil",
+    },
+  },
+  projects: {
+    en: {
+      homeServerAlt: "HP Compaq Presario CQ40 Home Server",
+      name: "Projects",
+      body: "Earth · Built in the real world",
+      lead: "Personal projects where cybersecurity, infrastructure, hardware and artificial intelligence meet hands-on experimentation.",
+      homeServerLabel: "HOME LAB · INFRASTRUCTURE",
+      homeServerDescription: "Repurposed legacy hardware running Debian Server as the core of my home cybersecurity laboratory and network infrastructure.",
+      cardputerDescription: "A portable embedded platform used for hardware, wireless and security experimentation.",
+      marieLabel: "ARTIFICIAL INTELLIGENCE",
+      marieType: "Local AI Project",
+      marieDescription: "An experimental local AI system exploring persistent memory, autonomous reflection and private on-device intelligence.",
+    },
+    pt: {
+      homeServerAlt: "HP Compaq Presario CQ40 usado como servidor doméstico",
+      name: "Projetos",
+      body: "Terra · Construído no mundo real",
+      lead: "Projetos pessoais onde cibersegurança, infraestrutura, hardware e inteligência artificial se encontram na experimentação prática.",
+      homeServerLabel: "HOME LAB · INFRAESTRUTURA",
+      homeServerDescription: "Hardware legado reaproveitado executando Debian Server como núcleo do meu laboratório doméstico de cibersegurança e infraestrutura de rede.",
+      cardputerDescription: "Plataforma embarcada portátil utilizada para experimentação com hardware, comunicação sem fio e segurança.",
+      marieLabel: "INTELIGÊNCIA ARTIFICIAL",
+      marieType: "Projeto de IA Local",
+      marieDescription: "Sistema experimental de IA local explorando memória persistente, reflexão autônoma e inteligência privada executada localmente.",
+    },
+  },
+  research: {
+    en: {
+      name: "Research Atlas",
+      body: "Jupiter",
+      overviewIntro: "Explore the technical domains that shape my research, experimentation and continuous learning.",
+      ioTitle: "Offensive Security",
+      mobileTitle: "Mobile Security",
+      mobileDescription: "Android and iOS applications, runtime behavior, and mobile APIs.",
+      planned: "Planned",
+      reverseEngineeringTitle: "Reverse Engineering",
+      reverseEngineeringDescription: "Static and dynamic analysis, binary formats, and program behavior.",
+      exploitTitle: "Exploit Development",
+      exploitDescription: "Memory safety, mitigations, fuzzing, and proof-of-concept research.",
+      webAppsTitle: "Web Apps & APIs",
+      webAppsDescription: "Web vulnerabilities, session security, authentication, and APIs.",
+      europaTitle: "Systems & Infrastructure",
+      cloudTitle: "Cloud & Containers",
+      cloudDescription: "Cloud identity, workloads, container security, and configuration.",
+      networkTitle: "Network & Infrastructure",
+      networkDescription: "Service discovery, protocols, infrastructure, and pivoting.",
+      directoryTitle: "Active Directory & Identity",
+      directoryDescription: "Directory services, Kerberos, NTLM, trust, and privilege paths.",
+      cryptographyTitle: "Cryptography & Cryptanalysis",
+      cryptographyDescription: "Cryptographic protocols, key management, PKI, and implementation analysis.",
+      wirelessDescription: "Wi-Fi, Bluetooth, NFC, and software-defined radio.",
+      firmwareDescription: "Debug interfaces, embedded devices, and firmware analysis.",
+      industrialTitle: "ICS / OT & Specialized",
+      industrialDescription: "Industrial systems, protocols, and specialized devices.",
+      callistoTitle: "Intelligence & Analysis",
+      malwareTitle: "Malware & Forensics",
+      malwareDescription: "Malware analysis, memory evidence, and disk forensics.",
+      aiTitle: "AI Security",
+      aiDescription: "LLM applications, models and data, agents, and AI red teaming.",
+      osintTitle: "OSINT & Social Engineering",
+      osintDescription: "Public sources, intelligence analysis, and human factors.",
+    },
+    pt: {
+      name: "Atlas de Pesquisa",
+      body: "Júpiter",
+      overviewIntro: "Explore os domínios técnicos que orientam minha pesquisa, experimentação e aprendizado contínuo.",
+      ioTitle: "Segurança Ofensiva",
+      mobileTitle: "Segurança Mobile",
+      mobileDescription: "Aplicações Android e iOS, comportamento em execução e APIs móveis.",
+      planned: "Planejado",
+      reverseEngineeringTitle: "Engenharia Reversa",
+      reverseEngineeringDescription: "Análise estática e dinâmica, formatos binários e comportamento de programas.",
+      exploitTitle: "Desenvolvimento de Exploits",
+      exploitDescription: "Segurança de memória, mitigações, fuzzing e pesquisa de provas de conceito.",
+      webAppsTitle: "Aplicações Web & APIs",
+      webAppsDescription: "Vulnerabilidades web, segurança de sessões, autenticação e APIs.",
+      europaTitle: "Sistemas & Infraestrutura",
+      cloudTitle: "Nuvem & Contêineres",
+      cloudDescription: "Identidade em nuvem, cargas de trabalho, segurança de contêineres e configuração.",
+      networkTitle: "Redes & Infraestrutura",
+      networkDescription: "Descoberta de serviços, protocolos, infraestrutura e pivoting.",
+      directoryTitle: "Active Directory & Identidade",
+      directoryDescription: "Serviços de diretório, Kerberos, NTLM, relações de confiança e caminhos de privilégio.",
+      cryptographyTitle: "Criptografia & Criptoanálise",
+      cryptographyDescription: "Protocolos criptográficos, gestão de chaves, PKI e análise de implementações.",
+      wirelessDescription: "Wi-Fi, Bluetooth, NFC e rádio definido por software.",
+      firmwareDescription: "Interfaces de depuração, dispositivos embarcados e análise de firmware.",
+      industrialTitle: "ICS / OT & Especializados",
+      industrialDescription: "Sistemas industriais, protocolos e dispositivos especializados.",
+      callistoTitle: "Inteligência & Análise",
+      malwareTitle: "Malware & Forense",
+      malwareDescription: "Análise de malware, evidências em memória e análise forense de disco.",
+      aiTitle: "Segurança de IA",
+      aiDescription: "Aplicações com LLMs, modelos e dados, agentes e red teaming de IA.",
+      osintTitle: "OSINT & Engenharia Social",
+      osintDescription: "Fontes abertas, análise de inteligência e fatores humanos.",
+    },
+  },
+  skills: {
+    en: {
+      name: "Skills",
+      body: "Mars · Tools, systems & methods",
+    },
+    pt: {
+      name: "Habilidades",
+      body: "Marte · Ferramentas, sistemas & métodos",
+    },
+  },
 };
+// Shared entries preserve wording that is currently identical in both languages.
+const PROJECT_CONTENT = {
+  homeServer: {
+    shared: {
+      explored: {
+        defenseTitle: "Blue Team & Hardening",
+      },
+    },
+    en: {
+      header: {
+        eyebrow: "HOME LAB · INFRASTRUCTURE",
+        tagline: "Turning legacy hardware into lab infrastructure.",
+      },
+      hero: {
+        imageAlt: "HP Compaq Presario CQ40 Home Server",
+        label: "HOME LAB SERVER",
+      },
+      status: {
+        ddr2: "Still DDR2.",
+        active: "ACTIVE LAB",
+        eyebrow: "CURRENT STATUS",
+        running: "Still running.",
+        learning: "Still learning.",
+      },
+      beginning: {
+        eyebrow: "THE BEGINNING",
+        title: "It started with a forgotten laptop.",
+        discovery: "In 2024, at the beginning of my journey into technology and cybersecurity, this old HP Compaq Presario CQ40 was sitting unused and seemed to have reached the end of its useful life. At the time, I was still relearning the fundamentals of technology — even basic hardware concepts that seem simple to me today.",
+        learning: "Instead of discarding it, I started learning what could be done with it. Understanding components, storage and memory completely changed the way I looked at that old machine. What seemed like obsolete hardware became an opportunity to learn by doing.",
+      },
+      timeline: {
+        labTitle: "Cybersecurity Home Lab",
+        headlessTitle: "Headless Server",
+        eyebrow: "EVOLUTION",
+        title: "From forgotten hardware to cybersecurity lab.",
+        forgottenTitle: "Forgotten CQ40",
+        forgottenDescription: "An old laptop sitting unused and seemingly without a purpose.",
+        upgradeTitle: "Hardware Upgrade",
+        upgradeDescription: "Mechanical HDD → SATA SSD · 2 GB → 4 GB DDR2 · maintenance and thermal paste replacement.",
+        linuxMintDescription: "The first experience that showed the old hardware still had plenty to offer.",
+        explorationTitle: "Linux Exploration",
+        explorationDescription: "Experimentation with different distributions, including Ubuntu and Arch Linux.",
+        debianDescription: "The machine gained a permanent, stable and lab-oriented role.",
+        headlessDescription: "The graphical interface was removed and the CQ40 began operating as a server.",
+        labDescription: "Real infrastructure for practicing networking, services, offensive security, defense and monitoring.",
+      },
+      explored: {
+        automation: "Bash · Shell Scripting · cron · Linux Automation",
+        loggingTitle: "Logging & SOC Experimentation",
+        webTitle: "Web Security",
+        offensiveTitle: "Offensive Security Lab",
+        networkTitle: "Networking & Infrastructure",
+        linuxTitle: "Linux & System Administration",
+        eyebrow: "WHAT I EXPLORED",
+        title: "Turning theory into practice.",
+        linuxDescription: "Debian, headless administration, SSH, users, permissions, processes and services.",
+        networkDescription: "TCP/IP, addressing, DNS, DHCP, ports, firewall and connectivity between hosts.",
+        servicesLabel: "Services",
+        webDescription: "DVWA, controlled web vulnerability exploitation and service analysis.",
+        loggingDescription: "Log centralization, event observation and experimentation with SIEM concepts.",
+        automationLabel: "Automation",
+      },
+      environment: {
+        events: "Events · Syslog",
+        securityLabel: "SECURITY",
+        webLabLabel: "WEB LAB",
+        loggingLabel: "LOGGING",
+        remoteAdministration: "Remote Administration",
+        eyebrow: "LAB ENVIRONMENT",
+        title: "From Hardware to Infrastructure",
+        networkLabel: "HOME NETWORK",
+        serverLabel: "CORE SERVER",
+      },
+      security: {
+        title: "Attack → Observe → Defend",
+        eyebrow: "SECURITY LAB",
+        intro: "The server became an environment where I could explore both sides of security: perform controlled attacks, observe their effects, and then implement defensive mechanisms.",
+        attackLabel: "ATTACK",
+        attackDescription: "Reconnaissance, enumeration, brute force and controlled exploitation of vulnerable services and applications.",
+        observeLabel: "OBSERVE",
+        observeDescription: "Analysis of logs, events, connections and system behavior during lab activity.",
+        defendLabel: "DEFEND",
+        defendDescription: "Hardening, firewall, Fail2ban and other defensive measures to reduce the attack surface.",
+      },
+      lesson: {
+        eyebrow: "WHAT THIS OLD LAPTOP TAUGHT ME",
+        quote: "A good lab doesn’t need to be expensive. It needs to be used.",
+        description: "More than repurposing old hardware, this project taught me to explore, break, rebuild and understand systems through practice. The CQ40 followed my evolution from hardware and Linux fundamentals to networking, offensive security, hardening and monitoring.",
+      },
+    },
+    pt: {
+      header: {
+        eyebrow: "HOME LAB · INFRAESTRUTURA",
+        tagline: "Transformando hardware legado em infraestrutura de laboratório.",
+      },
+      hero: {
+        imageAlt: "HP Compaq Presario CQ40 usado como servidor doméstico",
+        label: "SERVIDOR DO HOME LAB",
+      },
+      status: {
+        ddr2: "Ainda DDR2.",
+        active: "LABORATÓRIO ATIVO",
+        eyebrow: "STATUS ATUAL",
+        running: "Ainda funcionando.",
+        learning: "Ainda aprendendo.",
+      },
+      beginning: {
+        eyebrow: "O COMEÇO",
+        title: "Tudo começou com um notebook esquecido.",
+        discovery: "Em 2024, no início da minha jornada em tecnologia e cibersegurança, este antigo HP Compaq Presario CQ40 estava parado e parecia ter chegado ao fim de sua vida útil. Na época, eu ainda estava reaprendendo fundamentos de tecnologia — até mesmo conceitos básicos de hardware que hoje parecem simples.",
+        learning: "Em vez de descartá-lo, comecei a estudar o que poderia ser feito. Aprender sobre componentes, armazenamento e memória mudou completamente a forma como eu enxergava aquela máquina antiga. O que parecia ser apenas hardware obsoleto acabou se tornando uma oportunidade para aprender fazendo.",
+      },
+      timeline: {
+        labTitle: "Laboratório doméstico de cibersegurança",
+        headlessTitle: "Servidor headless",
+        eyebrow: "EVOLUÇÃO",
+        title: "De hardware esquecido a laboratório de cibersegurança.",
+        forgottenTitle: "CQ40 esquecido",
+        forgottenDescription: "Um notebook antigo, parado e aparentemente sem utilidade.",
+        upgradeTitle: "Upgrade de hardware",
+        upgradeDescription: "HDD mecânico → SSD SATA · 2 GB → 4 GB DDR2 · manutenção e troca da pasta térmica.",
+        linuxMintDescription: "A primeira experiência que mostrou que o hardware antigo ainda tinha muito a oferecer.",
+        explorationTitle: "Exploração Linux",
+        explorationDescription: "Experimentação com diferentes distribuições, incluindo Ubuntu e Arch Linux.",
+        debianDescription: "A máquina ganhou uma função permanente, estável e orientada a laboratório.",
+        headlessDescription: "A interface gráfica saiu de cena e o CQ40 passou a ser administrado como servidor.",
+        labDescription: "Infraestrutura real para praticar redes, serviços, segurança ofensiva, defesa e monitoramento.",
+      },
+      explored: {
+        automation: "Bash · Shell Scripting · cron · Automação em Linux",
+        loggingTitle: "Logs e experimentação com SOC",
+        webTitle: "Segurança web",
+        offensiveTitle: "Laboratório de segurança ofensiva",
+        networkTitle: "Redes e infraestrutura",
+        linuxTitle: "Linux e administração de sistemas",
+        eyebrow: "O QUE EXPLOREI",
+        title: "Transformando teoria em prática.",
+        linuxDescription: "Debian, administração headless, SSH, usuários, permissões, processos e serviços.",
+        networkDescription: "TCP/IP, endereçamento, DNS, DHCP, portas, firewall e conectividade entre hosts.",
+        servicesLabel: "Serviços",
+        webDescription: "DVWA, exploração controlada de vulnerabilidades web e análise de serviços.",
+        loggingDescription: "Centralização de logs, observação de eventos e experimentação com conceitos de SIEM.",
+        automationLabel: "Automação",
+      },
+      environment: {
+        events: "Eventos · Syslog",
+        securityLabel: "SEGURANÇA",
+        webLabLabel: "LABORATÓRIO WEB",
+        loggingLabel: "LOGS",
+        remoteAdministration: "Administração remota",
+        eyebrow: "AMBIENTE DO LABORATÓRIO",
+        title: "Do hardware à infraestrutura",
+        networkLabel: "REDE DOMÉSTICA",
+        serverLabel: "SERVIDOR PRINCIPAL",
+      },
+      security: {
+        title: "Atacar → Observar → Defender",
+        eyebrow: "LABORATÓRIO DE SEGURANÇA",
+        intro: "O servidor se tornou um ambiente onde eu podia explorar os dois lados da segurança: executar ataques controlados, observar seus efeitos e então implementar mecanismos de defesa.",
+        attackLabel: "ATACAR",
+        attackDescription: "Reconhecimento, enumeração, brute force e exploração controlada de serviços e aplicações vulneráveis.",
+        observeLabel: "OBSERVAR",
+        observeDescription: "Análise de logs, eventos, conexões e comportamento do sistema durante as atividades do laboratório.",
+        defendLabel: "DEFENDER",
+        defendDescription: "Hardening, firewall, Fail2ban e outras medidas defensivas para reduzir a superfície de ataque.",
+      },
+      lesson: {
+        eyebrow: "O QUE ESTE VELHO NOTEBOOK ME ENSINOU",
+        quote: "Um bom laboratório não precisa ser caro. Precisa ser usado.",
+        description: "Mais do que reutilizar hardware antigo, este projeto me ensinou a explorar, quebrar, reconstruir e entender sistemas através da prática. O CQ40 acompanhou minha evolução desde os fundamentos de hardware e Linux até redes, segurança ofensiva, hardening e monitoramento.",
+      },
+    },
+  },
+  cardputer: {
+    en: {
+      header: {
+        eyebrow: "HARDWARE · WIRELESS · EXPERIMENTATION",
+        tagline: "Exploring security beyond software.",
+      },
+      hero: {
+        label: "PORTABLE PLATFORM",
+      },
+      beginning: {
+        eyebrow: "HOW IT STARTED",
+        title: "Curiosity Beyond Software",
+        curiosity: "Hardware hacking always seemed like a fascinating extension of cybersecurity. My curiosity grew after discovering devices such as the Flipper Zero and realizing there was an entire world of experimentation involving signals, wireless protocols and physical hardware.",
+        discovery: "That led me to the Cardputer: a small ESP32-based platform I could use not simply as a gadget, but as an accessible way to begin exploring this world hands-on.",
+      },
+      exploration: {
+        gpio: "Hardware · Modules · Expansion",
+        nrf24: "2.4 GHz Experimentation",
+        rfid: "Radio · Tags · Signals",
+        infrared: "IR · Signals & Devices",
+        infraredLabel: "Infrared",
+        bluetooth: "BLE · Wireless Exploration",
+        wifi: "802.11 · Network Exploration",
+        eyebrow: "EXPLORING THE CARDPUTER",
+        title: "More Than a Tiny Keyboard",
+        intro: "As I began experimenting with different firmware and capabilities, I realized that this small device could become a portable platform for exploring different technologies, protocols and hardware interfaces.",
+      },
+      practice: {
+        eyebrow: "FROM THEORY TO PRACTICE",
+        title: "Turning Study Into Experimentation",
+        intro: "During my preparation for the CompTIA Pentest+, the Cardputer also became a way to experiment, inside my own lab, with concepts I encountered while studying.",
+        studyLabel: "STUDY",
+        studyDescription: "Protocols, network attacks and techniques encountered during Pentest+ preparation.",
+        responderDescription: "Using the Cardputer Responder function in a controlled environment to observe LLMNR behavior.",
+        understandLabel: "UNDERSTAND",
+        understandDescription: "Seeing the concept working in practice made the protocol and its risks much more tangible.",
+      },
+      beyond: {
+        eyebrow: "BEYOND THE CARDPUTER",
+        title: "To Understand the Hacking, I Had to Understand the Hardware",
+        intro: "The more I explored the Cardputer, the more I realized that going further into hardware hacking would require more than knowing tools and firmware. I needed a better understanding of what was happening at the physical level: components, signals, interfaces and communication between devices.",
+        arduinoDescription: "First experiments with circuits, components and prototyping.",
+        esp32Description: "Exploring embedded systems, GPIO and wireless communication.",
+        electronicsTitle: "Electronics",
+        electronicsDescription: "Breadboards, components, measurements and circuit fundamentals.",
+        wirelessTitle: "Wireless Expansion",
+      },
+      wireless: {
+        imageAlt: "Cardputer with Pingequa CC1101 and NRF24 wireless expansion module",
+        eyebrow: "WIRELESS EXPANSION",
+        description: "External modules extend the Cardputer beyond its built-in radios, enabling hands-on experimentation with different frequencies, protocols and wireless communication.",
+      },
+      hardwareLab: {
+        imageAlt: "Electronics and hardware experimentation kit",
+        eyebrow: "HARDWARE LAB",
+        title: "From Curiosity to the Workbench",
+        captionTitle: "Learning Electronics Hands-On",
+        caption: "Arduino, ESP32, breadboards, components, measurement tools and wireless modules became part of my exploration beyond the Cardputer.",
+      },
+      closing: {
+        eyebrow: "A PERSONAL LAB",
+        title: "Exploring Simply to Understand",
+        description: "Hardware hacking remains, above all, a hobby for me — a space where I can explore electronics, radio, embedded systems and security simply out of curiosity about how things work.",
+        status: "Personal Project · Active Exploration",
+      },
+    },
+    pt: {
+      header: {
+        eyebrow: "HARDWARE · WIRELESS · EXPERIMENTAÇÃO",
+        tagline: "Explorando segurança além do software.",
+      },
+      hero: {
+        label: "PLATAFORMA PORTÁTIL",
+      },
+      beginning: {
+        eyebrow: "COMO COMEÇOU",
+        title: "Curiosidade além do software",
+        curiosity: "Hardware hacking sempre me pareceu uma extensão fascinante da cibersegurança. Minha curiosidade começou ao conhecer dispositivos como o Flipper Zero e perceber que existia todo um universo de experimentação envolvendo sinais, protocolos wireless e hardware físico.",
+        discovery: "Foi então que conheci o Cardputer: uma pequena plataforma baseada em ESP32 que poderia usar não apenas como gadget, mas como uma maneira acessível de começar a explorar esse universo na prática.",
+      },
+      exploration: {
+        gpio: "Hardware · Módulos · Expansão",
+        nrf24: "Experimentação em 2.4 GHz",
+        rfid: "Rádio · Tags · Sinais",
+        infrared: "IR · Sinais e dispositivos",
+        infraredLabel: "Infravermelho",
+        bluetooth: "BLE · Exploração wireless",
+        wifi: "802.11 · Exploração de redes",
+        eyebrow: "EXPLORANDO O CARDPUTER",
+        title: "Muito mais do que um pequeno teclado",
+        intro: "Conforme comecei a experimentar diferentes firmwares e recursos, percebi que aquele pequeno dispositivo poderia se tornar uma plataforma portátil para explorar diferentes tecnologias, protocolos e interfaces de hardware.",
+      },
+      practice: {
+        eyebrow: "DA TEORIA À PRÁTICA",
+        title: "Transformando estudo em experimentação",
+        intro: "Durante minha preparação para a CompTIA Pentest+, o Cardputer também se tornou uma forma de experimentar, em meu próprio laboratório, conceitos que eu encontrava nos estudos.",
+        studyLabel: "ESTUDAR",
+        studyDescription: "Protocolos, ataques de rede e técnicas abordadas durante a preparação para a Pentest+.",
+        responderDescription: "Uso da função Responder do Cardputer em um ambiente controlado para observar o comportamento do LLMNR.",
+        understandLabel: "ENTENDER",
+        understandDescription: "Ver o conceito funcionando na prática tornou o protocolo e seus riscos muito mais concretos.",
+      },
+      beyond: {
+        eyebrow: "ALÉM DO CARDPUTER",
+        title: "Para entender o hacking, eu precisava entender o hardware",
+        intro: "Quanto mais eu explorava o Cardputer, mais percebia que avançar em hardware hacking exigiria algo além de conhecer ferramentas e firmwares. Eu precisava compreender melhor o que estava acontecendo no nível físico: componentes, sinais, interfaces e comunicação entre dispositivos.",
+        arduinoDescription: "Primeiros experimentos com circuitos, componentes e prototipagem.",
+        esp32Description: "Exploração de sistemas embarcados, GPIO e comunicação wireless.",
+        electronicsTitle: "Eletrônica",
+        electronicsDescription: "Breadboard, componentes, medições e fundamentos de circuitos.",
+        wirelessTitle: "Expansão Wireless",
+      },
+      wireless: {
+        imageAlt: "Cardputer com módulo de expansão wireless Pingequa CC1101 e NRF24",
+        eyebrow: "EXPANSÃO WIRELESS",
+        description: "Módulos externos expandem o Cardputer além de seus rádios integrados, permitindo experimentação prática com diferentes frequências, protocolos e comunicação wireless.",
+      },
+      hardwareLab: {
+        imageAlt: "Kit de eletrônica e experimentação com hardware",
+        eyebrow: "LABORATÓRIO DE HARDWARE",
+        title: "Da curiosidade à bancada",
+        captionTitle: "Aprendendo eletrônica na prática",
+        caption: "Arduino, ESP32, breadboards, componentes, ferramentas de medição e módulos wireless passaram a complementar minhas explorações com o Cardputer.",
+      },
+      closing: {
+        eyebrow: "UM LABORATÓRIO PESSOAL",
+        title: "Explorando simplesmente para entender",
+        description: "Hardware hacking continua sendo, acima de tudo, um hobby para mim — um espaço onde posso explorar eletrônica, radiofrequência, sistemas embarcados e segurança simplesmente pela curiosidade de entender como as coisas funcionam.",
+        status: "Projeto pessoal · Exploração ativa",
+      },
+    },
+  },
+  marie: {
+    shared: {
+      hero: {
+        persistentMemory: "Persistent Memory",
+      },
+      architecture: {
+        homeServer: "HOME SERVER",
+      },
+    },
+    en: {
+      header: {
+        eyebrow: "ARTIFICIAL INTELLIGENCE · LOCAL AI · PRIVACY",
+        tagline: "What if my own AI could live at home?",
+      },
+      hero: {
+        localLlm: "Local LLM",
+        label: "LOCAL AI PROJECT",
+        title: "An Assistant That Belongs to My Own Environment",
+      },
+      origin: {
+        eyebrow: "HOW IT STARTED",
+        title: "It Started With a Question",
+        question: "What if I could build my own artificial intelligence?",
+        experiment: "Marie did not begin with a roadmap or a clearly defined destination. I simply wanted to start — run AI locally, experiment with it and discover how far I could take it.",
+        assistant: "The idea quickly evolved into something more personal: an assistant that could know me, preserve memories and context, remain available on my own server and, perhaps, continue learning and evolving over time.",
+        tribute: "Named in tribute to scientist Marie Curie.",
+      },
+      home: {
+        eyebrow: "A PLACE TO LIVE",
+        title: "Giving Marie a Place to Live",
+        intro: "I did not want Marie to exist only while a window was open on my computer. The idea was to give her a permanent place inside my own environment: my Home Server.",
+        serverDescription: "Identity · Memory · History",
+        serverAvailability: "Always available",
+        workerDescription: "Inference · Processing",
+        workerAvailability: "Used when available",
+        explanation: "The server preserves what makes Marie continuous, while a more powerful machine can take over processing whenever it is available.",
+      },
+      architecture: {
+        processing: "PROCESSING",
+        inference: "INFERENCE",
+        history: "HISTORY",
+        memory: "MEMORY",
+        identity: "IDENTITY",
+        aiWorker: "AI WORKER",
+        localNetwork: "LOCAL NETWORK",
+        distributedProcessing: "Distributed processing",
+      },
+      continuity: {
+        eyebrow: "MEMORY · IDENTITY · CONTINUITY",
+        title: "What Makes Marie Remain Marie?",
+        intro: "Running a model locally was only the beginning. The more interesting question became how to build continuity around it: preserving information, history, identity and context even after a session ends.",
+        identityTitle: "IDENTITY",
+        identityDescription: "Who Marie is, how she presents herself and the context that defines her identity.",
+        memoryTitle: "MEMORY",
+        memoryDescription: "Persistent information that can survive beyond a single conversation.",
+        historyTitle: "HISTORY",
+        historyDescription: "Previous interactions and states that help build context over time.",
+        continuityTitle: "CONTINUITY",
+        continuityDescription: "The attempt to make Marie more than a new session starting from zero.",
+        question: "The hardware can change. The model can change. But can Marie remain Marie?",
+      },
+      local: {
+        environment: "LOCAL ENVIRONMENT",
+        access: "REMOTE ACCESS",
+        memory: "PERSISTENT MEMORY",
+        privacy: "PRIVATE DATA",
+        inference: "LOCAL INFERENCE",
+        eyebrow: "LOCAL BY DESIGN",
+        title: "An AI That Does Not Have to Leave Home",
+        intro: "The more personal an assistant becomes, the more sensitive the information it knows can become. That made local execution an important part of the idea behind Marie.",
+        inferenceDescription: "Running models inside my own infrastructure whenever the available hardware allows it.",
+        privacyDescription: "Exploring a personal assistant without necessarily depending on sending private information to external services.",
+        memoryDescription: "Keeping memories and context under my own control.",
+        accessDescription: "Exploring secure remote access in the future without turning Marie into a public service.",
+        statement: "My data remains under my control.",
+      },
+      today: {
+        principleLabel: "CORE PRINCIPLE",
+        primaryNode: "PRIMARY NODE",
+        eyebrow: "THE EXPERIMENT TODAY",
+        title: "From an Idea to a Real System",
+        intro: "Marie is still in its early stages, but it has already moved beyond being only an idea. The experiment combines a locally running language model with identity, persistent memory, history and a distributed architecture inside my own lab.",
+        serverDescription: "The persistent elements that give continuity to Marie remain here.",
+        workerDescription: "When available, a more powerful machine can take over processing without becoming the place where Marie has to exist.",
+        principle: "The hardware can change, while identity, memory and history allow Marie to continue from where it left off.",
+      },
+      future: {
+        access: "ACCESS",
+        continuity: "CONTINUITY",
+        voice: "VOICE",
+        imageAlt: "Conceptual visualization of Marie as a persistent local AI assistant",
+        eyebrow: "EXPLORING THE UNKNOWN",
+        title: "How Far Could This Go?",
+        intro: "Marie started as an experiment with local AI, but it naturally raised bigger questions. What if an assistant could remain continuously available, communicate through voice, preserve years of context and evolve alongside the environment in which it lives?",
+        conceptLabel: "CONCEPTUAL VISION",
+        conceptCaption: "A visual interpretation of what Marie could eventually become — not the current state of the project.",
+        voiceTitle: "A More Natural Presence",
+        voiceDescription: "Exploring voice and listening so interaction does not depend entirely on a text interface.",
+        contextTitle: "Context Through Time",
+        contextDescription: "Investigating how memories, experiences and context could remain useful across months or years.",
+        accessTitle: "Beyond the Local Network",
+        accessDescription: "Exploring secure ways to reach Marie remotely while keeping her identity and data inside my own environment.",
+        questionLabel: "THE QUESTION REMAINS",
+        question: "At what point does a tool that preserves memory, identity and context begin to feel less like a software session — and more like a continuous presence?",
+      },
+    },
+    pt: {
+      header: {
+        eyebrow: "INTELIGÊNCIA ARTIFICIAL · IA LOCAL · PRIVACIDADE",
+        tagline: "E se minha própria IA pudesse viver em casa?",
+      },
+      hero: {
+        localLlm: "LLM local",
+        label: "PROJETO DE IA LOCAL",
+        title: "Uma assistente que pertence ao meu próprio ambiente",
+      },
+      origin: {
+        eyebrow: "COMO COMEÇOU",
+        title: "Tudo começou com uma pergunta",
+        question: "E se eu pudesse criar minha própria inteligência artificial?",
+        experiment: "Marie não começou com um roadmap ou um objetivo final bem definido. Eu simplesmente queria começar — executar uma IA localmente, experimentar com ela e descobrir até onde conseguiria levá-la.",
+        assistant: "A ideia rapidamente evoluiu para algo mais pessoal: uma assistente que pudesse me conhecer, preservar memórias e contexto, permanecer disponível no meu próprio servidor e, talvez, continuar aprendendo e evoluindo ao longo do tempo.",
+        tribute: "O nome é uma homenagem à cientista Marie Curie.",
+      },
+      home: {
+        eyebrow: "UM LUGAR PARA EXISTIR",
+        title: "Dando à Marie uma casa",
+        intro: "Eu não queria que Marie existisse apenas enquanto uma janela estivesse aberta no meu computador. A ideia era dar a ela um lugar permanente no meu próprio ambiente: meu Home Server.",
+        serverDescription: "Identidade · Memória · Histórico",
+        serverAvailability: "Sempre disponível",
+        workerDescription: "Inferência · Processamento",
+        workerAvailability: "Usado quando disponível",
+        explanation: "O servidor preserva o que torna Marie contínua, enquanto uma máquina mais potente pode assumir o processamento quando estiver disponível.",
+      },
+      architecture: {
+        processing: "PROCESSAMENTO",
+        inference: "INFERÊNCIA",
+        history: "HISTÓRICO",
+        memory: "MEMÓRIA",
+        identity: "IDENTIDADE",
+        aiWorker: "NÓ DE IA",
+        localNetwork: "REDE LOCAL",
+        distributedProcessing: "Processamento distribuído",
+      },
+      continuity: {
+        eyebrow: "MEMÓRIA · IDENTIDADE · CONTINUIDADE",
+        title: "O que faz Marie continuar sendo Marie?",
+        intro: "Executar um modelo localmente foi apenas o começo. A questão mais interessante passou a ser como construir continuidade ao redor dele: preservar informações, histórico, identidade e contexto mesmo depois que uma sessão termina.",
+        identityTitle: "IDENTIDADE",
+        identityDescription: "Quem é Marie, como ela se apresenta e qual é o contexto que define sua personalidade.",
+        memoryTitle: "MEMÓRIA",
+        memoryDescription: "Informações persistentes que podem sobreviver além de uma única conversa.",
+        historyTitle: "HISTÓRICO",
+        historyDescription: "Interações e estados anteriores que ajudam a construir contexto ao longo do tempo.",
+        continuityTitle: "CONTINUIDADE",
+        continuityDescription: "A tentativa de fazer com que Marie seja mais do que uma nova sessão iniciada do zero.",
+        question: "O hardware pode mudar. O modelo pode mudar. Mas Marie pode continuar sendo Marie?",
+      },
+      local: {
+        environment: "AMBIENTE LOCAL",
+        access: "ACESSO REMOTO",
+        memory: "MEMÓRIA PERSISTENTE",
+        privacy: "DADOS PRIVADOS",
+        inference: "INFERÊNCIA LOCAL",
+        eyebrow: "LOCAL POR DESIGN",
+        title: "Uma IA que não precisa sair de casa",
+        intro: "Quanto mais pessoal uma assistente se torna, mais sensíveis podem se tornar as informações que ela conhece. Isso tornou a execução local uma parte importante da ideia por trás da Marie.",
+        inferenceDescription: "Executar modelos dentro da minha própria infraestrutura sempre que o hardware permitir.",
+        privacyDescription: "Explorar uma assistente pessoal sem depender necessariamente do envio de informações privadas para serviços externos.",
+        memoryDescription: "Manter memórias e contexto sob meu próprio controle.",
+        accessDescription: "Explorar futuramente acesso remoto seguro sem transformar Marie em um serviço público.",
+        statement: "Meus dados permanecem sob meu controle.",
+      },
+      today: {
+        principleLabel: "PRINCÍPIO CENTRAL",
+        primaryNode: "NÓ PRINCIPAL",
+        eyebrow: "O EXPERIMENTO HOJE",
+        title: "De uma ideia para um sistema real",
+        intro: "Marie ainda está nos primeiros estágios, mas já deixou de ser apenas uma ideia. O experimento combina um modelo de linguagem executado localmente com identidade, memória persistente, histórico e uma arquitetura distribuída dentro do meu próprio laboratório.",
+        serverDescription: "É onde Marie mantém os elementos persistentes que dão continuidade ao projeto.",
+        workerDescription: "Quando disponível, uma máquina mais potente pode assumir o processamento sem se tornar o lugar onde Marie precisa existir.",
+        principle: "O hardware pode mudar, mas identidade, memória e histórico permitem que Marie continue de onde parou.",
+      },
+      future: {
+        access: "ACESSO",
+        continuity: "CONTINUIDADE",
+        voice: "VOZ",
+        imageAlt: "Representação conceitual de Marie como assistente de IA local persistente",
+        eyebrow: "EXPLORANDO O DESCONHECIDO",
+        title: "Até onde isso poderia chegar?",
+        intro: "Marie começou como um experimento com IA local, mas naturalmente levantou perguntas maiores. E se uma assistente pudesse permanecer ativa continuamente, conversar por voz, preservar anos de contexto e acompanhar a evolução do próprio ambiente em que vive?",
+        conceptLabel: "VISÃO CONCEITUAL",
+        conceptCaption: "Uma interpretação visual do que Marie poderia se tornar — não o estado atual do projeto.",
+        voiceTitle: "Uma presença mais natural",
+        voiceDescription: "Explorar voz e escuta para que a interação não dependa apenas de uma interface de texto.",
+        contextTitle: "Contexto através do tempo",
+        contextDescription: "Investigar como memórias, experiências e contexto poderiam permanecer úteis ao longo de meses ou anos.",
+        accessTitle: "Além da rede local",
+        accessDescription: "Explorar maneiras seguras de acessar Marie remotamente enquanto sua identidade e seus dados permanecem no meu próprio ambiente.",
+        questionLabel: "A PERGUNTA CONTINUA",
+        question: "Em que momento uma ferramenta que preserva memória, identidade e contexto começa a parecer menos como uma sessão de software — e mais como uma presença contínua?",
+      },
+    },
+  },
+};
+
 SECTIONS.forEach((section) => {
-  const pt = PORTUGUESE_SECTIONS[section.id];
-
-  if (!pt) {
-    console.warn(
-      `[translations] Missing Portuguese translation for: ${section.id}`,
-    );
-    return;
+  const text = SECTION_TEXT[section.id];
+  section.name = { en: text.en.name, pt: text.pt.name };
+  section.body = { en: text.en.body, pt: text.pt.body };
+  if (section.template) {
+    section.render = (language) => section.template(text[language]);
   }
-
-  section.name.pt = pt.name;
-  section.body.pt = pt.body;
-  section.htmlPt = pt.html;
-
-  section.render = (language) => {
-    return language === "pt" ? section.htmlPt : section.html;
-  };
 });
