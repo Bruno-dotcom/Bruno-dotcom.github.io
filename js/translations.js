@@ -1,55 +1,74 @@
 /* English and Portuguese copy for the shared interface and section templates. */
 
+
 Object.assign(UI.en, {
-  backToProjects: "BACK TO PROJECTS",
-  taglineLines: [
-    "· CYBERSECURITY PROFESSIONAL · SECURITY OPERATIONS",
-    "· OFFENSIVE SECURITY · AI SECURITY",
-  ],
-  standbyTitle: "Stay curious. Keep exploring.",
-  probeLabel: "BA · DEEP SPACE",
-  navigation: "Portfolio destinations",
-  moonNavigation: "Jupiter research areas",
-  language: "Language",
+    backToProjects: "BACK TO PROJECTS",
+
+    taglineLines: [
+        "· CYBERSECURITY PROFESSIONAL · SECURITY OPERATIONS",
+        "· OFFENSIVE SECURITY · AI SECURITY",
+    ],
+
+    // VOYAGER — ENGLISH
+    standbyTitle: "A PALE BLUE DOT",
+    probeLabel: "BA · VOYAGER 1",
+    voyagerBrand: "BA · VOYAGER 1",
+    standbySignal: "A MESSAGE ACROSS SPACE",
+    voyagerEyebrow: "A DISCOVERY BEYOND THE SOLAR SYSTEM",
+    voyagerDescription:
+        "A distant view of Earth. A closer look at what matters.",
+    voyagerStart: "INITIATE TRANSMISSION",
+    voyagerFooter: "ONE PLANET. ONE HOME.",
+    standbyNote:
+        "Some discoveries change how we see everything.",
+
+    navigation: "Portfolio destinations",
+    moonNavigation: "Jupiter research areas",
+    language: "Language",
 });
 
 UI.pt = {
-  role: "Profissional de Cibersegurança",
-  taglineLines: [
-    "· PROFISSIONAL DE CIBERSEGURANÇA · OPERAÇÕES DE SEGURANÇA",
-    "· SEGURANÇA OFENSIVA · SEGURANÇA DE IA",
-  ],
+    role: "Profissional de Cibersegurança",
 
-  lead: "Investigando ameaças. Explorando caminhos de ataque. Construindo conhecimento pelo universo da cibersegurança.",
+    taglineLines: [
+        "· PROFISSIONAL DE CIBERSEGURANÇA · OPERAÇÕES DE SEGURANÇA",
+        "· SEGURANÇA OFENSIVA · SEGURANÇA DE IA",
+    ],
 
-  explore: "Explore meu universo",
-  hint: "Arraste para girar · Role para aproximar · Selecione um planeta",
+    lead: "Investigando ameaças. Explorando caminhos de ataque. Construindo conhecimento pelo universo da cibersegurança.",
 
-  prev: "Anterior",
-  next: "Próximo",
-  backToProjects: "VOLTAR A PROJETOS",
-  orbit: "Órbita",
-  close: "Fechar",
+    explore: "Explore meu universo",
+    hint: "Arraste para girar · Role para aproximar · Selecione um planeta",
 
-  standbySignal: "um sinal do além",
+    prev: "Anterior",
+    next: "Próximo",
+    backToProjects: "VOLTAR A PROJETOS",
+    orbit: "Órbita",
+    close: "Fechar",
 
-  standbyNote:
-    "Toda descoberta começa com uma pergunta. Continue explorando além do conhecido.",
+    // VOYAGER — PORTUGUÊS
+    standbyTitle: "UM PÁLIDO PONTO AZUL",
+    probeLabel: "BA · VOYAGER 1",
+    voyagerBrand: "BA · VOYAGER 1",
+    standbySignal: "UMA MENSAGEM ATRAVÉS DO ESPAÇO",
+    voyagerEyebrow: "UMA DESCOBERTA ALÉM DO SISTEMA SOLAR",
+    voyagerDescription:
+        "Uma visão distante da Terra. Um olhar mais próximo sobre o que importa.",
+    voyagerStart: "INICIAR TRANSMISSÃO",
+    voyagerFooter: "UM PLANETA. UM LAR.",
+    standbyNote:
+        "Algumas descobertas mudam a maneira como enxergamos tudo.",
 
-  standbyTitle: "Mantenha a curiosidade. Continue explorando.",
+    navigation: "Seções do portfólio",
+    moonNavigation: "Áreas de pesquisa de Júpiter",
+    language: "Idioma",
 
-  probeLabel: "BA · ESPAÇO PROFUNDO",
-
-  navigation: "Seções do portfólio",
-  moonNavigation: "Áreas de pesquisa de Júpiter",
-
-  language: "Idioma",
-
-  stats: () => [
-    ["14", "domínios de pesquisa"],
-    ["03", "certificações CompTIA"],
-  ],
+    stats: () => [
+        ["14", "domínios de pesquisa"],
+        ["03", "certificações CompTIA"],
+    ],
 };
+
 // The templates in content.js receive only the copy for the active language.
 const SECTION_TEXT = {
   about: {

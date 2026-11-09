@@ -1187,31 +1187,71 @@ bodies.forEach((b) => {
   if (document.fonts) document.fonts.ready.then(relayout);
 
   // the free rectangle of the screen where the scene should be centered
-  function freeRect() {
-    const w = innerWidth,
-      h = innerHeight;
-    const top = header.getBoundingClientRect().bottom + 28; // room for a label above the body
-    const bottom = dock.getBoundingClientRect().top - 8;
-    const rect = { left: 0, right: w, top, bottom };
+  
+function freeRect() {
+    const w = innerWidth;
+    const h = innerHeight;
+
+    const top =
+        header.getBoundingClientRect().bottom + 28;
+
+    const bottom =
+        dock.getBoundingClientRect().top - 8;
+
+    const rect = {
+        left: 0,
+        right: w,
+        top,
+        bottom
+    };
+
     if (focused === probeBody) {
-      if (standby)
-        rect.bottom = Math.min(
-          rect.bottom,
-          standby.getBoundingClientRect().top - 8,
-        );
+
+        if (standby) {
+            const p = standby.getBoundingClientRect();
+
+            if (Space.isSheet() || w <= 640) {
+                // Mobile: panel at the bottom
+                rect.bottom = Math.min(
+                    rect.bottom,
+                    p.top - 8
+                );
+            } else {
+                // Desktop: panel on the right
+                rect.right = Math.min(
+                    rect.right,
+                    p.left - 16
+                );
+            }
+        }
+
     } else if (focused) {
-      const p = panel.getBoundingClientRect();
-      if (Space.isSheet()) rect.bottom = Math.min(rect.bottom, p.top);
-      else rect.right = p.left;
+
+        const p = panel.getBoundingClientRect();
+
+        if (Space.isSheet()) {
+            rect.bottom = Math.min(rect.bottom, p.top);
+        } else {
+            rect.right = p.left;
+        }
+
     } else if (!document.body.classList.contains("focused")) {
-      const it = intro.getBoundingClientRect();
-      // intro on the left (wide screens) or on top (narrow screens)
-      if (it.right < w * 0.62) rect.left = it.right;
-      else rect.top = Math.max(rect.top, it.bottom);
+
+        const it = intro.getBoundingClientRect();
+
+        if (it.right < w * 0.62) {
+            rect.left = it.right;
+        } else {
+            rect.top = Math.max(rect.top, it.bottom);
+        }
     }
-    if (rect.bottom - rect.top < 120) rect.top = Math.max(0, rect.bottom - 120);
+
+    if (rect.bottom - rect.top < 120) {
+        rect.top = Math.max(0, rect.bottom - 120);
+    }
+
     return rect;
-  }
+}
 
   // camera distance so a sphere of `radius` fits inside the free rectangle
   function fitDist(radius, rect, squash) {
@@ -1303,6 +1343,13 @@ bodies.forEach((b) => {
 
         return Math.max(d, radius * 6);
     }
+    
+// Voyager cinematic close-up
+if (focused === probeBody) {
+    const distance = fitDist(5.2, rect, 1);
+
+    return Math.max(distance, 12);
+}
 
     // Original planet / Solar System framing.
     if (!focused) return fitDist(outerOrbit + 3, rect, 0.5);

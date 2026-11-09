@@ -30,9 +30,15 @@ function setLanguage(next) {
     const t = UI[lang];
     document.documentElement.lang = lang === 'pt' ? 'pt-BR' : 'en';
 
-    document.querySelectorAll('[data-ui]').forEach(el => {
-        el.textContent = t[el.dataset.ui];
-    });
+    
+document.querySelectorAll('[data-ui]').forEach(el => {
+    const translated = t[el.dataset.ui];
+
+    if (typeof translated === 'string') {
+        el.textContent = translated;
+    }
+});
+
 
     $('#tagline-detail').innerHTML = t.taglineLines.map(line => `<span>${line}</span>`).join('<br>');
 
@@ -42,8 +48,6 @@ function setLanguage(next) {
     document.querySelector('.lang').setAttribute('aria-label', t.language);
     dock.setAttribute('aria-label', t.navigation);
     moonDock.setAttribute('aria-label', t.moonNavigation);
-    $('#standby-title').textContent = t.standbyTitle;
-    document.querySelector('.standby-meta > span').textContent = t.probeLabel;
     document.title = 'Bruno Almeida — ' + t.role;
     $('#panel-close').setAttribute('aria-label', t.close);
     $('#standby-close').setAttribute('aria-label', t.close);
@@ -2088,19 +2092,52 @@ panel.setAttribute('aria-hidden', 'true');
 
 const standby = $('#standby');
 
+
+
 function showStandby() {
     close();
+
     document.body.classList.add('probe-view');
     standby.setAttribute('aria-hidden', 'false');
+
     Space.focus('probe');
-    $('#standby-close').focus({ preventScroll: true });
+
+    const video = $('#voyager-video');
+
+    if (video) {
+        video.pause();
+        video.currentTime = 0;
+        video.controls = false;
+
+        video.closest('.voyager-video-frame')
+            ?.classList.remove('is-started');
+    }
+
+    $('#standby-close').focus({
+        preventScroll: true
+    });
 }
 
 function hideStandby() {
-    if (!document.body.classList.contains('probe-view')) return;
+    if (!document.body.classList.contains('probe-view')) {
+        return;
+    }
+
+    const video = $('#voyager-video');
+
+    if (video) {
+        video.pause();
+        video.currentTime = 0;
+        video.controls = false;
+
+        video.closest('.voyager-video-frame')
+            ?.classList.remove('is-started');
+    }
+
     document.body.classList.remove('probe-view');
     standby.setAttribute('aria-hidden', 'true');
 }
+
 
 Space.onSelect = i => {
     const section = SECTIONS[i];
@@ -2189,6 +2226,76 @@ function navigateMoon(direction) {
 }
 
 Space.onMoonSelect = target => openMoon(target);
+
+
+/* ==========================================
+   VOYAGER — VIDEO TRANSMISSION CONTROLLER
+   ========================================== */
+
+
+/* ==========================================
+   VOYAGER — VIDEO TRANSMISSION CONTROLLER
+   ========================================== */
+
+const voyagerVideo = document.getElementById('voyager-video');
+const voyagerStart = document.getElementById('voyager-start');
+const voyagerFrame = voyagerVideo?.closest('.voyager-video-frame');
+
+if (voyagerVideo && voyagerStart && voyagerFrame) {
+
+    voyagerVideo.controls = false;
+
+    voyagerStart.addEventListener('click', async () => {
+        voyagerStart.disabled = true;
+
+        try {
+            await voyagerVideo.play();
+
+            voyagerVideo.controls = true;
+            voyagerFrame.classList.add('is-started');
+
+        } catch (error) {
+            console.error(
+                'Voyager video playback failed:',
+                error
+            );
+
+            console.error(
+                'Video source:',
+                voyagerVideo.currentSrc
+            );
+
+            console.error(
+                'Media error code:',
+                voyagerVideo.error?.code
+            );
+
+            // Expose native controls for troubleshooting.
+            voyagerVideo.controls = true;
+            voyagerFrame.classList.add('is-started');
+
+        } finally {
+            voyagerStart.disabled = false;
+        }
+    });
+
+    voyagerVideo.addEventListener('ended', () => {
+        voyagerVideo.pause();
+        voyagerVideo.currentTime = 0;
+        voyagerVideo.controls = false;
+        voyagerFrame.classList.remove('is-started');
+    });
+
+    voyagerVideo.addEventListener('error', () => {
+        console.error(
+            'Voyager media load error:',
+            voyagerVideo.error?.code,
+            voyagerVideo.currentSrc
+        );
+    });
+}
+
+
 Space.onProbe = showStandby;
 $('#standby-close').addEventListener('click', close);
 

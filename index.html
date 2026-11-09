@@ -12,7 +12,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css?v=bruno-ametista-1">
+    <link rel="stylesheet" href="css/style.css?v=voyager-final-1">
 </head>
 <body>
     <canvas id="space" aria-hidden="true"></canvas>
@@ -84,21 +84,137 @@
     </button>
 </nav>
 
-    <aside id="standby" class="standby" aria-hidden="true" role="dialog" aria-labelledby="standby-title">
-        <div class="standby-screen">
-            <div class="standby-bars" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
-            <p class="standby-meta"><span>BA · DEEP SPACE</span><span data-ui="standbySignal"></span></p>
-            <h2 id="standby-title">Stay curious. Keep exploring.</h2>
-            <p class="standby-note" data-ui="standbyNote"></p>
+    
+
+<!-- VOYAGER — DEEP-SPACE OPTICAL FEED -->
+
+<aside
+    id="standby"
+    class="standby voyager-panel"
+    aria-hidden="true"
+    role="dialog"
+    aria-modal="false"
+    aria-labelledby="standby-title"
+>
+    <div class="standby-screen voyager-screen">
+
+        <!-- Original signal bars -->
+        <div class="standby-bars" aria-hidden="true">
+            <i></i><i></i><i></i><i></i>
+            <i></i><i></i><i></i>
         </div>
-        <button class="close" id="standby-close" aria-label="Close">✕</button>
-    </aside>
+
+        <!-- Main header -->
+        <p class="standby-meta">
+            <span data-ui="voyagerBrand">BA · VOYAGER 1</span>
+            <span data-ui="standbySignal">A MESSAGE ACROSS SPACE</span>
+        </p>
+
+        <div class="voyager-content">
+
+            <p class="voyager-eyebrow"
+               data-ui="voyagerEyebrow">
+                A DISCOVERY BEYOND THE SOLAR SYSTEM
+            </p>
+
+            <h2 id="standby-title" data-ui="standbyTitle">
+                A PALE BLUE DOT
+            </h2>
+
+            <p class="voyager-description"
+               data-ui="voyagerDescription">
+                A distant view of Earth. A closer look at what matters.
+            </p>
+
+            <!-- Optical instrument -->
+            <div class="voyager-optical-system">
+
+                <div class="voyager-optical-header">
+                    <span>VOYAGER IMAGING LINK · VGR-001</span>
+                </div>
+
+                <div class="voyager-video-frame">
+
+                    <span class="voyager-optical-label">
+                        OPTICAL FEED
+                    </span>
+
+     <video
+        id="voyager-video"
+        playsinline
+        preload="metadata"
+        aria-label="Pale Blue Dot video"
+    >
+        <source
+            src="/files/Voyager/palido-ponto-azul.mp4"
+            type="video/mp4"
+        >
+
+        <track
+            kind="subtitles"
+            src="/files/Voyager/palido-ponto-azul-en.vtt"
+            srclang="en"
+            label="English"
+        >
+    </video>
+
+                    <div class="voyager-start-overlay">
+                        <button
+                            id="voyager-start"
+                            class="voyager-start-button"
+                            type="button"
+                            aria-label="Initiate video transmission"
+                        >
+                            <span class="voyager-play-icon">▶</span>
+                            <span data-ui="voyagerStart">
+                                INITIATE TRANSMISSION
+                            </span>
+                        </button>
+                    </div>
+
+                    <div class="voyager-optical-status">
+                        <span class="voyager-status">
+                            <span class="voyager-status-light"></span>
+                            SIGNAL LOCK
+                        </span>
+                        <span>PALE BLUE DOT · 1990</span>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Footer -->
+            <div class="voyager-footer">
+                <span>EARTH · 1990</span>
+                <span class="voyager-signal"
+                      data-ui="voyagerFooter">
+                    ONE PLANET. ONE HOME.
+                </span>
+            </div>
+
+            <p class="standby-note"
+               data-ui="standbyNote">
+                Some discoveries change how we see everything.
+            </p>
+
+        </div>
+    </div>
+
+    <button
+        class="close"
+        id="standby-close"
+        aria-label="Close"
+    >
+        ✕
+    </button>
+</aside>
+
 
     <script src="js/three.min.js"></script>
     <script src="js/content.js?v=4"></script>
-    <script src="js/translations.js?v=1"></script>
-    <script src="js/space.js?v=4"></script>
+    <script src="js/translations.js?v=voyager-2"></script>
+    <script src="js/space.js?v=voyager-camera-2"></script>
     <script src="js/fallback.js"></script>
-    <script src="js/script.js?v=tagline-4"></script>
+    <script src="js/script.js?v=voyager-2"></script>
 </body>
 </html>
