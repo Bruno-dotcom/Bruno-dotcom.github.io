@@ -1,17 +1,42 @@
 /* English and Portuguese copy for the shared interface and section templates. */
 
-Object.assign(UI.en, {
-  backToProjects: "BACK TO PROJECTS",
+UI.en = {
+  role: "Cybersecurity Professional",
   taglineLines: [
     "· CYBERSECURITY PROFESSIONAL · SECURITY OPERATIONS",
     "· OFFENSIVE SECURITY · AI SECURITY",
   ],
-  standbyTitle: "Stay curious. Keep exploring.",
-  probeLabel: "BA · DEEP SPACE",
+  lead: "Investigating threats. Exploring attack paths. Building knowledge across the cybersecurity universe.",
+  explore: "Explore my universe",
+  hint: "Drag to orbit · Scroll to zoom · Select a planet",
+  prev: "Previous",
+  next: "Next",
+  backToProjects: "BACK TO PROJECTS",
+  orbit: "Orbit",
+  close: "Close",
+  soundLabel: "SOUND",
+  soundOn: "Play soundtrack",
+  soundOff: "Pause soundtrack",
+  soundVolume: "Soundtrack volume",
+  // Voyager
+  standbyTitle: "A PALE BLUE DOT",
+  probeLabel: "BA · VOYAGER 1",
+  voyagerBrand: "BA · VOYAGER 1",
+  standbySignal: "A MESSAGE ACROSS SPACE",
+  voyagerEyebrow: "A DISCOVERY BEYOND THE SOLAR SYSTEM",
+  voyagerDescription:
+    "A distant view of Earth. A closer look at what matters.",
+  voyagerStart: "INITIATE TRANSMISSION",
+  voyagerFooter: "ONE PLANET. ONE HOME.",
+  standbyNote: "Some discoveries change how we see everything.",
   navigation: "Portfolio destinations",
   moonNavigation: "Jupiter research areas",
   language: "Language",
-});
+  stats: () => [
+    ["14", "research domains"],
+    ["03", "CompTIA certifications"],
+  ],
+};
 
 UI.pt = {
   role: "Profissional de Cibersegurança",
@@ -30,15 +55,22 @@ UI.pt = {
   backToProjects: "VOLTAR A PROJETOS",
   orbit: "Órbita",
   close: "Fechar",
+  soundLabel: "SOM",
+  soundOn: "Reproduzir trilha sonora",
+  soundOff: "Pausar trilha sonora",
+  soundVolume: "Volume da trilha sonora",
 
-  standbySignal: "um sinal do além",
-
-  standbyNote:
-    "Toda descoberta começa com uma pergunta. Continue explorando além do conhecido.",
-
-  standbyTitle: "Mantenha a curiosidade. Continue explorando.",
-
-  probeLabel: "BA · ESPAÇO PROFUNDO",
+  // Voyager
+  standbyTitle: "UM PÁLIDO PONTO AZUL",
+  probeLabel: "BA · VOYAGER 1",
+  voyagerBrand: "BA · VOYAGER 1",
+  standbySignal: "UMA MENSAGEM ATRAVÉS DO ESPAÇO",
+  voyagerEyebrow: "UMA DESCOBERTA ALÉM DO SISTEMA SOLAR",
+  voyagerDescription:
+    "Uma visão distante da Terra. Um olhar mais próximo sobre o que importa.",
+  voyagerStart: "INICIAR TRANSMISSÃO",
+  voyagerFooter: "UM PLANETA. UM LAR.",
+  standbyNote: "Algumas descobertas mudam a maneira como enxergamos tudo.",
 
   navigation: "Seções do portfólio",
   moonNavigation: "Áreas de pesquisa de Júpiter",
@@ -127,6 +159,7 @@ const SECTION_TEXT = {
       name: "Experience",
       body: "Venus · Field experience",
       vtalDates: "JUL 2026 — PRESENT",
+      juniorDates: "NOV 2025 — JUN 2026",
       vtalTitle: "V.tal · Information Security Analyst",
       vtalDescription: "Mid-level role in Security Operations. Security event and incident investigation, IoC analysis, threat hunting, and detection improvements across enterprise environments. Complementary work in AppSec, API security testing, risk assessments, and coordination of external penetration tests.",
       juniorTitle: "V.tal · Junior Information Security Analyst",
@@ -145,6 +178,7 @@ const SECTION_TEXT = {
       name: "Experiência",
       body: "Vênus · Experiência na prática",
       vtalDates: "JUL 2026 — ATUAL",
+      juniorDates: "NOV 2025 — JUN 2026",
       vtalTitle: "V.tal · Analista de Segurança da Informação",
       vtalDescription: "Atuação como analista pleno em Operações de Segurança. Investigação de eventos e incidentes, análise de IoCs, threat hunting e melhoria de detecções em ambientes corporativos. Experiência complementar em AppSec, testes de segurança de APIs, análise de riscos e coordenação de testes de intrusão externos.",
       juniorTitle: "V.tal · Analista de Segurança da Informação Júnior",
@@ -213,6 +247,7 @@ const SECTION_TEXT = {
       body: "Earth · Built in the real world",
       lead: "Personal projects where cybersecurity, infrastructure, hardware and artificial intelligence meet hands-on experimentation.",
       homeServerLabel: "HOME LAB · INFRASTRUCTURE",
+      cardputerLabel: "HARDWARE · WIRELESS",
       homeServerDescription: "Repurposed legacy hardware running Debian Server as the core of my home cybersecurity laboratory and network infrastructure.",
       cardputerDescription: "A portable embedded platform used for hardware, wireless and security experimentation.",
       marieLabel: "ARTIFICIAL INTELLIGENCE",
@@ -225,6 +260,7 @@ const SECTION_TEXT = {
       body: "Terra · Construído no mundo real",
       lead: "Projetos pessoais onde cibersegurança, infraestrutura, hardware e inteligência artificial se encontram na experimentação prática.",
       homeServerLabel: "HOME LAB · INFRAESTRUTURA",
+      cardputerLabel: "HARDWARE · WIRELESS",
       homeServerDescription: "Hardware legado reaproveitado executando Debian Server como núcleo do meu laboratório doméstico de cibersegurança e infraestrutura de rede.",
       cardputerDescription: "Plataforma embarcada portátil utilizada para experimentação com hardware, comunicação sem fio e segurança.",
       marieLabel: "INTELIGÊNCIA ARTIFICIAL",
@@ -256,6 +292,9 @@ const SECTION_TEXT = {
       directoryDescription: "Directory services, Kerberos, NTLM, trust, and privilege paths.",
       cryptographyTitle: "Cryptography & Cryptanalysis",
       cryptographyDescription: "Cryptographic protocols, key management, PKI, and implementation analysis.",
+      ganymedeTitle: "Hardware & Wireless",
+      wirelessTitle: "Wireless & RF",
+      firmwareTitle: "Hardware & Firmware",
       wirelessDescription: "Wi-Fi, Bluetooth, NFC, and software-defined radio.",
       firmwareDescription: "Debug interfaces, embedded devices, and firmware analysis.",
       industrialTitle: "ICS / OT & Specialized",
@@ -291,6 +330,9 @@ const SECTION_TEXT = {
       directoryDescription: "Serviços de diretório, Kerberos, NTLM, relações de confiança e caminhos de privilégio.",
       cryptographyTitle: "Criptografia & Criptoanálise",
       cryptographyDescription: "Protocolos criptográficos, gestão de chaves, PKI e análise de implementações.",
+      ganymedeTitle: "Hardware & Wireless",
+      wirelessTitle: "Wireless & RF",
+      firmwareTitle: "Hardware & Firmware",
       wirelessDescription: "Wi-Fi, Bluetooth, NFC e rádio definido por software.",
       firmwareDescription: "Interfaces de depuração, dispositivos embarcados e análise de firmware.",
       industrialTitle: "ICS / OT & Especializados",

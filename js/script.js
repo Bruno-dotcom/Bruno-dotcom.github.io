@@ -13,6 +13,272 @@ let projectOpener = null;
 let current = null;
 let currentMoon = null;
 
+/* ---------- soundtrack ---------- */
+
+const soundtrack = $('#portfolio-soundtrack');
+const soundControl = $('#sound-control');
+const soundToggle = $('#sound-toggle');
+const soundVolume = $('#sound-volume');
+
+const SOUNDTRACK_ENABLED_KEY = 'portfolio-soundtrack-enabled';
+const SOUNDTRACK_VOLUME_KEY = 'portfolio-soundtrack-volume';
+const SOUNDTRACK_DEFAULT_VOLUME = 0.70;
+
+let soundtrackEnabled = false;
+let soundtrackVolume = SOUNDTRACK_DEFAULT_VOLUME;
+let soundtrackSuspended = false;
+let soundtrackFadeToken = 0;
+let soundtrackRestoreArmed = false;
+
+function clampSoundtrackVolume(value) {
+    return Math.min(1, Math.max(0, Number(value) || 0));
+}
+
+function readSoundtrackPreferences() {
+    if (!soundtrack) return;
+
+    try {
+        const savedVolumeValue = localStorage.getItem(SOUNDTRACK_VOLUME_KEY);
+        const savedVolume = Number(savedVolumeValue);
+
+        if (
+            savedVolumeValue !== null &&
+            Number.isFinite(savedVolume) &&
+            savedVolume >= 0 &&
+            savedVolume <= 1
+        ) {
+            soundtrackVolume = savedVolume;
+        }
+
+        soundtrackEnabled = localStorage.getItem(SOUNDTRACK_ENABLED_KEY) === '1';
+    } catch (error) {}
+
+    soundtrack.volume = soundtrackVolume;
+    if (soundVolume) soundVolume.value = String(Math.round(soundtrackVolume * 100));
+}
+
+function saveSoundtrackPreferences() {
+    try {
+        localStorage.setItem(SOUNDTRACK_ENABLED_KEY, soundtrackEnabled ? '1' : '0');
+        localStorage.setItem(SOUNDTRACK_VOLUME_KEY, String(soundtrackVolume));
+    } catch (error) {}
+}
+
+function updateSoundtrackUI() {
+    if (!soundtrack || !soundControl || !soundToggle || !soundVolume) return;
+
+    const t = UI[lang] || UI.en;
+    const playing =
+        soundtrackEnabled &&
+        !soundtrackSuspended &&
+        !soundtrack.paused &&
+        soundtrack.volume > 0.001;
+
+    soundControl.classList.toggle('is-enabled', soundtrackEnabled);
+    soundControl.classList.toggle('is-playing', playing);
+    soundControl.classList.toggle('is-suspended', soundtrackSuspended);
+
+    soundToggle.setAttribute('aria-pressed', String(soundtrackEnabled));
+
+    const toggleLabel = soundtrackEnabled ? t.soundOff : t.soundOn;
+    soundToggle.setAttribute('aria-label', toggleLabel);
+    soundToggle.title = toggleLabel;
+    soundVolume.setAttribute('aria-label', t.soundVolume);
+}
+
+function fadeSoundtrackTo(target, duration, onComplete) {
+    if (!soundtrack) return;
+
+    const token = ++soundtrackFadeToken;
+    const from = soundtrack.volume;
+    const to = clampSoundtrackVolume(target);
+
+    if (duration <= 0 || Math.abs(from - to) < 0.001) {
+        soundtrack.volume = to;
+        if (onComplete) onComplete();
+        updateSoundtrackUI();
+        return;
+    }
+
+    const started = performance.now();
+
+    const step = now => {
+        if (token !== soundtrackFadeToken) return;
+
+        const progress = Math.min(1, (now - started) / duration);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        soundtrack.volume = from + (to - from) * eased;
+
+        if (progress < 1) {
+            requestAnimationFrame(step);
+            return;
+        }
+
+        soundtrack.volume = to;
+        if (onComplete) onComplete();
+        updateSoundtrackUI();
+    };
+
+    requestAnimationFrame(step);
+}
+
+async function playSoundtrack({ fade = true } = {}) {
+    if (!soundtrack || !soundtrackEnabled || soundtrackSuspended) {
+        updateSoundtrackUI();
+        return;
+    }
+
+    ++soundtrackFadeToken;
+
+    if (soundtrack.paused) {
+        soundtrack.volume = fade ? 0 : soundtrackVolume;
+
+        try {
+            await soundtrack.play();
+        } catch (error) {
+            soundtrack.volume = soundtrackVolume;
+            updateSoundtrackUI();
+            return;
+        }
+    }
+
+    if (fade) {
+        fadeSoundtrackTo(soundtrackVolume, 700);
+    } else {
+        soundtrack.volume = soundtrackVolume;
+        updateSoundtrackUI();
+    }
+}
+
+function pauseSoundtrack({ fade = true } = {}) {
+    if (!soundtrack) return;
+
+    ++soundtrackFadeToken;
+
+    if (soundtrack.paused) {
+        soundtrack.volume = soundtrackVolume;
+        updateSoundtrackUI();
+        return;
+    }
+
+    if (!fade) {
+        soundtrack.pause();
+        soundtrack.volume = soundtrackVolume;
+        updateSoundtrackUI();
+        return;
+    }
+
+    fadeSoundtrackTo(0, 450, () => {
+        soundtrack.pause();
+        soundtrack.volume = soundtrackVolume;
+        updateSoundtrackUI();
+    });
+}
+
+function setSoundtrackSuspended(suspended, { fade = true } = {}) {
+    soundtrackSuspended = Boolean(suspended);
+
+    if (soundtrackSuspended) {
+        pauseSoundtrack({ fade });
+    } else if (soundtrackEnabled) {
+        playSoundtrack({ fade: true });
+    } else {
+        updateSoundtrackUI();
+    }
+}
+
+function disarmSoundtrackRestore() {
+    if (!soundtrackRestoreArmed) return;
+    soundtrackRestoreArmed = false;
+    document.removeEventListener('click', restoreSavedSoundtrack);
+}
+
+function restoreSavedSoundtrack(event) {
+    if (!soundtrackEnabled) {
+        disarmSoundtrackRestore();
+        return;
+    }
+
+    if (event.target.closest?.('#sound-control')) return;
+
+    disarmSoundtrackRestore();
+
+    if (!soundtrackSuspended) {
+        playSoundtrack({ fade: true });
+    }
+}
+
+function armSoundtrackRestore() {
+    if (!soundtrackEnabled || soundtrackRestoreArmed) return;
+    soundtrackRestoreArmed = true;
+    document.addEventListener('click', restoreSavedSoundtrack);
+}
+
+if (soundToggle && soundVolume && soundtrack) {
+    readSoundtrackPreferences();
+    updateSoundtrackUI();
+
+    soundToggle.addEventListener('click', () => {
+    disarmSoundtrackRestore();
+
+    /*
+     * A preferência já está habilitada, mas o navegador bloqueou
+     * o autoplay. Neste caso, o primeiro clique deve iniciar
+     * a trilha, e não desabilitá-la.
+     */
+    if (
+        soundtrackEnabled &&
+        soundtrack.paused &&
+        !soundtrackSuspended
+    ) {
+        playSoundtrack({ fade: true });
+        return;
+    }
+
+    soundtrackEnabled = !soundtrackEnabled;
+    saveSoundtrackPreferences();
+
+    if (soundtrackEnabled) {
+        playSoundtrack({ fade: true });
+    } else {
+        pauseSoundtrack({ fade: true });
+    }
+
+    updateSoundtrackUI();
+
+    });
+
+    soundVolume.addEventListener('input', () => {
+        soundtrackVolume = clampSoundtrackVolume(Number(soundVolume.value) / 100);
+        saveSoundtrackPreferences();
+
+        ++soundtrackFadeToken;
+
+        if (!soundtrack.paused && !soundtrackSuspended) {
+            soundtrack.volume = soundtrackVolume;
+        }
+
+        updateSoundtrackUI();
+    });
+
+    soundtrack.addEventListener('play', updateSoundtrackUI);
+soundtrack.addEventListener('pause', updateSoundtrackUI);
+
+if (soundtrackEnabled) {
+    playSoundtrack({ fade: true }).then(() => {
+        if (soundtrack.paused) {
+            if (soundtrackEnabled) {
+        playSoundtrack({ fade: true }).then(() => {
+        if (soundtrack.paused) {
+            armSoundtrackRestore();
+        }
+    });
+}
+        }
+    });
+}
+}
+
 /* ---------- dock ---------- */
 
 SECTIONS.forEach((s, i) => {
@@ -31,7 +297,8 @@ function setLanguage(next) {
     document.documentElement.lang = lang === 'pt' ? 'pt-BR' : 'en';
 
     document.querySelectorAll('[data-ui]').forEach(el => {
-        el.textContent = t[el.dataset.ui];
+        const translated = t[el.dataset.ui];
+        if (typeof translated === 'string') el.textContent = translated;
     });
 
     $('#tagline-detail').innerHTML = t.taglineLines.map(line => `<span>${line}</span>`).join('<br>');
@@ -42,11 +309,10 @@ function setLanguage(next) {
     document.querySelector('.lang').setAttribute('aria-label', t.language);
     dock.setAttribute('aria-label', t.navigation);
     moonDock.setAttribute('aria-label', t.moonNavigation);
-    $('#standby-title').textContent = t.standbyTitle;
-    document.querySelector('.standby-meta > span').textContent = t.probeLabel;
     document.title = 'Bruno Almeida — ' + t.role;
     $('#panel-close').setAttribute('aria-label', t.close);
     $('#standby-close').setAttribute('aria-label', t.close);
+    updateSoundtrackUI();
     Space.setLabels(lang);
 
     if (current === null || panel.getAttribute('aria-hidden') !== 'false') return;
@@ -136,7 +402,7 @@ function renderPanel(i) {
 
                     <div class="research-moon-info">
                         <strong>GANYMEDE</strong>
-                        <span>Hardware & Wireless</span>
+                        <span>${researchText.ganymedeTitle}</span>
                     </div>
 
                     <span class="research-moon-arrow">→</span>
@@ -627,6 +893,7 @@ function openProject(projectId) {
 
     $('.project-back').addEventListener('click', backToProjects);
 
+    $('#panel-content').scrollTop = 0;
 }
 
 function openCardputerProject() {
@@ -1575,7 +1842,7 @@ function renderMoon(research, moonId) {
     if (!group) return false;
 
     $('#panel-orbit').textContent =
-        `JUPITER · ${(moon.name || moonId).toUpperCase()}`;
+        `${research.body[lang].toUpperCase()} · ${(moon.name || moonId).toUpperCase()}`;
 
     $('#panel-body').textContent =
         moon.name || moonId;
@@ -1606,6 +1873,7 @@ function openMoon(target) {
     current = researchIndex;
     currentProject = null;
     currentMoon = target.id;
+    $('#panel-content').scrollTop = 0;
     showMoonDock(currentMoon);
 
     $('#panel').dataset.section = "research";
@@ -2088,16 +2356,29 @@ panel.setAttribute('aria-hidden', 'true');
 
 const standby = $('#standby');
 
+function resetVoyagerVideo() {
+    const video = $('#voyager-video');
+    if (!video) return;
+
+    video.pause();
+    video.currentTime = 0;
+    video.controls = false;
+    video.closest('.voyager-video-frame')?.classList.remove('is-started');
+    setSoundtrackSuspended(false);
+}
+
 function showStandby() {
     close();
     document.body.classList.add('probe-view');
     standby.setAttribute('aria-hidden', 'false');
     Space.focus('probe');
+    resetVoyagerVideo();
     $('#standby-close').focus({ preventScroll: true });
 }
 
 function hideStandby() {
     if (!document.body.classList.contains('probe-view')) return;
+    resetVoyagerVideo();
     document.body.classList.remove('probe-view');
     standby.setAttribute('aria-hidden', 'true');
 }
@@ -2189,6 +2470,52 @@ function navigateMoon(direction) {
 }
 
 Space.onMoonSelect = target => openMoon(target);
+
+/* ---------- Voyager video transmission ---------- */
+
+const voyagerVideo = document.getElementById('voyager-video');
+const voyagerStart = document.getElementById('voyager-start');
+const voyagerFrame = voyagerVideo?.closest('.voyager-video-frame');
+
+if (voyagerVideo && voyagerStart && voyagerFrame) {
+    voyagerVideo.controls = false;
+
+    voyagerVideo.addEventListener('play', () => {
+        // Video audio takes priority: stop the portfolio soundtrack immediately.
+        setSoundtrackSuspended(true, { fade: false });
+    });
+
+    voyagerStart.addEventListener('click', async () => {
+        voyagerStart.disabled = true;
+
+        try {
+            await voyagerVideo.play();
+            voyagerVideo.controls = true;
+            voyagerFrame.classList.add('is-started');
+        } catch (error) {
+            console.error('Voyager video playback failed:', error);
+            console.error('Video source:', voyagerVideo.currentSrc);
+            console.error('Media error code:', voyagerVideo.error?.code);
+
+            // Expose native controls if playback fails so the media can be diagnosed.
+            voyagerVideo.controls = true;
+            voyagerFrame.classList.add('is-started');
+        } finally {
+            voyagerStart.disabled = false;
+        }
+    });
+
+    voyagerVideo.addEventListener('ended', resetVoyagerVideo);
+
+    voyagerVideo.addEventListener('error', () => {
+        console.error(
+            'Voyager media load error:',
+            voyagerVideo.error?.code,
+            voyagerVideo.currentSrc
+        );
+    });
+}
+
 Space.onProbe = showStandby;
 $('#standby-close').addEventListener('click', close);
 
@@ -2253,7 +2580,7 @@ addEventListener('keydown', e => {
     }
 });
 
-/* ---------- readout (Brasília time + a pseudo coordinate) ---------- */
+/* ---------- readout (Brasília time) ---------- */
 
 const fmt = new Intl.DateTimeFormat('en-GB', { hour: '2-digit', minute: '2-digit', second: '2-digit', timeZone: 'America/Sao_Paulo' });
 function tick() {
@@ -2271,7 +2598,10 @@ setLanguage(savedLanguage);
 const initialHash = location.hash;
 const fromHash = SECTIONS.findIndex(s => '#' + s.id === initialHash);
 if (fromHash >= 0) {
-    setTimeout(() => open(fromHash), 400);
+    setTimeout(() => {
+        if (location.hash !== initialHash) return;
+        open(fromHash);
+    }, 400);
 } else if (initialHash.startsWith('#research-')) {
     const researchIndex = SECTIONS.findIndex(s => s.id === 'research');
     const moon = SECTIONS[researchIndex]?.visual.moons.find(m => '#research-' + m.id === initialHash);

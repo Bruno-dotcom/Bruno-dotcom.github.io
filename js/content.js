@@ -1,25 +1,4 @@
-﻿const UI = {
-  en: {
-    ...{
-      role: "Cybersecurity Professional",
-      lead: "Investigating threats. Exploring attack paths. Building knowledge across the cybersecurity universe.",
-      explore: "Explore my universe",
-      hint: "Drag to orbit · Scroll to zoom · Select a planet",
-      prev: "Previous",
-      next: "Next",
-      orbit: "Orbit",
-      close: "Close",
-      standbySignal: "a signal from beyond",
-      standbyNote:
-        "Every discovery starts with a question. Keep looking beyond the familiar.",
-      
-    },
-    stats: () => [
-      ["14", "research domains"],
-      ["03", "CompTIA certifications"],
-    ],
-  },
-};
+const UI = {};
 const SECTIONS = [
   {
     id: "about",
@@ -166,7 +145,7 @@ const SECTIONS = [
           </div>
 
           <div class="experience-role experience-role-secondary">
-            <span class="eyebrow">NOV 2025 — JUN 2026</span>
+            <span class="eyebrow">${text.juniorDates}</span>
             <h3>${text.juniorTitle}</h3>
             <p>
               ${text.juniorDescription}
@@ -285,7 +264,7 @@ const SECTIONS = [
                 </div>
 
                 <div class="project-card-content">
-                    <span class="eyebrow">HARDWARE · WIRELESS</span>
+                    <span class="eyebrow">${text.cardputerLabel}</span>
                     <h3>Cardputer ADV</h3>
                     <p class="project-device">M5Stack · ESP32-S3</p>
                     <p>${text.cardputerDescription}</p>
@@ -547,18 +526,18 @@ const SECTIONS = [
 
             <section class="research-group" data-moon="ganymede">
                 <span class="eyebrow">GANYMEDE</span>
-                <h3>Hardware & Wireless</h3>
+                <h3>${text.ganymedeTitle}</h3>
 
                 <article class="domain-entry">
                     <div class="domain-logo">
                         <img
                             src="files/Atlas - Jupiter/Hardware and Wireless - Ganymede/wireless_rf.png"
-                            alt="Wireless & RF"
+                            alt="${text.wirelessTitle}"
                         >
                     </div>
 
                     <div class="domain-copy">
-                        <h3>Wireless & RF</h3>
+                        <h3>${text.wirelessTitle}</h3>
                         <p>${text.wirelessDescription}</p>
                         <span class="planned">${text.planned}</span>
                     </div>
@@ -568,12 +547,12 @@ const SECTIONS = [
                     <div class="domain-logo">
                         <img
                             src="files/Atlas - Jupiter/Hardware and Wireless - Ganymede/hardware_firmware.png"
-                            alt="Hardware & Firmware"
+                            alt="${text.firmwareTitle}"
                         >
                     </div>
 
                     <div class="domain-copy">
-                        <h3>Hardware & Firmware</h3>
+                        <h3>${text.firmwareTitle}</h3>
                         <p>${text.firmwareDescription}</p>
                         <span class="planned">${text.planned}</span>
                     </div>
@@ -675,7 +654,7 @@ const SECTIONS = [
 
         <article class="education-item">
             <div class="education-logo">
-                <img src="files/Education - Saturn/unasp-logo.jpg" alt="UNASP">
+                <img src="files/Education - Saturn/unasp-logo.png" alt="UNASP">
             </div>
 
             <div class="education-copy">

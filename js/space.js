@@ -1,6 +1,6 @@
 /*
  * Cena 3D do sistema solar (Three.js).
- * Expõe window.Space com focus(index | null), setLabels(lang) e o callback onSelect.
+ * Expõe window.Space para seleção e foco de planetas/luas, labels, pausa e status da cena.
  */
 
 (function () {
@@ -10,7 +10,7 @@
     focus: () => {},
     setLabels: () => {},
     ready: false,
-});
+  });
 
   // same breakpoint as the CSS: the panel becomes a bottom sheet
   const SHEET = matchMedia(
@@ -876,52 +876,51 @@
     };
 
     (v.moons || []).forEach((m, k) => {
-    const moonMap = moonTexture(
-    m,
-    1000 + index * 100 + k
-);
+      const moonMap = moonTexture(m, 1000 + index * 100 + k);
+      const emissiveIntensity = m.glow || 0.02;
 
-const moon = new THREE.Mesh(
-    new THREE.SphereGeometry(m.size, 32, 32),
-    new THREE.MeshStandardMaterial({
-        color: moonMap ? 0xffffff : m.color,
-        map: moonMap,
-        roughness: 0.9,
-        metalness: 0,
-        emissive: m.color,
-        emissiveIntensity: m.glow || 0.02,
-    }),
-);
+      const moon = new THREE.Mesh(
+        new THREE.SphereGeometry(m.size, 32, 32),
+        new THREE.MeshStandardMaterial({
+          color: moonMap ? 0xffffff : m.color,
+          map: moonMap,
+          roughness: 0.9,
+          metalness: 0,
+          emissive: m.color,
+          emissiveIntensity,
+        }),
+      );
 
-    const moonId = m.id || null;
+      const moonId = m.id || null;
 
-    moon.userData = moonId
+      moon.userData = moonId
         ? {
-              type: "moon",
-              id: moonId,
-              name: m.name || moonId,
-              group: m.group || null,
-              parentIndex: index,
+            type: "moon",
+            id: moonId,
+            name: m.name || moonId,
+            group: m.group || null,
+            parentIndex: index,
           }
         : {
-              type: "planet-moon",
-              parentIndex: index,
+            type: "planet-moon",
+            parentIndex: index,
           };
 
-    scene.add(moon);
+      scene.add(moon);
 
-    body.moons.push({
+      body.moons.push({
         mesh: moon,
         id: moonId,
         name: m.name || null,
         group: m.group || null,
         parentIndex: index,
+        emissiveIntensity,
         dist: v.size * 1.8 + k * (v.size * 0.45 + 0.4),
         speed: 1.3 - k * 0.2,
         phase: k * 1.9,
         tilt: 0.25 - k * 0.14,
+      });
     });
-});
 
     bodies.push(body);
   });
@@ -1115,45 +1114,35 @@ const moon = new THREE.Mesh(
   });
 
   // Navigable moons of Jupiter / Research Atlas
-const moonLabels = [];
+  const moonLabels = [];
 
-bodies.forEach((b) => {
+  bodies.forEach((b) => {
     b.moons.forEach((m) => {
-        if (!m.id) return;
+      if (!m.id) return;
 
-        const el = document.createElement("button");
+      const el = document.createElement("button");
+      el.className = "label moon-label";
+      el.innerHTML = "<i></i><span></span>";
+      el.querySelector("span").textContent = (m.name || m.id).toUpperCase();
+      el.setAttribute("aria-label", m.name || m.id);
 
-        el.className = "label moon-label";
-        el.innerHTML = "<i></i><span></span>";
-
-        el.querySelector("span").textContent =
-            (m.name || m.id).toUpperCase();
-
-        el.setAttribute(
-            "aria-label",
-            m.name || m.id
-        );
-
-        el.addEventListener("click", (e) => {
-            e.stopPropagation();
-
-            Space.onMoonSelect({
-                type: "moon",
-                id: m.id,
-                name: m.name,
-                group: m.group,
-                parentIndex: m.parentIndex,
-                object: m.mesh,
-            });
+      el.addEventListener("click", (e) => {
+        e.stopPropagation();
+        Space.onMoonSelect({
+          type: "moon",
+          id: m.id,
+          name: m.name,
+          group: m.group,
+          parentIndex: m.parentIndex,
+          object: m.mesh,
         });
+      });
 
-        labelLayer.appendChild(el);
-
-        m.label = el;
-
-        moonLabels.push(m);
+      labelLayer.appendChild(el);
+      m.label = el;
+      moonLabels.push(m);
     });
-});
+  });
 
   Space.setLabels = (lang) => {
     bodies.forEach((b) => {
@@ -1188,17 +1177,23 @@ bodies.forEach((b) => {
 
   // the free rectangle of the screen where the scene should be centered
   function freeRect() {
-    const w = innerWidth,
-      h = innerHeight;
+    const w = innerWidth;
     const top = header.getBoundingClientRect().bottom + 28; // room for a label above the body
     const bottom = dock.getBoundingClientRect().top - 8;
     const rect = { left: 0, right: w, top, bottom };
+
     if (focused === probeBody) {
-      if (standby)
-        rect.bottom = Math.min(
-          rect.bottom,
-          standby.getBoundingClientRect().top - 8,
-        );
+      if (standby) {
+        const p = standby.getBoundingClientRect();
+
+        if (Space.isSheet() || w <= 640) {
+          // On mobile the Voyager panel is a bottom sheet.
+          rect.bottom = Math.min(rect.bottom, p.top - 8);
+        } else {
+          // On desktop keep the spacecraft clear of the panel on the right.
+          rect.right = Math.min(rect.right, p.left - 16);
+        }
+      }
     } else if (focused) {
       const p = panel.getBoundingClientRect();
       if (Space.isSheet()) rect.bottom = Math.min(rect.bottom, p.top);
@@ -1209,6 +1204,7 @@ bodies.forEach((b) => {
       if (it.right < w * 0.62) rect.left = it.right;
       else rect.top = Math.max(rect.top, it.bottom);
     }
+
     if (rect.bottom - rect.top < 120) rect.top = Math.max(0, rect.bottom - 120);
     return rect;
   }
@@ -1268,58 +1264,52 @@ bodies.forEach((b) => {
     if (!target?.id) return;
 
     const parent = bodies[target.parentIndex];
-
     if (!parent) return;
 
-    const moon = parent.moons.find(
-        m => m.id === target.id
-    );
-
+    const moon = parent.moons.find((m) => m.id === target.id);
     if (!moon) return;
 
     focused = parent;
     focusedMoon = moon;
-
     userZoom = 1;
 
     relayout();
-
     rig.want.phi = 1.25;
 
     bodies.forEach((b) =>
-        b.label.classList.toggle("active", b === parent)
+      b.label.classList.toggle("active", b === parent),
     );
-};
+  };
 
   function wantedDist(rect) {
     // When a Jupiter moon is selected, frame the moon itself.
     if (focusedMoon) {
-        const radius =
-            focusedMoon.mesh.geometry.parameters.radius ||
-            focusedMoon.mesh.geometry.boundingSphere?.radius ||
-            0.4;
+      const radius =
+        focusedMoon.mesh.geometry.parameters.radius ||
+        focusedMoon.mesh.geometry.boundingSphere?.radius ||
+        0.4;
 
-        const d = fitDist(radius * 2.4, rect, 1);
+      const d = fitDist(radius * 2.4, rect, 1);
+      return Math.max(d, radius * 6);
+    }
 
-        return Math.max(d, radius * 6);
+    // Voyager cinematic close-up.
+    if (focused === probeBody) {
+      const distance = fitDist(5.2, rect, 1);
+      return Math.max(distance, 12);
     }
 
     // Original planet / Solar System framing.
     if (!focused) return fitDist(outerOrbit + 3, rect, 0.5);
 
     const extent = focused.moons.length
-        ? Math.max(...focused.moons.map((m) => m.dist)) + 0.6
-        : focused.radius *
-          (focused.pivot && focused.pivot.children.length > 1 ? 2.5 : 1.3);
+      ? Math.max(...focused.moons.map((m) => m.dist)) + 0.6
+      : focused.radius *
+        (focused.pivot && focused.pivot.children.length > 1 ? 2.5 : 1.3);
 
-    const d = fitDist(
-        Math.max(extent, focused.radius * 1.4),
-        rect,
-        1
-    );
-
+    const d = fitDist(Math.max(extent, focused.radius * 1.4), rect, 1);
     return Math.max(d, focused.radius * 3 + 2);
-}
+  }
 
   /* ---------- input ---------- */
 
@@ -1338,19 +1328,19 @@ bodies.forEach((b) => {
     if (!target) return;
 
     if (target.type === "probe") {
-        Space.onProbe?.();
-        return;
+      Space.onProbe?.();
+      return;
     }
 
     if (target.type === "moon") {
-        Space.onMoonSelect?.(target);
-        return;
+      Space.onMoonSelect?.(target);
+      return;
     }
 
     if (target.type === "planet") {
-        Space.onSelect(target.index);
+      Space.onSelect(target.index);
     }
-}
+  }
 
   // zooming out is capped a little past the planets, except in the overview,
   // where it goes all the way out to the deep-space probe
@@ -1373,41 +1363,41 @@ bodies.forEach((b) => {
 
     // One of Jupiter's navigable moons.
     if (data.type === "moon" && data.id) {
-        return {
-            type: "moon",
-            id: data.id,
-            name: data.name,
-            group: data.group,
-            parentIndex: data.parentIndex,
-            object: hit.object,
-        };
+      return {
+        type: "moon",
+        id: data.id,
+        name: data.name,
+        group: data.group,
+        parentIndex: data.parentIndex,
+        object: hit.object,
+      };
     }
 
     // Ordinary moon: behave exactly like its parent planet.
     if (data.type === "planet-moon") {
-        return {
-            type: "planet",
-            index: data.parentIndex,
-        };
+      return {
+        type: "planet",
+        index: data.parentIndex,
+      };
     }
 
     // Planet / Sun.
     if (typeof data.index === "number") {
-        return {
-            type: "planet",
-            index: data.index,
-        };
+      return {
+        type: "planet",
+        index: data.index,
+      };
     }
 
     // Deep-space probe.
     if (data.index === "probe") {
-        return {
-            type: "probe",
-        };
+      return {
+        type: "probe",
+      };
     }
 
     return null;
-}
+  }
 
   canvas.addEventListener("pointerdown", (e) => {
     pointers.set(e.pointerId, { x: e.clientX, y: e.clientY });
@@ -1524,21 +1514,21 @@ bodies.forEach((b) => {
       );
       b.mesh.rotation.y += t * 0.35;
       b.moons.forEach((m) => {
-    const a = m.phase + time * m.speed;
+        const a = m.phase + time * m.speed;
 
-    m.mesh.position.set(
-        b.pivot.position.x + Math.cos(a) * m.dist,
-        Math.sin(a) * m.dist * m.tilt,
-        b.pivot.position.z + Math.sin(a) * m.dist,
-    );
+        m.mesh.position.set(
+          b.pivot.position.x + Math.cos(a) * m.dist,
+          Math.sin(a) * m.dist * m.tilt,
+          b.pivot.position.z + Math.sin(a) * m.dist,
+        );
 
-    // During a moon close-up, show only the selected moon.
-    if (focusedMoon && focused === b) {
-        m.mesh.visible = m === focusedMoon;
-    } else {
-        m.mesh.visible = true;
-    }
-});
+        // During a moon close-up, show only the selected moon.
+        if (focusedMoon && focused === b) {
+          m.mesh.visible = m === focusedMoon;
+        } else {
+          m.mesh.visible = true;
+        }
+      });
       b.orbitLine.material.opacity +=
         ((focused === b ? 0.55 : focused ? 0.08 : 0.16) -
           b.orbitLine.material.opacity) *
@@ -1547,7 +1537,7 @@ bodies.forEach((b) => {
 
     // Hide the asteroid belt during Jupiter moon close-ups.
     belt.visible = !focusedMoon;
-    
+
     belt.rotation.y += t * 0.01;
     stars.rotation.y += Space.paused || reduceMotion ? 0 : dt * 0.004;
 
@@ -1573,19 +1563,17 @@ bodies.forEach((b) => {
     }
 
     if (focusedMoon) {
-    tmp.copy(focusedMoon.mesh.position);
-} else {
-    tmp.copy(
-        focused
-            ? (focused.pivot ? focused.pivot.position : origin)
-            : origin
-    );
-}
+      tmp.copy(focusedMoon.mesh.position);
+    } else {
+      tmp.copy(
+        focused ? (focused.pivot ? focused.pivot.position : origin) : origin,
+      );
+    }
 
-rig.target.lerp(
-    tmp,
-    ease(focusedMoon ? 0.14 : focused ? 0.1 : 0.05)
-);
+    rig.target.lerp(
+      tmp,
+      ease(focusedMoon ? 0.14 : focused ? 0.1 : 0.05),
+    );
     rig.theta += (rig.want.theta - rig.theta) * ease(0.08);
     rig.phi += (rig.want.phi - rig.phi) * ease(0.08);
     rig.dist += (rig.want.dist - rig.dist) * ease(0.05);
@@ -1623,47 +1611,44 @@ rig.target.lerp(
     );
 
     if (hoverAt && !drag) {
-    const target = pick(hoverAt.x, hoverAt.y);
-    hoverAt = null;
+      const target = pick(hoverAt.x, hoverAt.y);
+      hoverAt = null;
 
-    const hoverKey =
+      const hoverKey =
         target?.type === "planet"
-            ? `planet-${target.index}`
-            : target?.type === "moon"
-              ? `moon-${target.id}`
-              : target?.type === "probe"
-                ? "probe"
-                : null;
+          ? `planet-${target.index}`
+          : target?.type === "moon"
+            ? `moon-${target.id}`
+            : target?.type === "probe"
+              ? "probe"
+              : null;
 
-    if (hoverKey !== hovered) {
+      if (hoverKey !== hovered) {
         hovered = hoverKey;
-
-        canvas.style.cursor =
-            target === null ? "grab" : "pointer";
+        canvas.style.cursor = target === null ? "grab" : "pointer";
 
         bodies.forEach((b) => {
-            const isPlanet =
-                target?.type === "planet" &&
-                b.index === target.index;
-
-            b.label.classList.toggle("hover", isPlanet);
+          const isPlanet =
+            target?.type === "planet" && b.index === target.index;
+          b.label.classList.toggle("hover", isPlanet);
         });
 
         bodies.forEach((b) => {
-            b.moons.forEach((m) => {
-                const isMoon =
-                    target?.type === "moon" &&
-                    m.id === target.id &&
-                    m.parentIndex === target.parentIndex;
+          b.moons.forEach((m) => {
+            const isMoon =
+              target?.type === "moon" &&
+              m.id === target.id &&
+              m.parentIndex === target.parentIndex;
 
-                if (m.mesh.material) {
-                    m.mesh.material.emissiveIntensity =
-                        isMoon ? 0.65 : (m.mesh.userData.id ? 0.25 : 0.02);
-                }
-            });
+            if (m.mesh.material) {
+              m.mesh.material.emissiveIntensity = isMoon
+                ? 0.65
+                : m.emissiveIntensity;
+            }
+          });
         });
+      }
     }
-}
 
     renderer.render(scene, camera);
 
@@ -1722,43 +1707,40 @@ rig.target.lerp(
     });
 
     // Jupiter moon labels
-moonLabels.forEach((m) => {
-    const el = m.label;
+    moonLabels.forEach((m) => {
+      const el = m.label;
+      if (!el) return;
 
-    if (!el) return;
+      // Only show moon labels while Jupiter / Research Atlas is focused.
+      const parent = bodies[m.parentIndex];
+      const show = focused === parent;
 
-    // Only show moon labels while Jupiter / Research Atlas is focused.
-    const parent = bodies[m.parentIndex];
-    const show = focused === parent;
-
-    if (!show) {
+      if (!show) {
         el.style.display = "none";
         return;
-    }
+      }
 
-    tmp.copy(m.mesh.position);
+      tmp.copy(m.mesh.position);
 
-    // Place the label slightly above the moon.
-    tmp.y += m.mesh.geometry.parameters.radius * 1.8;
+      // Place the label slightly above the moon.
+      tmp.y += m.mesh.geometry.parameters.radius * 1.8;
+      tmp.project(camera);
 
-    tmp.project(camera);
-
-    const x = (tmp.x * 0.5 + 0.5) * w;
-    const y = (-tmp.y * 0.5 + 0.5) * h;
-
-    const visible =
+      const x = (tmp.x * 0.5 + 0.5) * w;
+      const y = (-tmp.y * 0.5 + 0.5) * h;
+      const visible =
         tmp.z < 1 &&
         Math.abs(tmp.x) < 1.1 &&
         Math.abs(tmp.y) < 1.1 &&
         y > rect.top + 8 &&
         y < rect.bottom - 8;
 
-    if (!visible) {
+      if (!visible) {
         el.style.display = "none";
         return;
-    }
+      }
 
-    el.style.display = "";
+      el.style.display = "";
       el.style.transform =
         `translate(${Math.round(x)}px, ${Math.round(y)}px) translate(-50%, -100%)`;
     });
