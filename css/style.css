@@ -6597,3 +6597,23 @@ background:
 body.probe-view .sound-control {
     display: none;
 }
+
+/* Fix About + Skills panel geometry on mobile */
+@media (max-width: 719px) {
+
+    .panel[data-section="about"],
+    .panel[data-section="skills"] {
+        top: auto;
+        left: 8px;
+        right: 8px;
+        bottom: 72px;
+
+        width: auto;
+        max-width: none;
+
+        height: min(72svh, calc(100svh - 120px));
+        max-height: calc(100svh - 120px);
+
+        border-radius: 20px;
+    }
+}
