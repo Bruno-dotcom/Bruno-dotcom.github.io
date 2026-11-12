@@ -6617,3 +6617,43 @@ body.probe-view .sound-control {
         border-radius: 20px;
     }
 }
+
+/* Skills — mobile header fix */
+@media (max-width: 719px),
+       (max-width: 1024px) and (orientation: portrait) {
+
+    .panel[data-section="skills"] .panel-head {
+        position: static;
+        min-height: 0;
+        padding: 16px 18px 0;
+        align-items: flex-start;
+    }
+
+    .panel[data-section="skills"] #panel-title {
+        position: static;
+
+        top: auto;
+        left: auto;
+        right: auto;
+
+        transform: none;
+
+        width: auto;
+        max-width: none;
+
+        padding: 8px 18px 14px;
+        margin: 0;
+
+        border-bottom: 1px solid var(--line);
+
+        font-size: clamp(1.65rem, 8vw, 2rem);
+        line-height: 1.05;
+
+        white-space: normal;
+    }
+
+    .panel[data-section="skills"] .close {
+        top: 16px;
+        right: 18px;
+    }
+}
